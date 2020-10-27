@@ -1,0 +1,36 @@
+//
+//  FrameworksTestPrefixHeader.pch
+//  FrameworksTest
+//
+//  Created by 王刚 on 2019/9/12.
+//  Copyright © 2019 王刚. All rights reserved.
+//
+
+#ifndef FrameworksTestPrefixHeader_pch
+#define FrameworksTestPrefixHeader_pch
+
+#import <WebKit/WebKit.h>
+#import "Masonry.h"
+#import "SwipeView.h"
+#import "YYWebImage.h"
+#import "Macro.h"
+#import "CALayer+YYAdd.h"
+#import "UIView+YYAdd.h"
+#import "NHAlignmentFlowLayout.h"
+#import "Toast.h"
+#import "YSURequest.h"
+#import "MBProgressHUD+Extension.h"
+#import <objc/runtime.h>
+#import "YSUIntent.h"
+#import "YSUBusiness.h"
+#import "YSUUtils.h"
+#import "UIViewController+Intent.h"
+#import "YSURequestManager.h"
+#import "UIViewController+YSURequestManager.h"
+#import "TestUtils.h"
+#import "UIViewController+YSCUsualTitle.h"
+#import "TestSharedInstance.h"
+#import "ConstantFile.h"
+#import "ViewType.h"
+
+#endif
