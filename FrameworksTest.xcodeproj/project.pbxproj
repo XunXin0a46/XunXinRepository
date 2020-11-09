@@ -100,6 +100,8 @@
 		29AF63FA22D368700048A036 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29AF63F922D368700048A036 /* main.m */; };
 		29AF640522D36BF20048A036 /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29AF640322D369E40048A036 /* Masonry.framework */; };
 		29AF640622D36BF20048A036 /* Masonry.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 29AF640322D369E40048A036 /* Masonry.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		29B0AF672559816F0009AB85 /* TestXIBViewConreoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B0AF652559816F0009AB85 /* TestXIBViewConreoller.m */; };
+		29B0AF682559816F0009AB85 /* TestXIBViewConreoller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29B0AF662559816F0009AB85 /* TestXIBViewConreoller.xib */; };
 		29B1AA9D24FC8CD5007F8A5E /* GoodsDesc.html in Resources */ = {isa = PBXBuildFile; fileRef = 29B1AA9C24FC8CD5007F8A5E /* GoodsDesc.html */; };
 		29B1AAC124FCCF4B007F8A5E /* XLProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1AAA124FCCF4B007F8A5E /* XLProgressView.m */; };
 		29B1AAC224FCCF4B007F8A5E /* UIView+XLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1AAA324FCCF4B007F8A5E /* UIView+XLExtension.m */; };
@@ -407,6 +409,9 @@
 		29AF63F822D368700048A036 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29AF63F922D368700048A036 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29AF640322D369E40048A036 /* Masonry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Masonry.framework; sourceTree = "<group>"; };
+		29B0AF642559816F0009AB85 /* TestXIBViewConreoller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestXIBViewConreoller.h; sourceTree = "<group>"; };
+		29B0AF652559816F0009AB85 /* TestXIBViewConreoller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestXIBViewConreoller.m; sourceTree = "<group>"; };
+		29B0AF662559816F0009AB85 /* TestXIBViewConreoller.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestXIBViewConreoller.xib; sourceTree = "<group>"; };
 		29B1AA9C24FC8CD5007F8A5E /* GoodsDesc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = GoodsDesc.html; sourceTree = "<group>"; };
 		29B1AA9F24FCCF4B007F8A5E /* UIImage+XLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+XLExtension.h"; sourceTree = "<group>"; };
 		29B1AAA024FCCF4B007F8A5E /* XLPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLPhotoBrowserConfig.h; sourceTree = "<group>"; };
@@ -1320,6 +1325,16 @@
 			path = Frameworks;
 			sourceTree = "<group>";
 		};
+		29B0AF632559812A0009AB85 /* TestXIBViewConreoller(XIB练习) */ = {
+			isa = PBXGroup;
+			children = (
+				29B0AF642559816F0009AB85 /* TestXIBViewConreoller.h */,
+				29B0AF652559816F0009AB85 /* TestXIBViewConreoller.m */,
+				29B0AF662559816F0009AB85 /* TestXIBViewConreoller.xib */,
+			);
+			path = "TestXIBViewConreoller(XIB练习)";
+			sourceTree = "<group>";
+		};
 		29B1AA9B24FC8CA6007F8A5E /* Html */ = {
 			isa = PBXGroup;
 			children = (
@@ -1555,6 +1570,7 @@
 				2935C980250DD28A009265DE /* BarcodeAndQrCode(条形码与二维码) */,
 				29788690251484FE00C5E5DD /* TableViewNestingCollectionViewController(表视图嵌套集合视图) */,
 				29036D0625171E25005BC76A /* TransmitValueController(传值练习) */,
+				29B0AF632559812A0009AB85 /* TestXIBViewConreoller(XIB练习) */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1916,6 +1932,7 @@
 				29AF63F422D368700048A036 /* Assets.xcassets in Resources */,
 				293A8F6A2543F09000FBB686 /* LaunchScreen.storyboard in Resources */,
 				29BD0D8623376CC800E2E33F /* mew_baseline.png in Resources */,
+				29B0AF682559816F0009AB85 /* TestXIBViewConreoller.xib in Resources */,
 				29BD0D8223376CC800E2E33F /* mew_interlaced.gif in Resources */,
 				29BD0D8123376CC800E2E33F /* mew_baseline.jpg in Resources */,
 				29AF63F222D3686F0048A036 /* Main.storyboard in Resources */,
@@ -2080,6 +2097,7 @@
 				29308A662379B35200AB094B /* NHAlignmentFlowLayout.m in Sources */,
 				29D755E723673DE400722B3A /* FSCalendarCell.m in Sources */,
 				29B1AACD24FCCF4B007F8A5E /* TAPageControl.m in Sources */,
+				29B0AF672559816F0009AB85 /* TestXIBViewConreoller.m in Sources */,
 				29CF670923C777ED004D2CE0 /* YSURequestError.m in Sources */,
 				292B04B124EA16C300C8C82F /* ButtonLinkageView.m in Sources */,
 				29E620BE23C9AF400041E6C4 /* NSObject+Swizzling.m in Sources */,
