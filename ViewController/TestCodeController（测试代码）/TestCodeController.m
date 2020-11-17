@@ -20,20 +20,8 @@
 - (void)viewDidLoad {
 
     [super viewDidLoad];
-    //二维码的宽
-    CGFloat QrCodeWidth = SCREEN_WIDTH - 120;
-    //初始化二纬码视图
-    UIImageView *qrCodeImageView = [[UIImageView alloc] init];
-    qrCodeImageView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:qrCodeImageView];
-    [qrCodeImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo (self.view).offset (((QrCodeWidth - 80) / 2 ) + 20);
-        make.centerX.equalTo (self.view);
-        make.size.mas_equalTo (CGSizeMake(QrCodeWidth - 80, QrCodeWidth - 80));
-    }];
-    //设置二维码
-    UIImage *qrCodeImage = [YSUUtils QRCodeImageWithContent:@"361599980595002151" imageSize:CGSizeMake(QrCodeWidth - 80, QrCodeWidth - 80) logoImage:[UIImage imageNamed:@"ic_gift"] logoImageSize:CGSizeMake(30, 30)];
-    qrCodeImageView.image = qrCodeImage;
+    [self testCode];
+    [self showMBProgressHUD];
 }
 
 ///测试按钮点击
@@ -50,6 +38,27 @@
     [testCodeButton addTarget:self action:@selector(testCode) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:testCodeButton];
 }
+
+///----------------------------------- 二维码开始 ---------------------------------------------
+
+- (void)showQrCode{
+    //二维码的宽
+    CGFloat QrCodeWidth = SCREEN_WIDTH - 120;
+    //初始化二纬码视图
+    UIImageView *qrCodeImageView = [[UIImageView alloc] init];
+    qrCodeImageView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:qrCodeImageView];
+    [qrCodeImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo (self.view).offset (((QrCodeWidth - 80) / 2 ) + 20);
+        make.centerX.equalTo (self.view);
+        make.size.mas_equalTo (CGSizeMake(QrCodeWidth - 80, QrCodeWidth - 80));
+    }];
+    //设置二维码
+    UIImage *qrCodeImage = [YSUUtils QRCodeImageWithContent:@"361599980595002151" imageSize:CGSizeMake(QrCodeWidth - 80, QrCodeWidth - 80) logoImage:[UIImage imageNamed:@"ic_gift"] logoImageSize:CGSizeMake(30, 30)];
+    qrCodeImageView.image = qrCodeImage;
+}
+
+///----------------------------------- 二维码结束 ---------------------------------------------
 
 ///----------------------------------- MBProgressHUD 开始 ------------------------------------
 

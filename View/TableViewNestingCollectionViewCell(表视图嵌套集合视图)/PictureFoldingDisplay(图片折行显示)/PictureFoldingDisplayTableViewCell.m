@@ -8,10 +8,11 @@
 
 #import "PictureFoldingDisplayTableViewCell.h"
 #import "OneLinePictureAdaptationCollectionViewCell.h"
+#import "XLPhotoBrowser.h"
 
 NSString * const PictureFoldingDisplayTableViewCellReuseIdentifier = @"PictureFoldingDisplayTableViewCellReuseIdentifier";
 
-@interface PictureFoldingDisplayTableViewCell()<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface PictureFoldingDisplayTableViewCell()<UICollectionViewDataSource,UICollectionViewDelegate,XLPhotoBrowserDatasource>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 
@@ -174,7 +175,21 @@ NSString * const PictureFoldingDisplayTableViewCellReuseIdentifier = @"PictureFo
     return [sizes[indexPath.item] CGSizeValue];
 }
 
-
+#pragma mark -- UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    //存储图片的数组
+    NSMutableArray *imageArray = [[NSMutableArray alloc]init];
+    //获取模型中的图片
+    [self.model.collectionViewModelArray enumerateObjectsUsingBlock:^(TestCollectionViewModel * _Nonnull model, NSUInteger idx, BOOL * _Nonnull stop) {
+        [imageArray addObject:model.image];
+    }];
+    //大图展示图片
+    XLPhotoBrowser *browser = [XLPhotoBrowser showPhotoBrowserWithImages:imageArray currentImageIndex:indexPath.row];
+    browser.datasource = self;
+    browser.pageDotColor = [UIColor grayColor]; // 此属性针对动画样式的pagecontrol无效
+    browser.currentPageDotColor = [UIColor whiteColor];
+    browser.pageControlStyle = XLPhotoBrowserPageControlStyleNone;
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];

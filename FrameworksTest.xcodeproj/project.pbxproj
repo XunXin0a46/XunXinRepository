@@ -23,6 +23,8 @@
 		291354D924ECCFA9006AAA36 /* SearchContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 291354D824ECCFA8006AAA36 /* SearchContentView.m */; };
 		291354DD24ECDAAB006AAA36 /* SearchImitateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 291354DB24ECDAAB006AAA36 /* SearchImitateController.m */; };
 		291400A623F944DF00C31A24 /* YSCUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 291400A523F944DF00C31A24 /* YSCUITextField.m */; };
+		29223AD6255FBCBE00DA1941 /* OYCountDownManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29223AD4255FBCBE00DA1941 /* OYCountDownManager.m */; };
+		29223ADA255FCA7A00DA1941 /* TestCountDownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29223AD9255FCA7A00DA1941 /* TestCountDownViewController.m */; };
 		29260098250A675F002AEFE2 /* TestKVCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 29260097250A675F002AEFE2 /* TestKVCModel.m */; };
 		29295360233A4CA80029D9EA /* wall-e@2x.webp in Resources */ = {isa = PBXBuildFile; fileRef = 2929535F233A4CA80029D9EA /* wall-e@2x.webp */; };
 		29295362233A4E190029D9EA /* 喷火龙.gif in Resources */ = {isa = PBXBuildFile; fileRef = 29295361233A4E180029D9EA /* 喷火龙.gif */; };
@@ -36,6 +38,7 @@
 		292FCAA423C37E4F00AA9B22 /* UITableView+count.m in Sources */ = {isa = PBXBuildFile; fileRef = 292FCAA323C37E4F00AA9B22 /* UITableView+count.m */; };
 		29308A612379B07900AB094B /* SignInView.m in Sources */ = {isa = PBXBuildFile; fileRef = 29308A5F2379B07900AB094B /* SignInView.m */; };
 		29308A662379B35200AB094B /* NHAlignmentFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 29308A642379B35200AB094B /* NHAlignmentFlowLayout.m */; };
+		2931271525620B7D001D1EF7 /* CountdownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2931271425620B7D001D1EF7 /* CountdownButton.m */; };
 		2935C983250DD2F7009265DE /* BarcodeAndQrCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2935C982250DD2F7009265DE /* BarcodeAndQrCodeViewController.m */; };
 		293A8F6A2543F09000FBB686 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29AF63F522D368700048A036 /* LaunchScreen.storyboard */; };
 		293E5BBD239FE58900B49495 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 293E5BBC239FE58900B49495 /* UIPlaceHolderTextView.m */; };
@@ -275,6 +278,10 @@
 		291354DC24ECDAAB006AAA36 /* SearchImitateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchImitateController.h; sourceTree = "<group>"; };
 		291400A423F944DF00C31A24 /* YSCUITextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSCUITextField.h; sourceTree = "<group>"; };
 		291400A523F944DF00C31A24 /* YSCUITextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSCUITextField.m; sourceTree = "<group>"; };
+		29223AD4255FBCBE00DA1941 /* OYCountDownManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OYCountDownManager.m; sourceTree = "<group>"; };
+		29223AD5255FBCBE00DA1941 /* OYCountDownManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OYCountDownManager.h; sourceTree = "<group>"; };
+		29223AD8255FCA7900DA1941 /* TestCountDownViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestCountDownViewController.h; sourceTree = "<group>"; };
+		29223AD9255FCA7A00DA1941 /* TestCountDownViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestCountDownViewController.m; sourceTree = "<group>"; };
 		29260096250A675F002AEFE2 /* TestKVCModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestKVCModel.h; sourceTree = "<group>"; };
 		29260097250A675F002AEFE2 /* TestKVCModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestKVCModel.m; sourceTree = "<group>"; };
 		2929535F233A4CA80029D9EA /* wall-e@2x.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "wall-e@2x.webp"; sourceTree = "<group>"; };
@@ -295,6 +302,8 @@
 		29308A602379B07900AB094B /* SignInView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInView.h; sourceTree = "<group>"; };
 		29308A642379B35200AB094B /* NHAlignmentFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NHAlignmentFlowLayout.m; sourceTree = "<group>"; };
 		29308A652379B35200AB094B /* NHAlignmentFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NHAlignmentFlowLayout.h; sourceTree = "<group>"; };
+		2931271325620B7D001D1EF7 /* CountdownButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountdownButton.h; sourceTree = "<group>"; };
+		2931271425620B7D001D1EF7 /* CountdownButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CountdownButton.m; sourceTree = "<group>"; };
 		2935C981250DD2F7009265DE /* BarcodeAndQrCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarcodeAndQrCodeViewController.h; sourceTree = "<group>"; };
 		2935C982250DD2F7009265DE /* BarcodeAndQrCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BarcodeAndQrCodeViewController.m; sourceTree = "<group>"; };
 		293E5BBB239FE58900B49495 /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
@@ -739,6 +748,24 @@
 			path = "YSCUITextField（搜索输入框）";
 			sourceTree = "<group>";
 		};
+		29223AD3255FBCBE00DA1941 /* OYCountDownManager(倒计时管理器) */ = {
+			isa = PBXGroup;
+			children = (
+				29223AD5255FBCBE00DA1941 /* OYCountDownManager.h */,
+				29223AD4255FBCBE00DA1941 /* OYCountDownManager.m */,
+			);
+			path = "OYCountDownManager(倒计时管理器)";
+			sourceTree = "<group>";
+		};
+		29223AD7255FCA2200DA1941 /* TestCountDown(倒计时) */ = {
+			isa = PBXGroup;
+			children = (
+				29223AD8255FCA7900DA1941 /* TestCountDownViewController.h */,
+				29223AD9255FCA7A00DA1941 /* TestCountDownViewController.m */,
+			);
+			path = "TestCountDown(倒计时)";
+			sourceTree = "<group>";
+		};
 		29260095250A66E3002AEFE2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -812,6 +839,15 @@
 				29308A642379B35200AB094B /* NHAlignmentFlowLayout.m */,
 			);
 			path = "NHAlignmentFlowLayout（集合视图布局）";
+			sourceTree = "<group>";
+		};
+		2931271225620AFC001D1EF7 /* TestCountdownButton(倒计时按钮) */ = {
+			isa = PBXGroup;
+			children = (
+				2931271325620B7D001D1EF7 /* CountdownButton.h */,
+				2931271425620B7D001D1EF7 /* CountdownButton.m */,
+			);
+			path = "TestCountdownButton(倒计时按钮)";
 			sourceTree = "<group>";
 		};
 		2935C980250DD28A009265DE /* BarcodeAndQrCode(条形码与二维码) */ = {
@@ -1347,17 +1383,17 @@
 			isa = PBXGroup;
 			children = (
 				29B1AAA024FCCF4B007F8A5E /* XLPhotoBrowserConfig.h */,
+				29B1AAA724FCCF4B007F8A5E /* XLPhotoBrowserTypeDefine.h */,
 				29B1AA9F24FCCF4B007F8A5E /* UIImage+XLExtension.h */,
 				29B1AAA624FCCF4B007F8A5E /* UIImage+XLExtension.m */,
+				29B1AAA524FCCF4B007F8A5E /* XLProgressView.h */,
 				29B1AAA124FCCF4B007F8A5E /* XLProgressView.m */,
 				29B1AAA224FCCF4B007F8A5E /* XLZoomingScrollView.h */,
+				29B1AAA824FCCF4B007F8A5E /* XLZoomingScrollView.m */,
+				29B1AAAA24FCCF4B007F8A5E /* UIView+XLExtension.h */,
 				29B1AAA324FCCF4B007F8A5E /* UIView+XLExtension.m */,
 				29B1AAA424FCCF4B007F8A5E /* XLPhotoBrowser.h */,
-				29B1AAA524FCCF4B007F8A5E /* XLProgressView.h */,
-				29B1AAA724FCCF4B007F8A5E /* XLPhotoBrowserTypeDefine.h */,
-				29B1AAA824FCCF4B007F8A5E /* XLZoomingScrollView.m */,
 				29B1AAA924FCCF4B007F8A5E /* XLPhotoBrowser.m */,
-				29B1AAAA24FCCF4B007F8A5E /* UIView+XLExtension.h */,
 				29B1AAAB24FCCF4B007F8A5E /* Vender */,
 			);
 			path = "XLPhotoBrowser+CoderXL(查看大图)";
@@ -1376,14 +1412,14 @@
 			isa = PBXGroup;
 			children = (
 				29B1AAAD24FCCF4B007F8A5E /* FSActionSheetItem.h */,
-				29B1AAAE24FCCF4B007F8A5E /* FSActionSheetCell.h */,
-				29B1AAAF24FCCF4B007F8A5E /* FSActionSheetResources */,
-				29B1AAB224FCCF4B007F8A5E /* FSActionSheetConfig.m */,
-				29B1AAB324FCCF4B007F8A5E /* FSActionSheet.m */,
-				29B1AAB424FCCF4B007F8A5E /* FSActionSheetCell.m */,
 				29B1AAB524FCCF4B007F8A5E /* FSActionSheetItem.m */,
+				29B1AAAE24FCCF4B007F8A5E /* FSActionSheetCell.h */,
+				29B1AAB424FCCF4B007F8A5E /* FSActionSheetCell.m */,
 				29B1AAB624FCCF4B007F8A5E /* FSActionSheetConfig.h */,
+				29B1AAB224FCCF4B007F8A5E /* FSActionSheetConfig.m */,
 				29B1AAB724FCCF4B007F8A5E /* FSActionSheet.h */,
+				29B1AAB324FCCF4B007F8A5E /* FSActionSheet.m */,
+				29B1AAAF24FCCF4B007F8A5E /* FSActionSheetResources */,
 			);
 			path = FSActionSheet;
 			sourceTree = "<group>";
@@ -1401,13 +1437,13 @@
 			isa = PBXGroup;
 			children = (
 				29B1AAB924FCCF4B007F8A5E /* TAAbstractDotView.h */,
-				29B1AABA24FCCF4B007F8A5E /* TADotView.m */,
-				29B1AABB24FCCF4B007F8A5E /* TAPageControl.m */,
-				29B1AABC24FCCF4B007F8A5E /* TAAnimatedDotView.m */,
 				29B1AABD24FCCF4B007F8A5E /* TAAbstractDotView.m */,
 				29B1AABE24FCCF4B007F8A5E /* TADotView.h */,
-				29B1AABF24FCCF4B007F8A5E /* TAAnimatedDotView.h */,
+				29B1AABA24FCCF4B007F8A5E /* TADotView.m */,
 				29B1AAC024FCCF4B007F8A5E /* TAPageControl.h */,
+				29B1AABB24FCCF4B007F8A5E /* TAPageControl.m */,
+				29B1AABF24FCCF4B007F8A5E /* TAAnimatedDotView.h */,
+				29B1AABC24FCCF4B007F8A5E /* TAAnimatedDotView.m */,
 			);
 			path = PageControl;
 			sourceTree = "<group>";
@@ -1496,6 +1532,7 @@
 		29C6042E232A804A00B48958 /* PlugInUnit */ = {
 			isa = PBXGroup;
 			children = (
+				29223AD3255FBCBE00DA1941 /* OYCountDownManager(倒计时管理器) */,
 				29F3557A253F186A00CD25B2 /* PickerPhotoManager(照片管理器) */,
 				29B1AA9E24FCCF4B007F8A5E /* XLPhotoBrowser+CoderXL(查看大图) */,
 				29E94F422486994A00D418B4 /* TTTAttributedLabel(富文本标签) */,
@@ -1532,6 +1569,7 @@
 				29A945F023D35065000EA5C6 /* BezierPathView(贝塞尔测试视图) */,
 				293F749723EC516600CB749A /* StandardScanView(扫描视图) */,
 				292B04AE24EA161C00C8C82F /* TestButtonLinkage(按钮联动) */,
+				2931271225620AFC001D1EF7 /* TestCountdownButton(倒计时按钮) */,
 				2978869825148E8C00C5E5DD /* TableViewNestingCollectionViewCell(表视图嵌套集合视图) */,
 			);
 			path = View;
@@ -1571,6 +1609,7 @@
 				29788690251484FE00C5E5DD /* TableViewNestingCollectionViewController(表视图嵌套集合视图) */,
 				29036D0625171E25005BC76A /* TransmitValueController(传值练习) */,
 				29B0AF632559812A0009AB85 /* TestXIBViewConreoller(XIB练习) */,
+				29223AD7255FCA2200DA1941 /* TestCountDown(倒计时) */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2033,6 +2072,7 @@
 				29EEF2FC2354AA7200C41FF6 /* YYWebImageExample.m in Sources */,
 				29B1AAC524FCCF4B007F8A5E /* XLPhotoBrowser.m in Sources */,
 				29DA9D1D242A58CD0000BBBB /* TestUITextViewController.m in Sources */,
+				2931271525620B7D001D1EF7 /* CountdownButton.m in Sources */,
 				29BBD4A524DD907E0091CF97 /* TestSharedInstance.m in Sources */,
 				2943338E24FBF67A00EBB0C4 /* LoadHtmlWebViewControlle.m in Sources */,
 				297786C8242BAA1300BA0D10 /* TestCGGeometryController.m in Sources */,
@@ -2050,6 +2090,7 @@
 				29C60468232A8EA000B48958 /* YYImage.m in Sources */,
 				29B1AAC824FCCF4B007F8A5E /* FSActionSheetConfig.m in Sources */,
 				299938C32336715B00CB4A86 /* YYImageExample.m in Sources */,
+				29223ADA255FCA7A00DA1941 /* TestCountDownViewController.m in Sources */,
 				29E620B123C858880041E6C4 /* WSDatePickerView.m in Sources */,
 				29F35589253F1C8E00CD25B2 /* AlertView.m in Sources */,
 				293F749A23EC51BC00CB749A /* StandardScanView.m in Sources */,
@@ -2071,6 +2112,7 @@
 				2978869725148CEE00C5E5DD /* TestTableViewModel.m in Sources */,
 				29CF671223C779B7004D2CE0 /* MBProgressHUD+Extension.m in Sources */,
 				297786CC242BACBA00BA0D10 /* TestCLLocationController.m in Sources */,
+				29223AD6255FBCBE00DA1941 /* OYCountDownManager.m in Sources */,
 				29D755EC23673DE500722B3A /* FSCalendarWeekdayView.m in Sources */,
 				295C9153239AAB1900BFAB57 /* NSDictionary+Empty.m in Sources */,
 				29E620B223C858880041E6C4 /* NSDate+Extension.m in Sources */,

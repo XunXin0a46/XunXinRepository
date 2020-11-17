@@ -9,10 +9,12 @@
 #import "TestButtonController.h"
 #import "ButtonLinkageView.h"
 #import "SearchImitateController.h"
+#import "CountdownButton.h"
 
 @interface TestButtonController ()
 
 @property (nonatomic, strong) NSTimer *timer;//定时器
+@property (nonatomic, strong) CountdownButton *countdownButton;//倒计时按钮
 
 @end
 
@@ -44,6 +46,20 @@
         make.height.mas_equalTo(44);
     }];
     
+    ///倒计时按钮
+    self.countdownButton = [[CountdownButton alloc]initWithFrame:CGRectZero];
+    [self.countdownButton addTarget:self action:@selector(againCountdown) forControlEvents:UIControlEventTouchUpInside];
+    [self.countdownButton startCountdownCompletionhander:^{
+        [self showAlert];
+    }];
+    
+    [self.view addSubview:self.countdownButton];
+    [self.countdownButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(continuousClickButton.mas_bottom).offset(20);
+        make.centerX.equalTo(self.view);
+        make.size.mas_equalTo(CGSizeMake(90, 35));
+    }];
+    
     ///按钮联动
     ButtonLinkageView *buttonLinkageView = [[ButtonLinkageView alloc]initWithFrame:CGRectZero];
     buttonLinkageView.backgroundColor = [UIColor whiteColor];
@@ -68,6 +84,23 @@
 - (void)requestData{
     NSLog(@"我请求数据啦");
 }
+
+///再次倒计时
+- (void)againCountdown{
+    [self.countdownButton startCountdownCompletionhander:^{
+        [self showAlert];
+    }];
+}
+
+///显示提示
+- (void)showAlert{
+    UIAlertController *alertView = [UIAlertController alertControllerWithTitle:@"倒计时结束" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *findAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    }];
+    [alertView addAction:findAction];
+    [self presentViewController:alertView animated:YES completion:nil];
+}
+
 
 ///搜索模拟控制器
 - (void)openSearchImitateController{

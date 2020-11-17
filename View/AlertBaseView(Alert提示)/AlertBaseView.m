@@ -164,7 +164,7 @@
     //对象弱引用
     YSC_WEAK_SELF;
     //设置动画
-    [UIView animateWithDuration:10.3f animations:^{
+    [UIView animateWithDuration:0.3f animations:^{
         //获取提示框视图框架矩形
         CGRect frame = weakSelf.alertView.frame;
         //设置提示框视图原点的X轴坐标
