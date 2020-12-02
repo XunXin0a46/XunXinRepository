@@ -93,6 +93,9 @@
 		29A5584223A3757B00B70042 /* MessageListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A5584123A3757B00B70042 /* MessageListItemCell.m */; };
 		29A5584523A37CDE00B70042 /* MessageItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A5584423A37CDE00B70042 /* MessageItemModel.m */; };
 		29A5584B23A4AE4300B70042 /* MessageListItemEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A5584A23A4AE4300B70042 /* MessageListItemEditCell.m */; };
+		29A85E5025774119008590D7 /* TestCommonViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A85E4F25774119008590D7 /* TestCommonViewViewController.m */; };
+		29A85E5525776142008590D7 /* BarProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A85E5425776142008590D7 /* BarProgressView.m */; };
+		29A85E58257762B7008590D7 /* UIImage+TintColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A85E57257762B7008590D7 /* UIImage+TintColor.m */; };
 		29A945EF23D34FB1000EA5C6 /* BezierPathController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A945EE23D34FB1000EA5C6 /* BezierPathController.m */; };
 		29A945F323D350AE000EA5C6 /* CircleScaleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A945F223D350AE000EA5C6 /* CircleScaleView.m */; };
 		29A9461523D4AD9C000EA5C6 /* UIImage+YSCCodeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A9461323D4AD9C000EA5C6 /* UIImage+YSCCodeImage.m */; };
@@ -401,6 +404,12 @@
 		29A5584423A37CDE00B70042 /* MessageItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageItemModel.m; sourceTree = "<group>"; };
 		29A5584923A4AE4300B70042 /* MessageListItemEditCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageListItemEditCell.h; sourceTree = "<group>"; };
 		29A5584A23A4AE4300B70042 /* MessageListItemEditCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageListItemEditCell.m; sourceTree = "<group>"; };
+		29A85E4E25774119008590D7 /* TestCommonViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestCommonViewViewController.h; sourceTree = "<group>"; };
+		29A85E4F25774119008590D7 /* TestCommonViewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestCommonViewViewController.m; sourceTree = "<group>"; };
+		29A85E5325776142008590D7 /* BarProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarProgressView.h; sourceTree = "<group>"; };
+		29A85E5425776142008590D7 /* BarProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BarProgressView.m; sourceTree = "<group>"; };
+		29A85E56257762B7008590D7 /* UIImage+TintColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+TintColor.h"; sourceTree = "<group>"; };
+		29A85E57257762B7008590D7 /* UIImage+TintColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TintColor.m"; sourceTree = "<group>"; };
 		29A945ED23D34FB1000EA5C6 /* BezierPathController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BezierPathController.h; sourceTree = "<group>"; };
 		29A945EE23D34FB1000EA5C6 /* BezierPathController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BezierPathController.m; sourceTree = "<group>"; };
 		29A945F123D350AE000EA5C6 /* CircleScaleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircleScaleView.h; sourceTree = "<group>"; };
@@ -1055,6 +1064,8 @@
 			children = (
 				295BF6DE24D9138400909460 /* TestUIViewViewController.h */,
 				295BF6DF24D9138400909460 /* TestUIViewViewController.m */,
+				29A85E4E25774119008590D7 /* TestCommonViewViewController.h */,
+				29A85E4F25774119008590D7 /* TestCommonViewViewController.m */,
 			);
 			path = "TestUIView(测试视图)";
 			sourceTree = "<group>";
@@ -1266,6 +1277,23 @@
 			path = "TestTableViewDetelateCell(表视图删除cell)";
 			sourceTree = "<group>";
 		};
+		29A85E5125774418008590D7 /* commonView(通用视图样式) */ = {
+			isa = PBXGroup;
+			children = (
+				29A85E52257760C3008590D7 /* BarProgressView(条形进度图) */,
+			);
+			path = "commonView(通用视图样式)";
+			sourceTree = "<group>";
+		};
+		29A85E52257760C3008590D7 /* BarProgressView(条形进度图) */ = {
+			isa = PBXGroup;
+			children = (
+				29A85E5325776142008590D7 /* BarProgressView.h */,
+				29A85E5425776142008590D7 /* BarProgressView.m */,
+			);
+			path = "BarProgressView(条形进度图)";
+			sourceTree = "<group>";
+		};
 		29A945EC23D34F7F000EA5C6 /* BezierPathController(贝塞尔) */ = {
 			isa = PBXGroup;
 			children = (
@@ -1291,6 +1319,8 @@
 				29F35580253F1AAE00CD25B2 /* UIImage+ImageBase64.m */,
 				29A9461423D4AD9C000EA5C6 /* UIImage+YSCCodeImage.h */,
 				29A9461323D4AD9C000EA5C6 /* UIImage+YSCCodeImage.m */,
+				29A85E56257762B7008590D7 /* UIImage+TintColor.h */,
+				29A85E57257762B7008590D7 /* UIImage+TintColor.m */,
 			);
 			path = "Category(UIImage)";
 			sourceTree = "<group>";
@@ -1556,6 +1586,7 @@
 		29C6042F232A808400B48958 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				29A85E5125774418008590D7 /* commonView(通用视图样式) */,
 				29F35583253F1B3C00CD25B2 /* AlertBaseView(Alert提示) */,
 				291354D624ECCF4E006AAA36 /* ShadowSearchView(阴影控制器的搜索视图) */,
 				29BBD49424DD252F0091CF97 /* TestCollectionView(测试集合视图) */,
@@ -2026,6 +2057,7 @@
 				29CF670823C777ED004D2CE0 /* YSURequestProgress.m in Sources */,
 				29B1AACB24FCCF4B007F8A5E /* FSActionSheetItem.m in Sources */,
 				293F74A123EFE3F400CB749A /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
+				29A85E5525776142008590D7 /* BarProgressView.m in Sources */,
 				297258AD23C6314100EE5E93 /* YSURequest.m in Sources */,
 				2978869C25148FA600C5E5DD /* OneLinePictureAdaptationTableViewCell.m in Sources */,
 				295C9156239AAE5000BFAB57 /* NSObject+Runtime.m in Sources */,
@@ -2116,6 +2148,7 @@
 				29D755EC23673DE500722B3A /* FSCalendarWeekdayView.m in Sources */,
 				295C9153239AAB1900BFAB57 /* NSDictionary+Empty.m in Sources */,
 				29E620B223C858880041E6C4 /* NSDate+Extension.m in Sources */,
+				29A85E5025774119008590D7 /* TestCommonViewViewController.m in Sources */,
 				29D755ED23673DE500722B3A /* FSCalendarExtensions.m in Sources */,
 				2912F424239804B300770A42 /* LMJDropdownMenu.m in Sources */,
 				291400A623F944DF00C31A24 /* YSCUITextField.m in Sources */,
@@ -2129,6 +2162,7 @@
 				29BD0D79233767B200E2E33F /* YYImageExampleHelper.m in Sources */,
 				29A5584223A3757B00B70042 /* MessageListItemCell.m in Sources */,
 				29B2A50B23C7864900549EEC /* YSUUtils.m in Sources */,
+				29A85E58257762B7008590D7 /* UIImage+TintColor.m in Sources */,
 				29D755E623673DE400722B3A /* FSCalendarDelegationFactory.m in Sources */,
 				29788693251485E500C5E5DD /* TableViewNestingCollectionViewController.m in Sources */,
 				29B1AACC24FCCF4B007F8A5E /* TADotView.m in Sources */,

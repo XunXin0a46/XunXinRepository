@@ -12,6 +12,7 @@
 @interface TestCountDownViewController ()
 
 @property (nonatomic, strong)UILabel *countDownLabel;//倒计时标签
+@property (nonatomic, assign)double countDownTime;//倒计时时间
 
 @end
 
@@ -21,12 +22,16 @@
     [super viewDidLoad];
     [self createNavigationTitleView:@"倒计时"];
     [self createUI];
+    //设置倒计时时间
+    self.countDownTime = [[NSDate date]timeIntervalSince1970] + 60;
+    //开始倒计时
+    [kCountDownManager start];
 }
 
 - (void)createUI{
     ///倒计时标签
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
-    self.countDownLabel = [[UILabel alloc]initWithFrame:CGRectMake((screenWidth - 300)/2, 300, 300, 100)];
+    self.countDownLabel = [[UILabel alloc]initWithFrame:CGRectMake((screenWidth - 250)/2, 300, 250, 100)];
     self.countDownLabel.textColor = [UIColor greenColor];
     self.countDownLabel.textAlignment = NSTextAlignmentCenter;
     self.countDownLabel.numberOfLines = 0;
@@ -111,7 +116,7 @@
 
 ///处理倒计时标签显示文本
 - (NSMutableAttributedString *)getCountdownAttributStringWithStringOne:(NSString *)stringOne stringTwo:(NSString *)stringTwo{
-    NSString * str = [self convertTimeIntervalToFormatDate:1557973398];
+    NSString * str = [self convertTimeIntervalToFormatDate:self.countDownTime];
     //初始化可变富文本对象
     NSMutableAttributedString *string1 = [[NSMutableAttributedString alloc]initWithString:stringOne];
     

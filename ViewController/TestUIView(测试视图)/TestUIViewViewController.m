@@ -7,6 +7,7 @@
 //
 
 #import "TestUIViewViewController.h"
+#import "TestCommonViewViewController.h"
 
 ///测试hitTest:(CGPoint)point withEvent:(UIEvent *)event函数的自定义视图
 
@@ -71,7 +72,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createNavigationTitleView:@"测试视图"];
+    [self setrightBarButton];
     [self createUI];
+}
+
+///设置导航栏右侧按钮
+- (void)setrightBarButton{
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"视图通用样式" style:UIBarButtonItemStylePlain target:self action:@selector(openCommonView)];
+    [item setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:15], NSForegroundColorAttributeName: HEXCOLOR(0x666666)} forState:UIControlStateNormal];
+    [item setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:15], NSForegroundColorAttributeName: HEXCOLOR(0x666666)} forState:UIControlStateHighlighted];
+    self.navigationItem.rightBarButtonItem = item;
+}
+
+- (void)openCommonView{
+    TestCommonViewViewController *commonViewViewController = [[TestCommonViewViewController alloc]init];
+    [self.navigationController pushViewController:commonViewViewController animated:YES];
 }
 
 ///---------------------------------------- UIView代码测试区 -------------------------------------

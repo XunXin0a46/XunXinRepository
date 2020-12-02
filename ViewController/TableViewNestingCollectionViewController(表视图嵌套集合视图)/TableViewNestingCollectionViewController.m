@@ -140,6 +140,8 @@
     return nil;
 }
 
+#pragma mark -- UITableViewDelegate
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     TestTableViewModel *tableViewModel = self.tableViewDataSource[indexPath.row];
     CGFloat cellHeigth = 0;
@@ -152,4 +154,42 @@
     }
     return cellHeigth;;
 }
+
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if(section == 0){
+        //初始化要显示的标签富文本
+        NSMutableAttributedString *newAttributedString = [[NSMutableAttributedString alloc]initWithString:@"畏惧虚空吧"];
+        //创建Image的富文本格式
+        NSTextAttachment *attach = [[NSTextAttachment alloc] init];
+        //这个-2.5是为了调整下标签跟文字的位置
+        attach.bounds = CGRectMake(0, -2.5, 16, 16);
+        //设置图片
+        attach.image = [UIImage imageNamed:@"dun_pai"];
+        //添加到富文本对象里
+        NSAttributedString * imageStr = [NSAttributedString attributedStringWithAttachment:attach];
+        //加入文字前面
+        [newAttributedString insertAttributedString:imageStr atIndex:0];
+        //初始化要显示的标签
+        UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectZero];
+        //设置文本字体
+        titleLabel.font = [UIFont systemFontOfSize:15];
+        //设置文本颜色
+        titleLabel.textColor = [UIColor redColor];
+        //设置文本对齐方式
+        titleLabel.textAlignment = NSTextAlignmentCenter;
+        //设置富文本
+        titleLabel.attributedText = newAttributedString;
+        //返回标签
+        return titleLabel;
+    }
+    return nil;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if(section == 0){
+        return 40;
+    }
+    return 10;
+}
+
 @end
