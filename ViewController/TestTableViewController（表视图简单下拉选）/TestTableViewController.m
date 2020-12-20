@@ -19,11 +19,9 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"表视图简单下拉选";
     [self createNavigationTitleView:@"下拉选"];
-    
-    self.view.backgroundColor = [UIColor whiteColor];
     
     LMJDropdownMenu *menuView = [[LMJDropdownMenu alloc]initWithFrame:CGRectMake(CGRectGetMidX(self.view.frame) - 50, CGRectGetMidY(self.view.frame) - 20,100,40)] ;
     [menuView setMenuTitles:self.menuTitleArray rowHeight:30];

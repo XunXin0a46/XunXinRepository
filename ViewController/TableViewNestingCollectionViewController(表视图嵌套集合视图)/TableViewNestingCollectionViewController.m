@@ -27,6 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self createNavigationTitleView:@"表嵌集"];
     [self createImage];
     [self createModel];

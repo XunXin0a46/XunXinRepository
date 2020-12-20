@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self createNavigationTitleView:@"富文本标签"];
     
     NSString *text=@"弱者普遍易怒如虎，而且容易暴怒。强者通常平静如水，并且相对平和。一个内心不强大的人，自然内心不够平静。内心不平静的人，处处是风浪。再小的事，都会被无限放大。一个内心不强大的人，心中永远缺乏安全感  https://github.com/TTTAttributedLabel/TTTAttributedLabel  15112345678  2017-05-06 天安门";

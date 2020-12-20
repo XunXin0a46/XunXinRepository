@@ -31,6 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self createNavigationTitleView:@"RunTime"];
     //设置标签
     [self setClickLabel];

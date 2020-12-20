@@ -56,6 +56,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self createNavigationTitleView:@"集合视图"];
     [self createUI];
     if(ARRAY_IS_NOT_EMPTY([[self getIntent]objectForKey:TestCollectionViewControllerDataSource])){

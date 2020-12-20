@@ -116,6 +116,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self createNavigationTitleView:@"贝塞尔"];
     
     CircleScaleView *circleView = [[CircleScaleView alloc] initWithFrame:CGRectZero];

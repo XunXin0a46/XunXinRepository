@@ -14,6 +14,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self createNavigationTitleView:@"阴影视图"];
     NSString *signLabel = @"<p>连续浇水7天，可得20鲸豆可得15.00元红包;</p><p>连续浇水14天，可得40鲸豆可得15.00元红包;</p><p>连续浇水21天，可得60鲸豆可得15.00元红包;</p><p>连续浇水28天，可得80鲸豆可得15.00元红包;";
     shadowView *shadow = [[shadowView alloc]initWithFrame:CGRectZero];

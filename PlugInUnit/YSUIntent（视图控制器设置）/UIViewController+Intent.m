@@ -157,6 +157,8 @@ static void * KEY_IS_CLOSED = &KEY_IS_CLOSED;
             [navigationController.navigationBar setShadowImage:image];
             //设置导航栏背景图片为一个空的image，这样就透明了
             [navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+            //定义此视图控制器以模式显示时将使用的表示样式
+            navigationController.modalPresentationStyle = UIModalPresentationFullScreen;
             //模态地呈现视图控制器
             [self presentViewController:navigationController animated:YES completion:NULL];
             //返回无异常的异常类对象

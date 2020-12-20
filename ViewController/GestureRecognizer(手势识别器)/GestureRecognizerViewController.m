@@ -37,6 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"手势识别";
+    self.view.backgroundColor = [UIColor whiteColor];
     [self initScale];
     [self createUI];
 }

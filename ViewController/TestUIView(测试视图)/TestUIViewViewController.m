@@ -71,6 +71,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self createNavigationTitleView:@"测试视图"];
     [self setrightBarButton];
     [self createUI];

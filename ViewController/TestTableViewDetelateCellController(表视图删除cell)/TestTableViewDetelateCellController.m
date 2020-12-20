@@ -111,6 +111,7 @@
 - (void)viewDidLoad{
     
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self createNavigationTitleView:@"表视图"];
     [self initDataSource];
     [self setupNavigationBarButtonItem];

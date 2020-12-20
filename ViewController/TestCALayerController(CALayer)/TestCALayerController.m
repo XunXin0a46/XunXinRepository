@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     //设置导航栏标题视图
     [self createNavigationTitleView:@"CALayer"];
     //设置视图动画代码片段

@@ -42,6 +42,10 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     NSLog(@"应用程序即将进入前台");
+    YSUIntent *intent = [[YSUIntent alloc]initWithClassName:@"SwipeViewController"];
+    intent.method = OPEN_METHOD_POP;
+    intent.useNavigationToPush = YES;
+    [self.window.rootViewController openIntent:intent];
 }
 
 
