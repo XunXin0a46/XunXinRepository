@@ -8,6 +8,7 @@
 
 #import "TestCommonViewViewController.h"
 #import "BarProgressView.h"
+#import "PromptStyleOneView.h"
 
 @interface TestCommonViewViewController()
 
@@ -23,6 +24,8 @@
     self.title = @"视图通用样式记录";
     self.view.backgroundColor = HEXCOLOR(0xEEF2F3);
     [self createUI];
+    //更新滚动视图的内容高度
+    self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH, self.contentHeight);
 }
 
 - (void)createUI{
@@ -36,8 +39,20 @@
     self.scrollView.alwaysBounceVertical = YES;
     self.scrollView.alwaysBounceHorizontal = NO;
     [self.view addSubview:self.scrollView];
+    ///通用提示视图1
+    [self createPromptStyleOneView];
     ///通用进度视图
     [self createCommonProgressView];
+}
+
+///通用提示视图1
+- (void)createPromptStyleOneView{
+    self.contentHeight += SCREEN_HEIGHT;
+    PromptStyleOneView *promptStyleOne = [[PromptStyleOneView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    promptStyleOne.image = [UIImage imageNamed:@"bg_system_error"];
+    promptStyleOne.operationButtonTitle = @"按钮";
+    [promptStyleOne setTitle:@"标题" WithTitleFont:[UIFont systemFontOfSize:15] WithMessage:@"副标题" WithMessageFont:[UIFont systemFontOfSize:13]];
+    [self.scrollView addSubview:promptStyleOne];
 }
 
 ///通用进度视图
@@ -50,7 +65,7 @@
     [self.scrollView addSubview:contentView];
     
     [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.scrollView);
+        make.top.equalTo(self.scrollView).offset(SCREEN_HEIGHT);
         make.width.mas_equalTo(SCREEN_WIDTH);
         make.height.mas_equalTo(120);
     }];

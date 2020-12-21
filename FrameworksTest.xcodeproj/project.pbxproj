@@ -181,6 +181,7 @@
 		29C60481232A90A500B48958 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29C60480232A90A500B48958 /* MobileCoreServices.framework */; };
 		29C60483232A90C400B48958 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 29C60482232A90C400B48958 /* libsqlite3.tbd */; };
 		29C60485232A90D600B48958 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 29C60484232A90D600B48958 /* libz.tbd */; };
+		29CBD9E925902FB30022677D /* PromptStyleOneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CBD9E825902FB30022677D /* PromptStyleOneView.m */; };
 		29CF620A2312D3AC006DCCBB /* SwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CF62092312D3AC006DCCBB /* SwipeViewController.m */; };
 		29CF670823C777ED004D2CE0 /* YSURequestProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CF670523C777ED004D2CE0 /* YSURequestProgress.m */; };
 		29CF670923C777ED004D2CE0 /* YSURequestError.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CF670723C777ED004D2CE0 /* YSURequestError.m */; };
@@ -556,6 +557,8 @@
 		29C60480232A90A500B48958 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		29C60482232A90C400B48958 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		29C60484232A90D600B48958 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		29CBD9E725902FB30022677D /* PromptStyleOneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromptStyleOneView.h; sourceTree = "<group>"; };
+		29CBD9E825902FB30022677D /* PromptStyleOneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromptStyleOneView.m; sourceTree = "<group>"; };
 		29CF62082312D3AC006DCCBB /* SwipeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwipeViewController.h; sourceTree = "<group>"; };
 		29CF62092312D3AC006DCCBB /* SwipeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwipeViewController.m; sourceTree = "<group>"; };
 		29CF670423C777ED004D2CE0 /* YSURequestProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSURequestProgress.h; sourceTree = "<group>"; };
@@ -1281,6 +1284,7 @@
 			isa = PBXGroup;
 			children = (
 				29A85E52257760C3008590D7 /* BarProgressView(条形进度图) */,
+				29CBD9E625902EE70022677D /* PromptStyleOneView(提示样式一) */,
 			);
 			path = "commonView(通用视图样式)";
 			sourceTree = "<group>";
@@ -1730,6 +1734,15 @@
 			path = Vendor;
 			sourceTree = "<group>";
 		};
+		29CBD9E625902EE70022677D /* PromptStyleOneView(提示样式一) */ = {
+			isa = PBXGroup;
+			children = (
+				29CBD9E725902FB30022677D /* PromptStyleOneView.h */,
+				29CBD9E825902FB30022677D /* PromptStyleOneView.m */,
+			);
+			path = "PromptStyleOneView(提示样式一)";
+			sourceTree = "<group>";
+		};
 		29D26DA524DFF48F00A723B7 /* GestureRecognizer(手势识别器) */ = {
 			isa = PBXGroup;
 			children = (
@@ -2113,6 +2126,7 @@
 				299938D1233675C500CB4A86 /* UIControl+YYAdd.m in Sources */,
 				29B2A4FD23C7836800549EEC /* YSUIntent.m in Sources */,
 				29D755EF23673DE500722B3A /* FSCalendarConstants.m in Sources */,
+				29CBD9E925902FB30022677D /* PromptStyleOneView.m in Sources */,
 				29F3557D253F18B700CD25B2 /* PickerPhotoManager.m in Sources */,
 				295BF6DC24D9049100909460 /* TestRunTimeViewController.m in Sources */,
 				29D755F323673DE500722B3A /* FSCalendarAppearance.m in Sources */,

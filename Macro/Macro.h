@@ -34,7 +34,7 @@
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 //导航栏的高
 #define NAVIGATIONBAR_HEIGHT self.navigationController.navigationBar.frame.size.height
-//导航栏的高
+//导航栏与状态栏的高
 #define HEAD_BAR_HEIGHT (IS_IPHONE_X?88:64)
 //状态栏的高
 #define STATUSBARHEIGHT [UIApplication sharedApplication].statusBarFrame.size.height
