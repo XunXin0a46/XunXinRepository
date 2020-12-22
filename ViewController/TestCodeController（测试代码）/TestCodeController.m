@@ -636,6 +636,38 @@
     NSLog(@"%@",newStr);
 }
 
+//携带间距计算文本高度
+- (void)carryLineSpacingCalculationHeight{
+    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    paragraphStyle.lineSpacing = 10;
+    
+    CGSize size = [@"测试标签,内容也挺多的，最起码要能换个行吧，要不怎么测试行间距呢，没办法测试的啊" boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - 200, MAXFLOAT)
+                                              options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                                     attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18.0],
+                                                  NSParagraphStyleAttributeName : paragraphStyle,
+                                                  NSKernAttributeName:@(10),
+                                                }
+                                              context:nil].size;
+    NSLog(@"%f",size.height);
+}
+
+/**
+ 调整文本间距
+ @parameter string 要调整的文本
+ @parameter lineSpace 行间距
+ @parameter kern 字符间距
+ @parameter font 字体
+ */
+- (NSAttributedString *)getAttributedWithString:(NSString *)string WithLineSpace:(CGFloat)lineSpace kern:(CGFloat)kern font:(UIFont *)font{
+    NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
+    //调整行间距
+    paragraphStyle.lineSpacing = lineSpace;
+    NSDictionary *attriDict = @{NSParagraphStyleAttributeName:paragraphStyle,NSKernAttributeName:@(kern),
+                                NSFontAttributeName:font};
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:string attributes:attriDict];
+    return attributedString;
+}
+
 ///-------------------------------- NSString测试区结束 ----------------------------------------
 
 ///-------------------------------- 网络请求代码测试区开始 --------------------------------------

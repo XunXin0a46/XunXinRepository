@@ -18,5 +18,11 @@
 ///文本添加删除线
 - (NSAttributedString *)attributeSingleLine;
 
+///判断字符串是否包含符号,包含返回YES
+- (BOOL)judgeTheillegalCharacter;
+
+///调整文本间距
+- (NSAttributedString *)getAttributedStringWithLineSpace:(CGFloat)lineSpace kern:(CGFloat)kern font:(UIFont *)font;
+
 @end
 

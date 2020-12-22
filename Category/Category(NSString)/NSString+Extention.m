@@ -54,4 +54,32 @@
 
 }
 
+///判断字符串是否包含符号
+- (BOOL)judgeTheillegalCharacter{
+    
+    NSString *str =@"^[A-Za-z\\u4e00-\u9fa5]+$";
+    NSPredicate* emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", str];
+    if (![emailTest evaluateWithObject:self]) {
+        return YES;
+    }
+    return NO;
+}
+
+/**
+ 调整文本间距
+ @parameter string 要调整的文本
+ @parameter lineSpace 行间距
+ @parameter kern 字符间距
+ @parameter font 字体
+ */
+- (NSAttributedString *)getAttributedStringWithLineSpace:(CGFloat)lineSpace kern:(CGFloat)kern font:(UIFont *)font{
+    NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
+    //调整行间距
+    paragraphStyle.lineSpacing = lineSpace;
+    NSDictionary *attriDict = @{NSParagraphStyleAttributeName:paragraphStyle,NSKernAttributeName:@(kern),
+                                NSFontAttributeName:font};
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:self attributes:attriDict];
+    return attributedString;
+}
+
 @end
