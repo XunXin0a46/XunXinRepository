@@ -24,5 +24,8 @@
 ///调整文本间距
 - (NSAttributedString *)getAttributedStringWithLineSpace:(CGFloat)lineSpace kern:(CGFloat)kern font:(UIFont *)font;
 
+///删除字符串两端的空字符
+- (instancetype)trim;
+
 @end
 

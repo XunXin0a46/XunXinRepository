@@ -44,8 +44,7 @@ id isNil(id obj);
 + (NSString *)getDomain:(NSString *)url;
 ///生成二维码图片
 + (UIImage *)QRCodeImageWithContent:(NSString *)content imageSize:(CGSize)imageSize logoImage:(UIImage *)logoImage logoImageSize:(CGSize)logoImageSize;
-
-///修改导航栏和底部Tabbar分割线颜色用到的方法
+///修改导航栏和底部Tabbar分割线颜色用到的方法(返回制定大小与颜色的UIImage对象)
 + (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
 
 @end

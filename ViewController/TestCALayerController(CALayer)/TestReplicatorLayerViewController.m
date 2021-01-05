@@ -28,6 +28,10 @@
     [self replicatorLayerGrid];
     //震动条
     [self replicatorLayerShake];
+    //转圈
+    [self replicatorLayerRound];
+    //心动画
+    [self replicatorLayerHeart];
 }
 
 //波纹
@@ -63,6 +67,20 @@
     UIView *aniView = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH / 2, HEAD_BAR_HEIGHT , 2, 12)];
     [self.view addSubview:aniView];
     [aniView.layer addSublayer: [YUReplicatorAnimation replicatorLayerWithType:YUReplicatorLayerShake]];
+}
+
+//转圈动画
+- (void)replicatorLayerRound{
+    UIView *aniView = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH / 2, HEAD_BAR_HEIGHT + 90 , 2, 12)];
+    [self.view addSubview:aniView];
+    [aniView.layer addSublayer: [YUReplicatorAnimation replicatorLayerWithType:YUReplicatorLayerRound]];
+}
+
+//心动画
+- (void)replicatorLayerHeart{
+    UIView *aniView = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH / 5, HEAD_BAR_HEIGHT + 380 , 2, 12)];
+    [self.view addSubview:aniView];
+    [aniView.layer addSublayer: [YUReplicatorAnimation replicatorLayerWithType:YUReplicatorLayerHeart]];
 }
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2900DC3425A4ADB0008BA35C /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2900DC3325A4ADB0008BA35C /* RootViewController.m */; };
 		29036D0925171EBA005BC76A /* TransmitValueTestLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29036D0825171EBA005BC76A /* TransmitValueTestLoginController.m */; };
 		29036D0C251720A1005BC76A /* TransmitValueTestRegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29036D0B251720A1005BC76A /* TransmitValueTestRegisterController.m */; };
 		29036D0F251721F6005BC76A /* TransmitValueTestHomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29036D0E251721F6005BC76A /* TransmitValueTestHomePageController.m */; };
@@ -95,7 +96,6 @@
 		29A5584B23A4AE4300B70042 /* MessageListItemEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A5584A23A4AE4300B70042 /* MessageListItemEditCell.m */; };
 		29A85E5025774119008590D7 /* TestCommonViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A85E4F25774119008590D7 /* TestCommonViewViewController.m */; };
 		29A85E5525776142008590D7 /* BarProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A85E5425776142008590D7 /* BarProgressView.m */; };
-		29A85E58257762B7008590D7 /* UIImage+TintColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A85E57257762B7008590D7 /* UIImage+TintColor.m */; };
 		29A945EF23D34FB1000EA5C6 /* BezierPathController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A945EE23D34FB1000EA5C6 /* BezierPathController.m */; };
 		29A945F323D350AE000EA5C6 /* CircleScaleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A945F223D350AE000EA5C6 /* CircleScaleView.m */; };
 		29A9461523D4AD9C000EA5C6 /* UIImage+YSCCodeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A9461323D4AD9C000EA5C6 /* UIImage+YSCCodeImage.m */; };
@@ -132,7 +132,6 @@
 		29B2A50423C7855300549EEC /* YSUError.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B2A50223C7855300549EEC /* YSUError.m */; };
 		29B2A50723C785CB00549EEC /* NSObject+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B2A50623C785CB00549EEC /* NSObject+Swizzling.m */; };
 		29B2A50B23C7864900549EEC /* YSUUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B2A50A23C7864900549EEC /* YSUUtils.m */; };
-		29B2A50E23C7869600549EEC /* NSString+Trim.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B2A50C23C7869600549EEC /* NSString+Trim.m */; };
 		29B2A50F23C7880600549EEC /* AFNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 29B2A4F823C782A900549EEC /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		29BBD49724DD25850091CF97 /* TestCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BBD49624DD25850091CF97 /* TestCollectionView.m */; };
 		29BBD49A24DD25F40091CF97 /* TestCollectionViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BBD49924DD25F40091CF97 /* TestCollectionViewItem.m */; };
@@ -248,6 +247,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2900DC3225A4ADB0008BA35C /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		2900DC3325A4ADB0008BA35C /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		29036D0725171EBA005BC76A /* TransmitValueTestLoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransmitValueTestLoginController.h; sourceTree = "<group>"; };
 		29036D0825171EBA005BC76A /* TransmitValueTestLoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransmitValueTestLoginController.m; sourceTree = "<group>"; };
 		29036D0A251720A1005BC76A /* TransmitValueTestRegisterController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransmitValueTestRegisterController.h; sourceTree = "<group>"; };
@@ -409,8 +410,6 @@
 		29A85E4F25774119008590D7 /* TestCommonViewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestCommonViewViewController.m; sourceTree = "<group>"; };
 		29A85E5325776142008590D7 /* BarProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarProgressView.h; sourceTree = "<group>"; };
 		29A85E5425776142008590D7 /* BarProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BarProgressView.m; sourceTree = "<group>"; };
-		29A85E56257762B7008590D7 /* UIImage+TintColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+TintColor.h"; sourceTree = "<group>"; };
-		29A85E57257762B7008590D7 /* UIImage+TintColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TintColor.m"; sourceTree = "<group>"; };
 		29A945ED23D34FB1000EA5C6 /* BezierPathController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BezierPathController.h; sourceTree = "<group>"; };
 		29A945EE23D34FB1000EA5C6 /* BezierPathController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BezierPathController.m; sourceTree = "<group>"; };
 		29A945F123D350AE000EA5C6 /* CircleScaleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircleScaleView.h; sourceTree = "<group>"; };
@@ -476,8 +475,6 @@
 		29B2A50623C785CB00549EEC /* NSObject+Swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Swizzling.m"; sourceTree = "<group>"; };
 		29B2A50923C7864900549EEC /* YSUUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSUUtils.h; sourceTree = "<group>"; };
 		29B2A50A23C7864900549EEC /* YSUUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSUUtils.m; sourceTree = "<group>"; };
-		29B2A50C23C7869600549EEC /* NSString+Trim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Trim.m"; sourceTree = "<group>"; };
-		29B2A50D23C7869600549EEC /* NSString+Trim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Trim.h"; sourceTree = "<group>"; };
 		29BBD49524DD25850091CF97 /* TestCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionView.h; sourceTree = "<group>"; };
 		29BBD49624DD25850091CF97 /* TestCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCollectionView.m; sourceTree = "<group>"; };
 		29BBD49824DD25F40091CF97 /* TestCollectionViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewItem.h; sourceTree = "<group>"; };
@@ -678,6 +675,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2900DC3025A4ACF1008BA35C /* IndexViewController(首页) */ = {
+			isa = PBXGroup;
+			children = (
+				29AF63ED22D3686F0048A036 /* ViewController.h */,
+				29AF63EE22D3686F0048A036 /* ViewController.m */,
+			);
+			path = "IndexViewController(首页)";
+			sourceTree = "<group>";
+		};
+		2900DC3125A4AD28008BA35C /* RootViewController(根控制器) */ = {
+			isa = PBXGroup;
+			children = (
+				2900DC3225A4ADB0008BA35C /* RootViewController.h */,
+				2900DC3325A4ADB0008BA35C /* RootViewController.m */,
+			);
+			path = "RootViewController(根控制器)";
+			sourceTree = "<group>";
+		};
 		29036D0625171E25005BC76A /* TransmitValueController(传值练习) */ = {
 			isa = PBXGroup;
 			children = (
@@ -1240,8 +1255,6 @@
 		298A717024EB5CC700DC757B /* Category(UIColor) */ = {
 			isa = PBXGroup;
 			children = (
-				298A717124EB5D7100DC757B /* UIImage+YSCTintColor.h */,
-				298A717224EB5D7100DC757B /* UIImage+YSCTintColor.m */,
 			);
 			path = "Category(UIColor)";
 			sourceTree = "<group>";
@@ -1323,8 +1336,8 @@
 				29F35580253F1AAE00CD25B2 /* UIImage+ImageBase64.m */,
 				29A9461423D4AD9C000EA5C6 /* UIImage+YSCCodeImage.h */,
 				29A9461323D4AD9C000EA5C6 /* UIImage+YSCCodeImage.m */,
-				29A85E56257762B7008590D7 /* UIImage+TintColor.h */,
-				29A85E57257762B7008590D7 /* UIImage+TintColor.m */,
+				298A717124EB5D7100DC757B /* UIImage+YSCTintColor.h */,
+				298A717224EB5D7100DC757B /* UIImage+YSCTintColor.m */,
 			);
 			path = "Category(UIImage)";
 			sourceTree = "<group>";
@@ -1360,8 +1373,6 @@
 			children = (
 				29AF63EA22D3686F0048A036 /* AppDelegate.h */,
 				29AF63EB22D3686F0048A036 /* AppDelegate.m */,
-				29AF63ED22D3686F0048A036 /* ViewController.h */,
-				29AF63EE22D3686F0048A036 /* ViewController.m */,
 				29AF63F022D3686F0048A036 /* Main.storyboard */,
 				29AF63F322D368700048A036 /* Assets.xcassets */,
 				29AF63F522D368700048A036 /* LaunchScreen.storyboard */,
@@ -1506,8 +1517,6 @@
 				293FAFE924167EDD0039E09A /* YUReplicatorAnimation.m */,
 				29B2A50923C7864900549EEC /* YSUUtils.h */,
 				29B2A50A23C7864900549EEC /* YSUUtils.m */,
-				29B2A50D23C7869600549EEC /* NSString+Trim.h */,
-				29B2A50C23C7869600549EEC /* NSString+Trim.m */,
 			);
 			path = "YSUUtils（工具类）";
 			sourceTree = "<group>";
@@ -1613,6 +1622,8 @@
 		29C60430232A80A000B48958 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				2900DC3125A4AD28008BA35C /* RootViewController(根控制器) */,
+				2900DC3025A4ACF1008BA35C /* IndexViewController(首页) */,
 				293E5BAE239FDEE600B49495 /* BaseWebViewControlle(WKWebView) */,
 				293E5BAF239FDFA400B49495 /* SwipeViewController(滑动视图) */,
 				293E5BB0239FE04100B49495 /* TestCollectionViewController（集合视图） */,
@@ -2083,7 +2094,6 @@
 				29C60465232A8EA000B48958 /* YYMemoryCache.m in Sources */,
 				29B1AAC324FCCF4B007F8A5E /* UIImage+XLExtension.m in Sources */,
 				29061B5E23FACC2D00060C14 /* TestNavigationController.m in Sources */,
-				29B2A50E23C7869600549EEC /* NSString+Trim.m in Sources */,
 				29B1AACA24FCCF4B007F8A5E /* FSActionSheetCell.m in Sources */,
 				29C6046E232A8EA000B48958 /* UIImageView+YYWebImage.m in Sources */,
 				29B1AAC224FCCF4B007F8A5E /* UIView+XLExtension.m in Sources */,
@@ -2096,6 +2106,7 @@
 				29AF63EC22D3686F0048A036 /* AppDelegate.m in Sources */,
 				29C60461232A8EA000B48958 /* YYImageCache.m in Sources */,
 				29D755E423673DE400722B3A /* FSCalendarCollectionView.m in Sources */,
+				2900DC3425A4ADB0008BA35C /* RootViewController.m in Sources */,
 				2935C983250DD2F7009265DE /* BarcodeAndQrCodeViewController.m in Sources */,
 				291354D524ECC8C3006AAA36 /* ShadowViewInheritController.m in Sources */,
 				29B2A50123C784C200549EEC /* UIViewController+Intent.m in Sources */,
@@ -2176,7 +2187,6 @@
 				29BD0D79233767B200E2E33F /* YYImageExampleHelper.m in Sources */,
 				29A5584223A3757B00B70042 /* MessageListItemCell.m in Sources */,
 				29B2A50B23C7864900549EEC /* YSUUtils.m in Sources */,
-				29A85E58257762B7008590D7 /* UIImage+TintColor.m in Sources */,
 				29D755E623673DE400722B3A /* FSCalendarDelegationFactory.m in Sources */,
 				29788693251485E500C5E5DD /* TableViewNestingCollectionViewController.m in Sources */,
 				29B1AACC24FCCF4B007F8A5E /* TADotView.m in Sources */,

@@ -57,4 +57,5 @@
  *  验证用户是否开启相机权限
  */
 + (BOOL)isMediaAuthor;
+
 @end

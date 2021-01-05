@@ -26,6 +26,15 @@
     [self createUI];
     //更新滚动视图的内容高度
     self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH, self.contentHeight);
+    //隐藏底部标签栏
+    self.tabBarController.tabBar.hidden = YES;
+    self.tabBarController.tabBar.translucent = YES;
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    //显示底部标签栏
+    self.tabBarController.tabBar.hidden = NO;
+    self.tabBarController.tabBar.translucent = NO;
 }
 
 - (void)createUI{

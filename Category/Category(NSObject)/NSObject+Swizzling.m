@@ -11,7 +11,7 @@
 
 @implementation NSObject(Swizzling)
 
-///函数交换
+///实例函数交换
 + (void)swizzlingMethod:(SEL)originalSelector toMethod:(SEL)swizzledSelector {
     
     static dispatch_once_t onceToken;

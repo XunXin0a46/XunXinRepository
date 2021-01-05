@@ -45,6 +45,7 @@
             layer = [self replicatorLayer_Shake];
         }
             break;
+        //转圈动画
         case YUReplicatorLayerRound:
         {
             layer = [self replicatorLayer_Round];
@@ -282,68 +283,108 @@
 
 // 转圈动画
 + (CALayer *)replicatorLayer_Round{
-    
+    //初始化层对象
     CALayer *layer = [[CALayer alloc]init];
+    //层对象框架矩形
     layer.frame = CGRectMake(0, 0, 12, 12);
+    //设置圆角
     layer.cornerRadius = 6;
+    //设置超出层边界裁剪
     layer.masksToBounds = YES;
+    //矩阵转换
     layer.transform = CATransform3DMakeScale(0.01, 0.01, 0.01);
+    //设置层背景色
     layer.backgroundColor = [UIColor purpleColor].CGColor;
     
+    //创建缩放关键帧动画
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    //动画持续时间
     animation.duration = 1;
+    //动画重复次数为无限重复
     animation.repeatCount = MAXFLOAT;
+    //开始插值的值
     animation.fromValue = @(1);
+    //结束插值的值
     animation.toValue = @(0.01);
+    //添加缩放动画到层对象
     [layer addAnimation:animation forKey:nil];
     
+    //要创建的副本数
     NSInteger instanceCount = 9;
     
+    //初始化复制层
     CAReplicatorLayer *replicatorLayer = [CAReplicatorLayer layer];
+    //复制层框架矩形
     replicatorLayer.frame = CGRectMake(0, 0, 50, 50);
+    //将子层展平到其平面中
     replicatorLayer.preservesDepth = YES;
+    //用于叠加源对象的颜色
     replicatorLayer.instanceColor = [UIColor whiteColor].CGColor;
+    //为每个复制的实例定义添加到组件的颜色的红色偏移量
     replicatorLayer.instanceRedOffset = 0.1;
+    //为每个复制的实例定义添加到组件的颜色的绿色偏移量
     replicatorLayer.instanceGreenOffset = 0.1;
+    //为每个复制的实例定义添加到组件的颜色的蓝色偏移量
     replicatorLayer.instanceBlueOffset = 0.1;
+    //为每个复制的实例定义添加到组件的颜色的透明度移量
     replicatorLayer.instanceAlphaOffset = 0.1;
+    //要创建的副本数
     replicatorLayer.instanceCount = instanceCount;
+    //指定复制副本之间的延迟
     replicatorLayer.instanceDelay = 1.0/instanceCount;
+    //当前实例的转换矩阵
     replicatorLayer.instanceTransform = CATransform3DMakeRotation((2 * M_PI) /instanceCount, 0, 0, 1);
+    //将层对象添加到复制层容器
     [replicatorLayer addSublayer:layer];
-    
+    //返回复制层容器
     return replicatorLayer;
 }
 
 // 心动画
 + (CALayer *)replicatorLayer_Heart{
-    
+    //初始化复制层
     CAReplicatorLayer *replicatorLayer = [CAReplicatorLayer new];
+    //复制层框架矩形
     replicatorLayer.frame = CGRectMake(0, 0, 200, 200);
-    //    replicatorLayer.backgroundColor = [UIColor colorWithWhite:0 alpha:0.75].CGColor;
     
+    //初始化层对象
     CALayer *subLayer = [CALayer new];
+    //层的边界矩形
     subLayer.bounds = CGRectMake(60, 105, 10, 10);
+    //层的背景颜色
     subLayer.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1.0].CGColor;
+    //层的边框颜色
     subLayer.borderColor = [UIColor colorWithWhite:1.0 alpha:1.0].CGColor;
+    //层的边框宽度
     subLayer.borderWidth = 1.0;
+    //层的圆角
     subLayer.cornerRadius = 5.0;
+    //启用光栅化
     subLayer.shouldRasterize = YES;
+    //相对于层的坐标空间栅格化内容的比例
     subLayer.rasterizationScale = [UIScreen mainScreen].scale;
+    //添加层对象到复制层
     [replicatorLayer addSublayer:subLayer];
     
+    //初始化键框架动画
     CAKeyframeAnimation *move = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    //创建点遵循的路径
     move.path = [self heartPath];
+    //动画重复次数为无限重复
     move.repeatCount = INFINITY;
+    //动画持续时间
     move.duration = 6.0;
-    //    move.autoreverses = YES;
+    //层对象添加动画
     [subLayer addAnimation:move forKey:nil];
-    
+    //指定复制副本之间的延迟（秒）
     replicatorLayer.instanceDelay = 6/50.0;
+    //要创建的副本数
     replicatorLayer.instanceCount = 50;
+    //用于叠加源对象的颜色
     replicatorLayer.instanceColor = [UIColor orangeColor].CGColor;
+    //为每个复制的实例定义添加到组件的颜色的绿色偏移量，可设置动画
     replicatorLayer.instanceGreenOffset = -0.03;
-    
+    //返回复制层
     return replicatorLayer;
 }
 
@@ -381,6 +422,7 @@
 
 #pragma mark -----------------------  基础动画
 
+///心形路径
 + (CGPathRef)heartPath
 {
     CGFloat W = 25;
@@ -388,21 +430,28 @@
     CGFloat marginY = 15/25.0 * W;
     CGFloat space = 5/25.0 * W;
     
+    //初始化贝塞尔曲线
     UIBezierPath *bezierPath = [UIBezierPath new];
-    
+    //将接收器的当前点移动到指定位置
     [bezierPath moveToPoint:(CGPointMake(marginX + W * 2, W * 4 + space))];
+    //在接收器的路径上附加一条二次贝塞尔曲线。
     [bezierPath addQuadCurveToPoint:CGPointMake(marginX, W * 2) controlPoint:CGPointMake(W, W * 4 - space)];
+    //将三次贝塞尔曲线附加到接收端的路径上
     [bezierPath addCurveToPoint:CGPointMake(marginX + W * 2, W * 2) controlPoint1:CGPointMake(marginX, marginY) controlPoint2:CGPointMake(marginX + W * 2, marginY)];
+    //将三次贝塞尔曲线附加到接收端的路径上。
     [bezierPath addCurveToPoint:CGPointMake(marginX + W * 4, W * 2) controlPoint1:CGPointMake(marginX + W * 2, marginY) controlPoint2:CGPointMake(marginX + W * 4, marginY)];
+    //在接收器的路径上附加一条二次贝塞尔曲线。
     [bezierPath addQuadCurveToPoint:CGPointMake(marginX + W * 2, W * 4 + space) controlPoint:CGPointMake(marginX * 2 + W * 3, W * 4 - space)];
-    
+    //关闭最近添加的子路径
     [bezierPath closePath];
-    
+    //根据提供的缩放值构造的仿射变换矩阵
     CGAffineTransform T = CGAffineTransformMakeScale(3.0, 3.0);
+    //由转换矩阵转换的图形路径的不可变副本
     return CGPathCreateCopyByTransformingPath(bezierPath.CGPath, &T);
 }
 
 
+///对Y方向进行缩放的基本动画
 + (CABasicAnimation *)scaleYAnimation{
     //对Y方向进行缩放的基本动画
     CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"transform.scale.y"];

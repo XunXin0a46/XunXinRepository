@@ -7,7 +7,7 @@
 //
 
 #import "BarProgressView.h"
-#import "UIImage+TintColor.h"
+#import "UIImage+YSCTintColor.h"
 
 @interface BarProgressView()
 

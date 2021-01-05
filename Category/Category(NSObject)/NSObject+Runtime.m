@@ -23,7 +23,7 @@
     }
 }
 
-//交换方法
+//交换实例方法
 - (void)swizzleMethod:(SEL)originalSelector swizzledSelector:(SEL)swizzledSelector{
     Class class = [self class];
     //源方法

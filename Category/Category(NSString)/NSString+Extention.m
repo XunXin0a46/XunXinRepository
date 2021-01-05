@@ -82,4 +82,9 @@
     return attributedString;
 }
 
+///删除字符串两端的空字符
+- (instancetype)trim {
+    return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+}
+
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "YSUUtils.h"
-#import "NSString+Trim.h"
+#import "NSString+Extention.h"
 
 id isNil(id obj) {
     if (!obj){
@@ -319,7 +319,7 @@ id isNil(id obj) {
     return newImage;
 }
 
-////修改导航栏和底部Tabbar分割线颜色用到的方法
+////修改导航栏和底部Tabbar分割线颜色用到的方法(返回制定大小与颜色的UIImage对象)
 + (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size {
     //如果没有设置颜色或图像的宽度或高度小于等于0，返回nil
     if (!color ||

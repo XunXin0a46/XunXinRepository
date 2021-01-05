@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "RootViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,9 +21,8 @@
     NSLog(@"启动过程即将完成，应用程序即将运行");
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    ViewController *viewController = [[ViewController alloc]init];
-    UINavigationController * navigationController = [[UINavigationController alloc]initWithRootViewController:viewController];
-    self.window.rootViewController = navigationController;
+    RootViewController *rootViewController = [[RootViewController alloc]init];
+    self.window.rootViewController = rootViewController;
     [self.window makeKeyAndVisible];
     
     return YES;

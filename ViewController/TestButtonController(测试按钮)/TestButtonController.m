@@ -61,6 +61,22 @@
         make.size.mas_equalTo(CGSizeMake(90, 35));
     }];
     
+    ///右边缘
+    UIButton *rightEdgeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.view addSubview:rightEdgeButton];
+    rightEdgeButton.layer.cornerRadius = 15.0;
+    rightEdgeButton.layer.masksToBounds = YES;
+    rightEdgeButton.titleLabel.font = [UIFont systemFontOfSize:14];
+    rightEdgeButton.backgroundColor = [UIColor colorWithWhite:0 alpha:0.2];
+    [rightEdgeButton setTitle:@"我就喜欢在这待着" forState:UIControlStateNormal];
+    [rightEdgeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+
+    [rightEdgeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.countdownButton.mas_bottom).offset(20);
+        make.right.equalTo(self.view.mas_right).offset(10);
+        make.size.mas_equalTo(CGSizeMake([rightEdgeButton.titleLabel sizeThatFits:CGSizeMake(MAXFLOAT, 30)].width + 20, 30));
+    }];
+    
     ///按钮联动
     ButtonLinkageView *buttonLinkageView = [[ButtonLinkageView alloc]initWithFrame:CGRectZero];
     buttonLinkageView.backgroundColor = [UIColor whiteColor];
@@ -71,6 +87,7 @@
         make.bottom.left.right.equalTo(self.view);
         make.height.mas_equalTo(110);
     }];
+    
 }
 
 ///控制连续点击按钮的事件
