@@ -44,6 +44,10 @@
 #define IS_NOT_EMPTY(string) (string !=nil && [string isKindOfClass:[NSString class]] && ![string isEqualToString:@""] && ![string isKindOfClass:[NSNull class]] && ![string isEqualToString:@"<null>"])
 //数组不为空
 #define ARRAY_IS_NOT_EMPTY(array) (array && [array isKindOfClass:[NSArray class]] && [array count])
+//字典不为空
+#define DICTIONARY_IS_NOT_EMPTY(dictionary) (dictionary \
+                                                && [dictionary isKindOfClass:[NSDictionary class]] \
+                                                && [dictionary count])
 //设置RGBA颜色
 #define RGBA(r, g, b, a) [UIColor colorWithRed:r / 255.0 green:g / 255.0 blue:b / 255.0 alpha:a]
 //十六进制颜色

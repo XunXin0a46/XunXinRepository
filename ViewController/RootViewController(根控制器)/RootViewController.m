@@ -14,7 +14,9 @@
 #import "SignInController.h"
 #import "YSUUtils.h"
 
-@interface RootViewController ()
+@interface RootViewController ()<UITabBarControllerDelegate>
+
+@property (nonatomic, strong) UIViewController *controller;//记录选中的新帖控制器
 
 @end
 
@@ -22,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.delegate = self;
     //设置根视图控制器
     [self setRootViewController];
 }
@@ -99,5 +102,21 @@
         [tabBarController addChildViewController:controller];
     }
 }
+
+#pragma mark -- UITabBarControllerDelegate
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
+    //如果点击了新帖
+    if(viewController.tabBarItem.tag == 5001){
+        //隐藏标签栏项的标记值
+        viewController.tabBarItem.badgeValue = nil;
+        //记录点击的新帖控制器
+        self.controller = viewController;
+    }else{
+        //点击的不是新帖控制器时，恢复新帖标签项的标记值
+        self.controller.tabBarItem.badgeValue = @"重点";
+    }
+}
+
 
 @end

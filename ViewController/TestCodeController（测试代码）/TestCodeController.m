@@ -21,13 +21,6 @@
 
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    [self testCode];
-    [self showMBProgressHUD];
-}
-
-///测试按钮点击
-- (void)testCode{
-    NSLog(@"测试开始");
     [self createNavigationTitleView:@"测试代码"];
     //测试按钮
     UIButton *testCodeButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -38,7 +31,29 @@
     [testCodeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [testCodeButton addTarget:self action:@selector(testCode) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:testCodeButton];
+    
 }
+
+///测试按钮点击
+- (void)testCode{
+    NSLog(@"测试开始");
+    //使用初始值创建新的计数信号量。
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    //开辟子线程
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSLog(@"我输出后线程就被阻塞了");
+        //等待（减少）信号量。阻塞线程
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+        NSLog(@"我需等待3秒才能输出");
+    });
+    //延迟3秒执行函数
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //信号量（递增）,唤醒线程
+        dispatch_semaphore_signal(semaphore);
+    });
+    
+}
+
 
 ///----------------------------------- 二维码开始 ---------------------------------------------
 
@@ -683,6 +698,45 @@
 
 - (void)onRequestFailed:(YSURequestError *)error ofWhat:(NSInteger)what{
     NSLog(@"请求失败了");
+}
+
+///原生请求
+- (void)testNSURLSession{
+    //初始化Url
+    NSURL *url = [[NSURL alloc]initWithString:@"https://www.test.68mall.com/index"];
+    //可变URL加载请求
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
+    //设置请求方式(默认也是GET)
+    [request setHTTPMethod:@"GET"];
+    //设置请求头
+    request.allHTTPHeaderFields = @{@"Content-Type":@"application/x-www-form-urlencoded",@"User-Agent":@"szyapp/ios"};
+    //通过单例初始化网络数据传输任务对象
+    NSURLSession *session = [NSURLSession sharedSession];
+    //通过基于请求对象创建请求任务
+    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if(error == nil){
+            //请求成功
+            NSLog(@"%@",response.textEncodingName);
+            //返回与给定IANA注册表“字符集”名称最接近的映射的CoreFoundation编码常量。如果名称无法识别，则返回kCFStringEncodingInvalidId常量。
+            CFStringEncoding cfEncoding = CFStringConvertIANACharSetNameToEncoding((CFStringRef)
+                                [response textEncodingName]);
+            //返回与给定的CoreFoundation编码常量最接近的Cocoa编码常量。
+            NSStringEncoding encoding = CFStringConvertEncodingToNSStringEncoding(cfEncoding);
+            //通过使用编码将数据中的字节转换为UTF-16代码单元而初始化的NSString对象
+            NSString *text = [[NSString alloc] initWithData:data encoding:encoding];
+            NSLog(@"%@",text);
+            //将响应数据转换为字典
+            NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+            NSLog(@"%@",jsonDict);
+            //请求状态码
+            NSHTTPURLResponse *HTTPURLResponse = (NSHTTPURLResponse *)response;
+            //响应编码
+            NSLog(@"%ld",(long)HTTPURLResponse.statusCode);
+            NSLog(@"%@",[NSHTTPURLResponse localizedStringForStatusCode:HTTPURLResponse.statusCode]);
+        }else{
+            NSLog(@"%@",error);
+        }
+    }]resume];
 }
 
 ///-------------------------------- 网络请求代码测试区结束 --------------------------------------
