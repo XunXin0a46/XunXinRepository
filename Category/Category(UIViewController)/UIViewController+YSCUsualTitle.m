@@ -49,6 +49,21 @@ static void * TestCollectionViewKey = &TestCollectionViewKey;//获取测试集�
     [self cancel];
 }
 
+///返回安全区的高度
+CGFloat bottomPadding(void) {
+    if (@available(iOS 11.0, *)) {
+        //获取视图安全区高度
+        CGFloat height = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom;
+        if(height > 0){
+            return height;
+        }else{
+            return 0;
+        }
+    } else {
+        return 0;
+    }
+}
+
 ///设置导航栏标题视图
 - (void)createNavigationTitleView:(NSString *)text{
     //初始化导航栏的自定义标题视图

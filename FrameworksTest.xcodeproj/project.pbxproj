@@ -1511,12 +1511,12 @@
 		29B2A50823C7863100549EEC /* YSUUtils（工具类） */ = {
 			isa = PBXGroup;
 			children = (
+				29B2A50923C7864900549EEC /* YSUUtils.h */,
+				29B2A50A23C7864900549EEC /* YSUUtils.m */,
 				29834FF5252FFA1600CE8569 /* YSCValidator.h */,
 				29834FF4252FFA1600CE8569 /* YSCValidator.m */,
 				293FAFE824167EDD0039E09A /* YUReplicatorAnimation.h */,
 				293FAFE924167EDD0039E09A /* YUReplicatorAnimation.m */,
-				29B2A50923C7864900549EEC /* YSUUtils.h */,
-				29B2A50A23C7864900549EEC /* YSUUtils.m */,
 			);
 			path = "YSUUtils（工具类）";
 			sourceTree = "<group>";

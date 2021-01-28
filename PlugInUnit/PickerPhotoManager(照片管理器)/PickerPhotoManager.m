@@ -121,6 +121,7 @@
     [PickerPhotoManager sharedInstance].callBack = comp;
 }
 
+///未能获取权限提示
 + (void)alert:(NSString *)title {
     //初始化提示视图
     AlertView * warnAlert =  [[AlertView alloc] init];
@@ -165,6 +166,7 @@
     [warnAlert show];
 }
 
+///根据type显示相机或相册
 + (void)showPicker:(UIImagePickerControllerSourceType)type {
     UIViewController *tab = [UIApplication sharedApplication].keyWindow.rootViewController;
     UIViewController *nav = tab.childViewControllers[0];

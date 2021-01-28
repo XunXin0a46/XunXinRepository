@@ -115,5 +115,43 @@
     return [NSURL URLWithString:[YSUUtils removeExtraSlashOfUrl:imageUrl]];
 }
 
+#pragma mark -- 日期格式化相关
+
+///yyyy-MM-dd格式化字符串
++ (NSString *)getDateStringWithTimeInterval:(NSInteger)timeInterval{
+    //初始化日期格式对象
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    //设置日期格式
+    dateFormatter.dateFormat = @"yyyy-MM-dd";
+    //创建从1970年1月1日的00:00:00经过给定秒数的UTC时间的NSDate对象(负数为1970年1月1日的00:00:00之前)
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeInterval];
+    //将NSDate对象字符串化
+    return [dateFormatter stringFromDate:date];
+}
+
+///yyyy-MM-dd HH:mm:ss格式化字符串
++ (NSString *)getDateDetailStringWithTimeInterval:(NSInteger)timeInterval{
+    //初始化日期格式对象
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    //设置日期格式
+    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    //创建从1970年1月1日的00:00:00经过给定秒数的UTC时间的NSDate对象(负数为1970年1月1日的00:00:00之前)
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeInterval];
+    //将NSDate对象字符串化
+    return [dateFormatter stringFromDate:date];
+}
+
+///MM-dd HH:mm格式化字符串
++ (NSString *)getMonthDateStringWithTimeInterval:(NSInteger)timeInterval{
+    //初始化日期格式对象
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    //设置日期格式
+    dateFormatter.dateFormat = @"MM-dd HH:mm";
+    //创建从1970年1月1日的00:00:00经过给定秒数的UTC时间的NSDate对象(负数为1970年1月1日的00:00:00之前)
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeInterval];
+    //将NSDate对象字符串化
+    return [dateFormatter stringFromDate:date];
+}
+
 
 @end

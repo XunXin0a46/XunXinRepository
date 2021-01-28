@@ -27,6 +27,15 @@
 ///图片路径字符串转为Url
 + (NSURL *)urlOfRealImage:(NSString *)imageUrl;
 
+///yyyy-MM-dd格式化字符串
++ (NSString *)getDateStringWithTimeInterval:(NSInteger)timeInterval;
+
+///yyyy-MM-dd HH:mm:ss格式化字符串
++ (NSString *)getDateDetailStringWithTimeInterval:(NSInteger)timeInterval;
+
+///MM-dd HH:mm格式化字符串
++ (NSString *)getMonthDateStringWithTimeInterval:(NSInteger)timeInterval;
+
 @end
 
 

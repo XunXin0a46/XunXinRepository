@@ -16,6 +16,9 @@
 ///设置导航栏标题视图
 - (void)createNavigationTitleView:(NSString *)text;
 
+///返回安全区的高度
+CGFloat bottomPadding(void);
+
 @end
 
 @interface UIViewController()

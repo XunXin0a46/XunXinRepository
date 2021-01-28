@@ -8,6 +8,7 @@
 
 #import "TestTTTAttributedLabelViewController.h"
 #import "TTTAttributedLabel.h"
+#import "UIImage+YSCTintColor.h"
 
 @interface TestTTTAttributedLabelViewController ()<TTTAttributedLabelDelegate>
 
@@ -95,6 +96,15 @@
     NSRange addressRange=[text rangeOfString:@"天安门"];
     [label addLinkToAddress:@{@"address":@"天安门",@"longitude":@"116.2354",@"latitude":@"38.2145"} withRange:addressRange];
     
+    //测试设置属性字符串标签
+    [self setAttributedStringTestLabel];
+    //测试按比例缩放属性字符串字体
+    [self testAttributedStringByScalingFontSize];
+    //测试带有a标签内容的标签
+    [self testHtmlLabel];
+    //测试带标签的富文本
+    [self testCarryLabelOfAttributedString];
+    
 }
 
 
@@ -159,13 +169,9 @@
 - (void)setAttributedStringTestLabel{
     NSString *termLabelText = @"距离成熟还有：30天";
     
-    UILabel *testLabel = [[UILabel alloc]initWithFrame:CGRectZero];
+    UILabel *testLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 300, self.view.bounds.size.width, 50)];
     testLabel.font = [UIFont systemFontOfSize:15];
     [self.view addSubview:testLabel];
-    
-    [testLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.view);
-    }];
     
     NSRange range = [termLabelText rangeOfString:@"："];
     NSMutableAttributedString *attributedTermLabelText = [[NSMutableAttributedString alloc]initWithString:termLabelText];
@@ -203,15 +209,16 @@
 
 ///测试按比例缩放属性字符串字体
 - (void)testAttributedStringByScalingFontSize{
-    NSString *string = @"城南花已开";
-    UILabel *testLabel = [[UILabel alloc]initWithFrame:CGRectZero];
-    testLabel.font = [UIFont systemFontOfSize:30];
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:@"城南花已开"];
+    UILabel *testLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 370, self.view.bounds.size.width, 50)];
     [self.view addSubview:testLabel];
+    [attributedString addAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:30]} range:NSMakeRange(0, attributedString.length)];
+    testLabel.attributedText = NSAttributedStringByScalingFontSize(attributedString,0.5);
     
-    [testLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.view);
-    }];
-    testLabel.attributedText = NSAttributedStringByScalingFontSize([[NSAttributedString alloc]initWithString:string],0.5);
+    UILabel *testLabel2 = [[UILabel alloc]initWithFrame:CGRectMake(0, 400, self.view.bounds.size.width, 50)];
+    testLabel2.font = [UIFont systemFontOfSize:30];
+    [self.view addSubview:testLabel2];
+    testLabel2.text = @"犹未见君来";
 }
 
 ///按比例缩放属性字符串字体
@@ -258,13 +265,9 @@ static inline NSAttributedString * NSAttributedStringByScalingFontSize(NSAttribu
 - (void)testHtmlLabel{
     NSString *htmlText = @"<a href=https://music.163.com/#/song?id=4900975>城南花已开</a>";
     
-    UILabel *testLabel = [[UILabel alloc]initWithFrame:CGRectZero];
+    UILabel *testLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 450, self.view.bounds.size.width, 50)];
     testLabel.font = [UIFont systemFontOfSize:15];
     [self.view addSubview:testLabel];
-    
-    [testLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.view);
-    }];
     
     testLabel.attributedText = [self handleHtmlText:htmlText];
 }
@@ -283,7 +286,66 @@ static inline NSAttributedString * NSAttributedStringByScalingFontSize(NSAttribu
     return attrStr;
 }
 
+///测试带标签的富文本
+- (void)testCarryLabelOfAttributedString{
+    UILabel *testLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 500, self.view.bounds.size.width, 50)];
+    testLabel.font = [UIFont systemFontOfSize:15];
+    [self.view addSubview:testLabel];
+    testLabel.attributedText = [self carryLabelOfAttributedStringWithLabelContentArray:@[@"满减",@"返现",@"显示折扣"] withContentString:@"测试标签文本"];
+}
 
+///带标签的富文本
+//参数 labelContentArray：标签内容数组  contentString：要插入标签的内容
+- (NSMutableAttributedString *)carryLabelOfAttributedStringWithLabelContentArray:(NSArray<NSString *> *)labelContentArray withContentString:(NSString *)contentString{
+    //初始化要加入标签的富文本
+    NSMutableAttributedString *contentAttributedString = [[NSMutableAttributedString alloc]initWithString:contentString];
+    //初始化用于存放转为图片对象的标签内容数组
+    NSMutableArray<UIImage *> *labelImages = [[NSMutableArray alloc] initWithCapacity:3];
+    //标签内容数组不为空
+    if(ARRAY_IS_NOT_EMPTY(labelContentArray)){
+        //标签的圆角
+        CGFloat const cornerRadius = 3.0;
+        //标签的字体
+        UIFont * const font = [UIFont systemFontOfSize:12.0];
+        //记录转为标签的图片
+        UIImage *labelImage;
+        //遍历标签内容数组
+        for (NSString *labelContentString in labelContentArray) {
+            //标签内容不为空
+            if(IS_NOT_EMPTY(labelContentString)){
+                //获取标签图片
+                labelImage = [UIImage imageWithText:labelContentString font:font fillColor:[UIColor redColor].CGColor cornerRadius:cornerRadius];
+                //如果标签图片不为空
+                if (labelImage) {
+                    //添加标签图片到标签图片数组
+                    [labelImages addObject:labelImage];
+                }
+            }
+        }
+    }else{
+        //返回要加入标签的富文本
+        return contentAttributedString;
+    }
+    //遍历标签图片数组
+    for (UIImage *image in labelImages.reverseObjectEnumerator.allObjects) {
+        //初始化文本与附件排版对象
+        NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+        //设置文本附件内容的图像
+        attachment.image = image;
+        //定义文本坐标系中接收器图形表示的布局界限
+        attachment.bounds = CGRectMake(0, -3.0, image.size.width, image.size.height);
+        //初始化空格富文本对象
+        NSAttributedString *spaceString = [[NSAttributedString alloc] initWithString:@" "];
+        //每次循环先插入一个空格
+        [contentAttributedString insertAttributedString:spaceString atIndex:0];
+        //文本与附件排版对象转为标签富文本
+        NSAttributedString *labelContentAttribute = [NSAttributedString attributedStringWithAttachment:attachment];
+        //插入标签富文本
+        [contentAttributedString insertAttributedString:labelContentAttribute atIndex:0];
+    }
+    //返回插入标签富文本后的内容
+    return contentAttributedString;
+}
 
 @end
 
