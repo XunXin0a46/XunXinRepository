@@ -13,6 +13,7 @@
 #import "TestCLLocationController.h"
 #import "SignInController.h"
 #import "YSUUtils.h"
+#import "UITabBar+Badge.h"
 
 @interface RootViewController ()<UITabBarControllerDelegate>
 
@@ -39,31 +40,46 @@
     self.tabBar.translucent = NO;
     //标签栏项的定位方式
     self.tabBar.itemPositioning = UITabBarItemPositioningFill;
-    //添加五个子控制器
+    //添加五个子控制器的数组
+    NSMutableArray *controllerArray = [[NSMutableArray alloc]initWithCapacity:5];
     //首页
     ViewController *indexViewController = [[ViewController alloc]init];
-    [self tabBarControll:self addControllerToNavigationController:indexViewController withWhetherNavigation:YES];
+    [controllerArray addObject:[self tabBarControll:self addControllerToNavigationController:indexViewController withWhetherNavigation:YES]];
     //表嵌集
     TableViewNestingCollectionViewController *tableViewNestingCollectionViewController = [[TableViewNestingCollectionViewController alloc]init];
-    [self tabBarControll:self addControllerToNavigationController:tableViewNestingCollectionViewController withWhetherNavigation:YES];
+    [controllerArray addObject:[self tabBarControll:self addControllerToNavigationController:tableViewNestingCollectionViewController withWhetherNavigation:YES]];
     //贝塞尔
     BezierPathController *bezierPathController = [[BezierPathController alloc]init];
-    [self tabBarControll:self addControllerToNavigationController:bezierPathController withWhetherNavigation:NO];
+    [controllerArray addObject:[self tabBarControll:self addControllerToNavigationController:bezierPathController withWhetherNavigation:NO]];
     //位置
     TestCLLocationController *locationController = [[TestCLLocationController alloc]init];
-    [self tabBarControll:self addControllerToNavigationController:locationController withWhetherNavigation:YES];
+    [controllerArray addObject:[self tabBarControll:self addControllerToNavigationController:locationController withWhetherNavigation:YES]];
     //签到
     SignInController *signInController = [[SignInController alloc]init];
-    [self tabBarControll:self addControllerToNavigationController:signInController withWhetherNavigation:YES];
+    [controllerArray addObject:[self tabBarControll:self addControllerToNavigationController:signInController withWhetherNavigation:YES]];
+    //设置标签栏界面显示的根视图控制器数组
+    self.viewControllers = controllerArray;
+    //导航栏签到项显示自定义角标
+    [self showSignInControllerCornerMarker];
+    
+}
+
+///导航栏签到项显示自定义角标
+- (void)showSignInControllerCornerMarker{
+    [self.viewControllers enumerateObjectsUsingBlock:^(__kindof UIViewController * _Nonnull controller, NSUInteger idx, BOOL * _Nonnull stop) {
+        if(controller.tabBarItem.tag == 5004){
+            [self.tabBar showBadgeViewAtIndex:controller.tabBarItem.tag - 5000];
+            [self.tabBar updateBadge:@"1" atIndex:controller.tabBarItem.tag - 5000];
+        }
+    }];
 }
 
 ///导航栏添加控制器
-- (void)tabBarControll:(UITabBarController *)tabBarController addControllerToNavigationController:(UIViewController *)controller withWhetherNavigation:(BOOL)whetherNavigation{
+- (UIViewController *)tabBarControll:(UITabBarController *)tabBarController addControllerToNavigationController:(UIViewController *)controller withWhetherNavigation:(BOOL)whetherNavigation{
     //判断是否是导航控制器
     if(whetherNavigation){
         //导航控制器
         UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:controller];
-        [tabBarController addChildViewController:navigationController];
         //设置导航栏上的按钮 -> 由对应子控制器的tabBarItem属性
         if([controller isMemberOfClass:[ViewController class]]){
             navigationController.tabBarItem.title = @"首页";
@@ -83,24 +99,25 @@
             navigationController.tabBarItem.title = @"位置";
             navigationController.tabBarItem.image = [UIImage imageNamed:@"tab_location_normal"];
             navigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"tab_location_selected"];
-            navigationController.tabBarItem.tag = 5002;
+            navigationController.tabBarItem.tag = 5003;
         }
         if([controller isMemberOfClass:[SignInController class]]){
             navigationController.tabBarItem.title = @"签到";
             navigationController.tabBarItem.image = [UIImage imageNamed:@"tab_user_normal"];
             navigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"tab_user_selected"];
-            navigationController.tabBarItem.tag = 5003;
+            navigationController.tabBarItem.tag = 5004;
         }
+        return navigationController;
     }else{
         //视图控制器
         if([controller isMemberOfClass:[BezierPathController class]]){
             controller.tabBarItem.title = @"贝塞尔";
             controller.tabBarItem.image = [UIImage imageNamed:@"tab_cart_normal"];
             controller.tabBarItem.selectedImage = [UIImage imageNamed:@"tab_cart_selected"];
-            controller.tabBarItem.tag = 5004;
+            controller.tabBarItem.tag = 5002;
         }
-        [tabBarController addChildViewController:controller];
     }
+    return controller;
 }
 
 #pragma mark -- UITabBarControllerDelegate
@@ -118,5 +135,15 @@
     }
 }
 
+#pragma mark -- UITabBarDelegate
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    //判断点击的是否是签到，如果是，隐藏自定义角标，如果不是，显示自定义角标
+    if (item.tag == 5004) {
+        [self.tabBar hideBadgeViewAtIndex:item.tag - 5000];
+    } else {
+        [self.tabBar showBadgeViewAtIndex:5004 - 5000];
+    }
+}
 
 @end

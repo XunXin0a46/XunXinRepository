@@ -83,6 +83,8 @@
 		29896F6224C92761000C1EC7 /* YBPopupMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 29896F6124C92761000C1EC7 /* YBPopupMenu.m */; };
 		29896F6624C92844000C1EC7 /* TestYBPopupMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29896F6524C92844000C1EC7 /* TestYBPopupMenuViewController.m */; };
 		298A717324EB5D7100DC757B /* UIImage+YSCTintColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 298A717224EB5D7100DC757B /* UIImage+YSCTintColor.m */; };
+		298B9EB125C6DB0E0015AF81 /* BadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 298B9EB025C6DB0E0015AF81 /* BadgeView.m */; };
+		298B9EB525C705ED0015AF81 /* UITabBar+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 298B9EB425C705ED0015AF81 /* UITabBar+Badge.m */; };
 		29987F51253359DC00231F28 /* UploadImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29987F50253359DC00231F28 /* UploadImageTableViewCell.m */; };
 		29987F5425335E2E00231F28 /* CommonAddImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29987F5325335E2E00231F28 /* CommonAddImageCollectionViewCell.m */; };
 		29987F5725335F8E00231F28 /* CommonAddedImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29987F5625335F8E00231F28 /* CommonAddedImageCollectionViewCell.m */; };
@@ -384,6 +386,10 @@
 		29896F6524C92844000C1EC7 /* TestYBPopupMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestYBPopupMenuViewController.m; sourceTree = "<group>"; };
 		298A717124EB5D7100DC757B /* UIImage+YSCTintColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+YSCTintColor.h"; sourceTree = "<group>"; };
 		298A717224EB5D7100DC757B /* UIImage+YSCTintColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YSCTintColor.m"; sourceTree = "<group>"; };
+		298B9EAF25C6DB0E0015AF81 /* BadgeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BadgeView.h; sourceTree = "<group>"; };
+		298B9EB025C6DB0E0015AF81 /* BadgeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BadgeView.m; sourceTree = "<group>"; };
+		298B9EB325C705ED0015AF81 /* UITabBar+Badge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITabBar+Badge.h"; sourceTree = "<group>"; };
+		298B9EB425C705ED0015AF81 /* UITabBar+Badge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+Badge.m"; sourceTree = "<group>"; };
 		29987F4F253359DC00231F28 /* UploadImageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadImageTableViewCell.h; sourceTree = "<group>"; };
 		29987F50253359DC00231F28 /* UploadImageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploadImageTableViewCell.m; sourceTree = "<group>"; };
 		29987F5225335E2E00231F28 /* CommonAddImageCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonAddImageCollectionViewCell.h; sourceTree = "<group>"; };
@@ -803,6 +809,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		2929498925C8ED2700794D71 /* BadgeView(标签栏自定义角标) */ = {
+			isa = PBXGroup;
+			children = (
+				298B9EAF25C6DB0E0015AF81 /* BadgeView.h */,
+				298B9EB025C6DB0E0015AF81 /* BadgeView.m */,
+			);
+			path = "BadgeView(标签栏自定义角标)";
+			sourceTree = "<group>";
+		};
 		292B04AE24EA161C00C8C82F /* TestButtonLinkage(按钮联动) */ = {
 			isa = PBXGroup;
 			children = (
@@ -987,13 +1002,13 @@
 			path = "DXRadianLayerView（圆弧视图）";
 			sourceTree = "<group>";
 		};
-		293E5BB9239FE2C200B49495 /* shadowView（带事件的阴影层视图） */ = {
+		293E5BB9239FE2C200B49495 /* ShadowView（带事件的阴影层视图） */ = {
 			isa = PBXGroup;
 			children = (
 				29086D7A23747A1100438A89 /* shadowView.h */,
 				29086D7B23747A1100438A89 /* shadowView.m */,
 			);
-			path = "shadowView（带事件的阴影层视图）";
+			path = "ShadowView（带事件的阴影层视图）";
 			sourceTree = "<group>";
 		};
 		293E5BBA239FE52400B49495 /* UIPlaceHolderTextView（带提示的UITextView） */ = {
@@ -1091,6 +1106,7 @@
 		295C914D239AA80400BFAB57 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				298B9EB225C705990015AF81 /* Category(UITabBar) */,
 				29D8D86624EE00D6005932CE /* Category(UIView) */,
 				298A717024EB5CC700DC757B /* Category(UIColor) */,
 				2967584B249268F3000DE253 /* Category(addEvent) */,
@@ -1259,6 +1275,23 @@
 			path = "Category(UIColor)";
 			sourceTree = "<group>";
 		};
+		298B9EAE25C6DAE80015AF81 /* Root(根视图控制器视图) */ = {
+			isa = PBXGroup;
+			children = (
+				2929498925C8ED2700794D71 /* BadgeView(标签栏自定义角标) */,
+			);
+			path = "Root(根视图控制器视图)";
+			sourceTree = "<group>";
+		};
+		298B9EB225C705990015AF81 /* Category(UITabBar) */ = {
+			isa = PBXGroup;
+			children = (
+				298B9EB325C705ED0015AF81 /* UITabBar+Badge.h */,
+				298B9EB425C705ED0015AF81 /* UITabBar+Badge.m */,
+			);
+			path = "Category(UITabBar)";
+			sourceTree = "<group>";
+		};
 		29987F4E2533598500231F28 /* UploadImage(上传图片) */ = {
 			isa = PBXGroup;
 			children = (
@@ -1293,13 +1326,13 @@
 			path = "TestTableViewDetelateCell(表视图删除cell)";
 			sourceTree = "<group>";
 		};
-		29A85E5125774418008590D7 /* commonView(通用视图样式) */ = {
+		29A85E5125774418008590D7 /* CommonView(通用视图样式) */ = {
 			isa = PBXGroup;
 			children = (
 				29A85E52257760C3008590D7 /* BarProgressView(条形进度图) */,
 				29CBD9E625902EE70022677D /* PromptStyleOneView(提示样式一) */,
 			);
-			path = "commonView(通用视图样式)";
+			path = "CommonView(通用视图样式)";
 			sourceTree = "<group>";
 		};
 		29A85E52257760C3008590D7 /* BarProgressView(条形进度图) */ = {
@@ -1599,7 +1632,8 @@
 		29C6042F232A808400B48958 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				29A85E5125774418008590D7 /* commonView(通用视图样式) */,
+				298B9EAE25C6DAE80015AF81 /* Root(根视图控制器视图) */,
+				29A85E5125774418008590D7 /* CommonView(通用视图样式) */,
 				29F35583253F1B3C00CD25B2 /* AlertBaseView(Alert提示) */,
 				291354D624ECCF4E006AAA36 /* ShadowSearchView(阴影控制器的搜索视图) */,
 				29BBD49424DD252F0091CF97 /* TestCollectionView(测试集合视图) */,
@@ -1607,7 +1641,7 @@
 				293E5BB6239FE20E00B49495 /* SignInView（签到视图） */,
 				293E5BB7239FE22700B49495 /* ToastView（吐司提示） */,
 				293E5BB8239FE27800B49495 /* DXRadianLayerView（圆弧视图） */,
-				293E5BB9239FE2C200B49495 /* shadowView（带事件的阴影层视图） */,
+				293E5BB9239FE2C200B49495 /* ShadowView（带事件的阴影层视图） */,
 				293E5BBA239FE52400B49495 /* UIPlaceHolderTextView（带提示的UITextView） */,
 				29A5583F23A3751600B70042 /* TestTableViewDetelateCell(表视图删除cell) */,
 				29A945F023D35065000EA5C6 /* BezierPathView(贝塞尔测试视图) */,
@@ -2062,6 +2096,7 @@
 				2912F4202398041A00770A42 /* TestTableViewController.m in Sources */,
 				29C60466232A8EA000B48958 /* YYWebImageManager.m in Sources */,
 				29260098250A675F002AEFE2 /* TestKVCModel.m in Sources */,
+				298B9EB125C6DB0E0015AF81 /* BadgeView.m in Sources */,
 				297786DD242CE62900BA0D10 /* CLLocation+YCLocation.m in Sources */,
 				29F64FDC245C74B100F51FD8 /* TextUIScrollViewController.m in Sources */,
 				29F35586253F1B6700CD25B2 /* AlertBaseView.m in Sources */,
@@ -2201,6 +2236,7 @@
 				29CF670923C777ED004D2CE0 /* YSURequestError.m in Sources */,
 				292B04B124EA16C300C8C82F /* ButtonLinkageView.m in Sources */,
 				29E620BE23C9AF400041E6C4 /* NSObject+Swizzling.m in Sources */,
+				298B9EB525C705ED0015AF81 /* UITabBar+Badge.m in Sources */,
 				296758512492693D000DE253 /* UIView+Action.m in Sources */,
 				29E620C123C9B2140041E6C4 /* UIViewController+YSCUsualTitle.m in Sources */,
 				29C60464232A8EA000B48958 /* YYKVStorage.m in Sources */,

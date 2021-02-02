@@ -24,26 +24,29 @@
 
 ///获取当前视图所在控制器的代码片段
 - (UIViewController *)getCurrentVC{
-    
+    //获取窗口的根视图控制器
     UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
     UIViewController *currentVC = [self getCurrentVCFrom:rootViewController];
     return currentVC;
 }
 
+///获取当前视图所在控制器的具体实现（递归）
 - (UIViewController *)getCurrentVCFrom:(UIViewController *)rootVC{
     
     UIViewController *currentVC;
+    //获取根视图控制器现实的视图控制器
     if ([rootVC presentedViewController]) {
       
         rootVC = [rootVC presentedViewController];
     }
     
+    //判断视图控制器类型
     if ([rootVC isKindOfClass:[UITabBarController class]]) {
-
+        //标签栏视图控制器，获取当前选中的视图控制器
         currentVC = [self getCurrentVCFrom:[(UITabBarController *)rootVC selectedViewController]];
         
     } else if ([rootVC isKindOfClass:[UINavigationController class]]){
-     
+        //导航栏控制器，获取导航界面中当前可见视图关联的视图控制器
         currentVC = [self getCurrentVCFrom:[(UINavigationController *)rootVC visibleViewController]];
         
     } else {
