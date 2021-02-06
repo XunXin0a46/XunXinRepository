@@ -19,11 +19,11 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
+    //设置导航栏标题视图
     [self createNavigationTitleView:@"WKWebView"];
-    
+    //设置导航栏通用的返回按钮
     [self setUpCommonHeader];
-    
+    //设置导航栏右侧按钮
     [self setrightBarButton];
     
     if(IS_NOT_EMPTY([[self getIntent]objectForKey:BaseWebViewControlleURL])){
@@ -155,6 +155,7 @@
     [self.navigationController pushViewController:loadHtmlControlle animated:YES];
 }
 
+///返回上一级页面或关闭视图控制器
 - (void)goBack {
     //如果可以返回
     if([self.webView canGoBack]) {
@@ -162,6 +163,7 @@
         [self.webView goBack];
 
     }else{
+        //弹出当前视图控制器
         [self.navigationController popViewControllerAnimated:YES];
     }
 }

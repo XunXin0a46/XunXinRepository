@@ -27,6 +27,8 @@
 		29223AD6255FBCBE00DA1941 /* OYCountDownManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29223AD4255FBCBE00DA1941 /* OYCountDownManager.m */; };
 		29223ADA255FCA7A00DA1941 /* TestCountDownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29223AD9255FCA7A00DA1941 /* TestCountDownViewController.m */; };
 		29260098250A675F002AEFE2 /* TestKVCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 29260097250A675F002AEFE2 /* TestKVCModel.m */; };
+		2929498B25C99A3300794D71 /* TestInteractive.html in Resources */ = {isa = PBXBuildFile; fileRef = 2929498A25C99A3300794D71 /* TestInteractive.html */; };
+		2929498E25C9A04800794D71 /* TestWebViewAndJSInteractiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2929498D25C9A04800794D71 /* TestWebViewAndJSInteractiveController.m */; };
 		29295360233A4CA80029D9EA /* wall-e@2x.webp in Resources */ = {isa = PBXBuildFile; fileRef = 2929535F233A4CA80029D9EA /* wall-e@2x.webp */; };
 		29295362233A4E190029D9EA /* 喷火龙.gif in Resources */ = {isa = PBXBuildFile; fileRef = 29295361233A4E180029D9EA /* 喷火龙.gif */; };
 		29295364233A4F410029D9EA /* FireDragon.gif in Resources */ = {isa = PBXBuildFile; fileRef = 29295363233A4F410029D9EA /* FireDragon.gif */; };
@@ -291,6 +293,9 @@
 		29223AD9255FCA7A00DA1941 /* TestCountDownViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestCountDownViewController.m; sourceTree = "<group>"; };
 		29260096250A675F002AEFE2 /* TestKVCModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestKVCModel.h; sourceTree = "<group>"; };
 		29260097250A675F002AEFE2 /* TestKVCModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestKVCModel.m; sourceTree = "<group>"; };
+		2929498A25C99A3300794D71 /* TestInteractive.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = TestInteractive.html; sourceTree = "<group>"; };
+		2929498C25C9A04800794D71 /* TestWebViewAndJSInteractiveController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestWebViewAndJSInteractiveController.h; sourceTree = "<group>"; };
+		2929498D25C9A04800794D71 /* TestWebViewAndJSInteractiveController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestWebViewAndJSInteractiveController.m; sourceTree = "<group>"; };
 		2929535F233A4CA80029D9EA /* wall-e@2x.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "wall-e@2x.webp"; sourceTree = "<group>"; };
 		29295361233A4E180029D9EA /* 喷火龙.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "喷火龙.gif"; sourceTree = "<group>"; };
 		29295363233A4F410029D9EA /* FireDragon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = FireDragon.gif; sourceTree = "<group>"; };
@@ -908,6 +913,8 @@
 				29BCD5FE2305B49D00B9A584 /* BaseWebViewControlle.m */,
 				2943338C24FBF67A00EBB0C4 /* LoadHtmlWebViewControlle.h */,
 				2943338D24FBF67A00EBB0C4 /* LoadHtmlWebViewControlle.m */,
+				2929498C25C9A04800794D71 /* TestWebViewAndJSInteractiveController.h */,
+				2929498D25C9A04800794D71 /* TestWebViewAndJSInteractiveController.m */,
 			);
 			path = "BaseWebViewControlle(WKWebView)";
 			sourceTree = "<group>";
@@ -1453,6 +1460,7 @@
 			isa = PBXGroup;
 			children = (
 				29B1AA9C24FC8CD5007F8A5E /* GoodsDesc.html */,
+				2929498A25C99A3300794D71 /* TestInteractive.html */,
 			);
 			path = Html;
 			sourceTree = "<group>";
@@ -2064,6 +2072,7 @@
 				29BD0D8223376CC800E2E33F /* mew_interlaced.gif in Resources */,
 				29BD0D8123376CC800E2E33F /* mew_baseline.jpg in Resources */,
 				29AF63F222D3686F0048A036 /* Main.storyboard in Resources */,
+				2929498B25C99A3300794D71 /* TestInteractive.html in Resources */,
 				29B1AAC624FCCF4B007F8A5E /* FSActionSheet_cancel@3x.png in Resources */,
 				29295368233A52100029D9EA /* EmoticonWeibo.bundle in Resources */,
 			);
@@ -2251,6 +2260,7 @@
 				2953669B2369DE9700BF8415 /* SignInController.m in Sources */,
 				29C6046B232A8EA000B48958 /* YYAnimatedImageView.m in Sources */,
 				29BBD49E24DD296E0091CF97 /* TestUtils.m in Sources */,
+				2929498E25C9A04800794D71 /* TestWebViewAndJSInteractiveController.m in Sources */,
 				29D8D86924EE016B005932CE /* UIView+UIViewRoundCorners.m in Sources */,
 				29834FF6252FFA1600CE8569 /* YSCValidator.m in Sources */,
 			);

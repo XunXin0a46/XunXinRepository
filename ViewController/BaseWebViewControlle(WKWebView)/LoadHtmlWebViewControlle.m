@@ -8,7 +8,9 @@
 
 #import "LoadHtmlWebViewControlle.h"
 #import "XLPhotoBrowser.h"
+#import "TestWebViewAndJSInteractiveController.h"
 
+//图片点击事件的js代码文本
 static NSString *const JSGetImges = @"function addImgClickEvent() {\
 var imgs = document.getElementsByTagName('img');\
 var imgUrlStr='';\
@@ -36,11 +38,11 @@ return imgUrlStr;\
 
 @interface LoadHtmlWebViewControlle ()<UIScrollViewDelegate,WKUIDelegate, WKNavigationDelegate,XLPhotoBrowserDatasource>
 
-@property (nonatomic, copy) NSString *htmlString;
-@property (nonatomic, copy) NSString *htmls;
-@property (nonatomic, strong) WKWebView *webView;
-@property (nonatomic, strong) NSArray *imagesArray;
-@property (nonatomic, assign) BOOL starLoadFlag;
+@property (nonatomic, copy) NSString *htmlString;//图片相关的Html文本
+@property (nonatomic, copy) NSString *htmls;//生成的需要加载的Html文本
+@property (nonatomic, strong) WKWebView *webView;//webView
+@property (nonatomic, strong) NSArray *imagesArray;//存放图片的数组
+@property (nonatomic, assign) BOOL starLoadFlag;//页面是否开始加载
 
 @end
 
@@ -49,10 +51,15 @@ return imgUrlStr;\
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"加载Html";
+    //创建Html文本
     [self createHtmlStr];
+    //创建视图
     [self createUI];
+    //设置导航栏右侧按钮
+    [self setRightBarButton];
 }
 
+///创建Html文本
 - (void)createHtmlStr{
     
     NSString *html = [NSString stringWithFormat:@"<div align=\"center\"> \n"
@@ -70,8 +77,9 @@ return imgUrlStr;\
     "<img src=\"https://oss.azmbk.com/images/shop/6/images/2019/12/23/15770649623568.jpg\" width=\"750\" height=\"875\" alt="" /> \n"
     "</div>"];
     
+    //根据GoodsDesc.html文件配置图片相关的Html文本
     self.htmlString = [TestUtils configResource:@"GoodsDesc.html" DescUrlString:html];
-    
+    //生成需要加载的Html文本
     self.htmls = [NSString stringWithFormat:@"<html> \n"
     "<head> \n"
     "<style type=\"text/css\"> \n"
@@ -92,23 +100,48 @@ return imgUrlStr;\
     "</html>",self.htmlString];
 }
 
+///创建视图
 - (void)createUI{
+    //初始化WKWebView
     self.webView = [[WKWebView alloc]init];
+    //设置WKWebView滚动视图代理
     self.webView.scrollView.delegate = self;
+    //设置WKWebView用户界面委托代理
     self.webView.UIDelegate = self;
+    //设置WKWebView导航代理
     self.webView.navigationDelegate = self;
+    //设置WKWebView背景色
     self.webView.backgroundColor = HEXCOLOR(0xEEF2F3);
+    //添加WKWebView
     [self.view addSubview:self.webView];
     [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
-    
+    //判断图片相关的Html文本是否包含"http://"或者"https://"
     if ([self.htmlString containsString:@"http://"] || [self.htmlString containsString:@"https://"]) {
+        //设置网页内容和基本URL并开始导航
         [self.webView loadHTMLString:self.htmls baseURL:nil];
     } else {
+        //将所有的"//"替换为"https://"
         NSString *replacedString = [self.htmls stringByReplacingOccurrencesOfString:@"//" withString:@"https://"];
+        //设置网页内容和基本URL并开始导航
         [self.webView loadHTMLString:replacedString baseURL:nil];
     }
+}
+
+///设置导航栏右侧按钮
+- (void)setRightBarButton{
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"iOS与JS交互" style:UIBarButtonItemStylePlain target:self action:@selector(openTestWebViewAndJSInteractiveController)];
+    [item setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:15], NSForegroundColorAttributeName: HEXCOLOR(0x666666)} forState:UIControlStateNormal];
+    [item setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:15], NSForegroundColorAttributeName: HEXCOLOR(0x666666)} forState:UIControlStateHighlighted];
+    self.navigationItem.rightBarButtonItem = item;
+}
+
+///前往web视图与js交互视图控制器
+- (void)openTestWebViewAndJSInteractiveController{
+    TestWebViewAndJSInteractiveController *webViewAndJSInteractive = [[TestWebViewAndJSInteractiveController alloc]init];
+    webViewAndJSInteractive.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:webViewAndJSInteractive animated:YES];
 }
 
 ///显示大图
