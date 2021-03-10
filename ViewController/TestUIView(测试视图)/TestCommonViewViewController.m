@@ -62,6 +62,9 @@
     promptStyleOne.operationButtonTitle = @"按钮";
     [promptStyleOne setTitle:@"标题" WithTitleFont:[UIFont systemFontOfSize:15] WithMessage:@"副标题" WithMessageFont:[UIFont systemFontOfSize:13]];
     [self.scrollView addSubview:promptStyleOne];
+    promptStyleOne.operationButtonClickBlock = ^{
+        [self.view makeToast:@"点我干什么"];
+    };
 }
 
 ///通用进度视图

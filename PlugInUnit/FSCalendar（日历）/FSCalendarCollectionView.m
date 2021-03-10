@@ -18,6 +18,7 @@
 
 @end
 
+///日历集合视图(继承自UICollectionView)
 @implementation FSCalendarCollectionView
 
 @synthesize scrollsToTop = _scrollsToTop, contentInset = _contentInset;
@@ -42,18 +43,24 @@
 
 - (void)initialize
 {
+    //关闭“滚动到顶部”手势
     self.scrollsToTop = NO;
+    //设置内容内间距为0
     self.contentInset = UIEdgeInsetsZero;
     
 #ifdef __IPHONE_9_0
     if ([self respondsToSelector:@selector(setSemanticContentAttribute:)]) {
+        //内容布局始终使用从左到右布局显示的视图
         self.semanticContentAttribute = UISemanticContentAttributeForceLeftToRight;
     }
 #endif
     
 #ifdef __IPHONE_10_0
+    //获取setPrefetchingEnabled:函数编号
     SEL selector = NSSelectorFromString(@"setPrefetchingEnabled:");
+    //如果函数编号不为空并且响应了函数
     if (selector && [self respondsToSelector:selector]) {
+        //将指定的函数消息发送到接收器并返回消息的结果
         [self fs_performSelector:selector withObjects:@NO, nil];
     }
 #endif
@@ -74,7 +81,7 @@
 
 @end
 
-
+///日历分隔符
 @implementation FSCalendarSeparator
 
 - (instancetype)initWithFrame:(CGRect)frame

@@ -309,17 +309,25 @@ IVAR_IMP(UnsignedInteger,unsignedInteger,NSUInteger)
     return variable;
 }
 
+///将指定的函数消息发送到接收器并返回消息的结果
 - (id)fs_performSelector:(SEL)selector withObjects:(nullable id)firstObject, ...
 {
+    //如果没有获取到函数编号，返回nil
     if (!selector) return nil;
+    //获取NSMethodSignature(方法签名)对象，记录方法的返回值和参数的类型信息
     NSMethodSignature *signature = [self methodSignatureForSelector:selector];
+    //如果没有获取到方法签名对象，返回nil
     if (!signature) return nil;
+    //创建能够使用给定方法签名构造消息的NSInvocation对象
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
+    //如果没有获取到NSInvocation(调用)对象，返回nil
     if (!invocation) return nil;
+    //设置由invoke发送的消息的接收者
     invocation.target = self;
+    //设置由invoke发送的消息
     invocation.selector = selector;
     
-    // Parameters
+    // Parameters 为invoke设置参数
     if (firstObject) {
         int index = 2;
         va_list args;
@@ -382,7 +390,8 @@ if (!strcmp(argType, @encode(_type))) { \
         [invocation retainArguments];
     }
     
-    // Execute
+    // Execute 执行
+    //将接收器的消息（带参数）发送到其目标并设置返回值
     [invocation invoke];
     
     // Return

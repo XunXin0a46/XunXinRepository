@@ -130,6 +130,7 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
 
 #pragma mark - Life Cycle && Initialize 生命周期&&初始化
 
+///初始化
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -140,6 +141,7 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
     return self;
 }
 
+///初始化
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];

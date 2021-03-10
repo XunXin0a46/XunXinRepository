@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+///日历集合视图
 @interface FSCalendarCollectionView : UICollectionView
 
 @end
 
-
+///日历分隔符
 @interface FSCalendarSeparator : UICollectionReusableView
 
 @end

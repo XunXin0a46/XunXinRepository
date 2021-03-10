@@ -7,6 +7,7 @@
 //
 
 #import "TestViewController.h"
+#import "TestViewTransitionController.h"
 
 @interface TestViewController ()
 
@@ -17,6 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    self.title = @"视图控制器";
+    //设置导航栏右侧导航项
+    [self setRightNavigationItem];
 }
 
 
@@ -70,6 +74,23 @@
     }
     //返回根视图控制器
     [currentVC.navigationController popToRootViewControllerAnimated:NO];
+}
+
+///设置导航栏右侧导航项
+- (void)setRightNavigationItem{
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"模态动画" style:UIBarButtonItemStylePlain target:self action:@selector(goTestViewTransitionController)];
+    [rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:15],NSForegroundColorAttributeName: HEXCOLOR(0x666666)} forState:UIControlStateNormal];
+    [rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:15], NSForegroundColorAttributeName: HEXCOLOR(0x666666)} forState:UIControlStateHighlighted];
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+}
+
+///水平三维翻转显示的控制器
+- (void)goTestViewTransitionController{
+    TestViewTransitionController *testViewTransition = [[TestViewTransitionController alloc]init];
+    testViewTransition.modalPresentationStyle = UIModalPresentationFullScreen;
+    testViewTransition.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:testViewTransition animated:YES completion:nil];
+
 }
 
 ///-------------------------------- UIViewController代码测试区结束 -------------------------------------

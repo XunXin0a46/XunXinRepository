@@ -8,12 +8,14 @@
 
 #import "TestUIViewViewController.h"
 #import "TestCommonViewViewController.h"
+#import "ShoppingCartIconView.h"
+#import "AnimationManager.h"
 
 ///测试hitTest:(CGPoint)point withEvent:(UIEvent *)event函数的自定义视图
 
 @interface testView : UIView
 
-@property (nonatomic, strong)UIButton *testCodeButton;
+@property (nonatomic, strong)UIButton *testCodeButton;//测试代码按钮
 
 @end
 
@@ -60,10 +62,13 @@
 
 @interface TestUIViewViewController ()
 
-@property (nonatomic, strong) UIView *view1;
-@property (nonatomic, strong) UIView *view2;
-@property (nonatomic, strong) UIView *view3;
-@property (nonatomic, strong) testView *tview;
+@property (nonatomic, strong) UIView *redView;//红色视图
+@property (nonatomic, strong) UIView *greenView;//绿色视图
+@property (nonatomic, strong) UIView *yellowView;//黄色视图
+@property (nonatomic, strong) testView *tview;//点击范围视图
+@property (nonatomic, strong) ShoppingCartIconView *cartView;//购物车图标视图
+@property (nonatomic, strong) UIButton *plusButton;//加入购物车按钮
+@property (nonatomic, strong) UILabel *numLabel;//购物车角标增加Label
 
 @end
 
@@ -72,9 +77,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    //设置导航栏标题视图
     [self createNavigationTitleView:@"测试视图"];
+    //设置导航栏右侧按钮
     [self setrightBarButton];
+    //创建测试视图
     [self createUI];
+    //测试动画代码块
+    [self testAnimationBlock];
+    //创建购物车图标视图
+    [self createCartView];
 }
 
 ///设置导航栏右侧按钮
@@ -85,6 +97,7 @@
     self.navigationItem.rightBarButtonItem = item;
 }
 
+///前往视图通用样式控制器
 - (void)openCommonView{
     TestCommonViewViewController *commonViewViewController = [[TestCommonViewViewController alloc]init];
     [self.navigationController pushViewController:commonViewViewController animated:YES];
@@ -92,10 +105,11 @@
 
 ///---------------------------------------- UIView代码测试区 -------------------------------------
 
+///创建测试视图
 - (void)createUI{
     
     //创建按钮
-    NSArray *buttonTilteAry = @[@"移至顶部",@"插入视图",@"层级交换"];
+    NSArray *buttonTilteAry = @[@"红色至顶",@"绿下插黄",@"红绿交换"];
     NSMutableArray *buttonAry = [[NSMutableArray alloc]initWithCapacity:buttonTilteAry.count];
     //遍历按钮标题数组
     for (int i = 0; i < buttonTilteAry.count; i++) {
@@ -129,20 +143,23 @@
     }
     
     //创建视图
-    self.view1 = [[UIView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.view.frame) / 2 - 150 / 2, CGRectGetMaxY(self.view.frame) / 2 - 150 / 2, 150, 150)];
-    self.view1.backgroundColor = [UIColor redColor];
-    [self.view addSubview:self.view1];
+    //红色视图
+    self.redView = [[UIView alloc]initWithFrame:CGRectMake(20, 150, 150, 150)];
+    self.redView.backgroundColor = [UIColor redColor];
+    [self.view addSubview:self.redView];
     
-    self.view2 = [[UIView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.view.frame) / 2 - 150 / 2, CGRectGetMinY(self.view1.frame) + 30, 150, 150)];
-    self.view2.backgroundColor = [UIColor greenColor];
-    [self.view addSubview:self.view2];
+    //绿色视图
+    self.greenView = [[UIView alloc]initWithFrame:CGRectMake(20, CGRectGetMinY(self.redView.frame) + 30, 150, 150)];
+    self.greenView.backgroundColor = [UIColor greenColor];
+    [self.view addSubview:self.greenView];
     
-    self.view3 = [[UIView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.view.frame) / 2 - 150 / 2, CGRectGetMinY(self.view1.frame) + 15, 150, 150)];
-    self.view3.backgroundColor = [UIColor yellowColor];
-    [self.view addSubview:self.view3];
+    //黄色视图
+    self.yellowView = [[UIView alloc]initWithFrame:CGRectMake(20, CGRectGetMinY(self.redView.frame) + 15, 150, 150)];
+    self.yellowView.backgroundColor = [UIColor yellowColor];
+    [self.view addSubview:self.yellowView];
     
     //点击范围视图
-    self.tview = [[testView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.view.frame) / 2 - 150 / 2, CGRectGetMaxY(self.view.frame) - 150  - 75, 150, 150)];
+    self.tview = [[testView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.view.frame) - 150 - 20, CGRectGetMinY(self.redView.frame) + 35, 150, 150)];
     self.tview.backgroundColor = [UIColor redColor];
     [self.tview.testCodeButton addTarget:self action:@selector(testCode) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.tview];
@@ -178,12 +195,12 @@
 
 ///按钮的点击事件
 - (void)buttonClick:(UIButton *)button{
-    if([button.titleLabel.text isEqualToString:@"移至顶部"]){
-        [self testBringSubviewToFront:self.view1];
-    }else if([button.titleLabel.text isEqualToString:@"插入视图"]){
-        [self testInsertSubview:self.view3 belowSubview:self.view2];
-    }else if([button.titleLabel.text isEqualToString:@"层级交换"]){
-        [self testexchangeSubviewAtIndex:self.view1 andView:self.view2];
+    if([button.titleLabel.text isEqualToString:@"红色至顶"]){
+        [self testBringSubviewToFront:self.redView];
+    }else if([button.titleLabel.text isEqualToString:@"绿下插黄"]){
+        [self testInsertSubview:self.yellowView belowSubview:self.greenView];
+    }else if([button.titleLabel.text isEqualToString:@"红绿交换"]){
+        [self testexchangeSubviewAtIndex:self.redView andView:self.greenView];
     }
 }
 
@@ -195,6 +212,95 @@
     }];
     [alertController addAction:yesAction];
     [self presentViewController:alertController animated:true completion:nil];
+}
+
+///测试动画代码块
+- (void)testAnimationBlock{
+    //创建测试动画的标签
+    UILabel *animationLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(self.view.frame) / 2, 200, 20)];
+    animationLabel.textColor = [UIColor whiteColor];
+    animationLabel.backgroundColor = [UIColor blueColor];
+    animationLabel.text = @"我出现后就准备跑路了";
+    animationLabel.textAlignment = NSTextAlignmentCenter;
+    animationLabel.layer.cornerRadius = 8.0;
+    animationLabel.layer.masksToBounds = YES;
+    animationLabel.alpha = 0.0;
+    [self.view addSubview:animationLabel];
+    
+    [UIView animateWithDuration:3.0 delay:3.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        animationLabel.alpha = 1.0;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:2.0 animations:^{
+            CGRect newAnimationLabelFrame = animationLabel.frame;
+            newAnimationLabelFrame.origin.x = CGRectGetMaxX(self.view.frame) - 200 - 20;
+            animationLabel.frame = newAnimationLabelFrame;
+        } completion:^(BOOL finished) {
+            animationLabel.text = @"我就跑路到这里吧";
+        }];
+    }];
+}
+
+///创建购物车图标视图
+- (void)createCartView{
+    
+    //加入购物车按钮
+    self.plusButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.plusButton setImage:[UIImage imageNamed:@"btn_plus_normal"] forState:UIControlStateNormal];
+    [self.plusButton setImage:[UIImage imageNamed:@"btn_plus_disabled"]
+                     forState:UIControlStateSelected];
+    self.plusButton.contentEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
+    [self.plusButton addTarget:self action:@selector(plusButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.plusButton];
+    [self.plusButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.view.mas_centerY).offset(100);
+        make.right.equalTo(self.view.mas_right).offset(-20);
+        make.width.mas_equalTo(44.0);
+        make.height.mas_equalTo(44.0);
+    }];
+    
+    //购物车图标视图
+    self.cartView = [[ShoppingCartIconView alloc] init];
+    [self.view addSubview:self.cartView];
+    [self.cartView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.view.mas_right).offset(-10);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-10 * 3.0 - 30);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+    
+    //购物车角标增加Label
+    self.numLabel = [[UILabel alloc] init];
+    self.numLabel.backgroundColor = [UIColor clearColor];
+    self.numLabel.textColor = [UIColor redColor];
+    self.numLabel.text = @"+1";
+    self.numLabel.alpha = 0;
+    self.numLabel.font = [UIFont systemFontOfSize:10];
+    [self.view addSubview:self.numLabel];
+    [self.numLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.cartView.mas_right).offset(-7);
+        make.bottom.equalTo(self.cartView.mas_top).offset(10);
+        make.width.mas_equalTo(18);
+        make.height.mas_equalTo(18);
+    }];
+}
+
+///加入购物车按钮点击事件
+- (void)plusButtonClick{
+    //购物车图标视图角标数量
+    [self.cartView setCartNumber:[NSString stringWithFormat:@"%ld",self.cartView.cartCount + 1]];
+    //抛物线动画起始位置
+    CGRect originRect = [self.view convertRect:self.plusButton.frame toView:self.view];
+    //抛物线动画终止位置
+    CGRect destinationRect = [self.view convertRect:self.cartView.frame toView:self.view];
+    //抛物线动画
+    [[AnimationManager sharedManager] throwView:self.plusButton.imageView fromRect:originRect toRect:destinationRect];
+    //角标数量增加动画
+    self.numLabel.text = @"+1";
+    self.numLabel.alpha = 1;
+    //平移与缩放动画组
+    NSArray *animations = @[[[AnimationManager sharedManager] rotationAnimationFromValue:CGPointMake(self.numLabel.frame.origin.x + 5, self.numLabel.frame.origin.y + 10) toValue:CGPointMake(self.numLabel.frame.origin.x+20, self.numLabel.frame.origin.y - 20)],[[AnimationManager sharedManager] scaleAnimationFromValue:1.0 toValue:2.0]];
+    //购物车角标数量增加动画
+    [[AnimationManager sharedManager] implementGroupAnimation:self.numLabel withAnimations:animations];
 }
 
 ///---------------------------------------- UIView代码测试区结束 ---------------------------------

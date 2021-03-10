@@ -17,6 +17,8 @@
 		29068F2F251B856100F20F45 /* TestReplicatorLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29068F2E251B856100F20F45 /* TestReplicatorLayerViewController.m */; };
 		29086D79237467F900438A89 /* ShadowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29086D78237467F900438A89 /* ShadowViewController.m */; };
 		29086D7C23747A1100438A89 /* shadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 29086D7B23747A1100438A89 /* shadowView.m */; };
+		2909676625E7304D005BFEAD /* ShoppingCartIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2909676525E7304D005BFEAD /* ShoppingCartIconView.m */; };
+		2909676925E7406F005BFEAD /* AnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2909676825E7406F005BFEAD /* AnimationManager.m */; };
 		290DFDD523A1CC7B009B2BED /* TestTableViewDetelateCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = 290DFDD423A1CC7B009B2BED /* TestTableViewDetelateCellController.m */; };
 		2912F4202398041A00770A42 /* TestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2912F41F2398041A00770A42 /* TestTableViewController.m */; };
 		2912F424239804B300770A42 /* LMJDropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 2912F422239804B200770A42 /* LMJDropdownMenu.m */; };
@@ -98,6 +100,8 @@
 		29A5584223A3757B00B70042 /* MessageListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A5584123A3757B00B70042 /* MessageListItemCell.m */; };
 		29A5584523A37CDE00B70042 /* MessageItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A5584423A37CDE00B70042 /* MessageItemModel.m */; };
 		29A5584B23A4AE4300B70042 /* MessageListItemEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A5584A23A4AE4300B70042 /* MessageListItemEditCell.m */; };
+		29A686B725E0E86900B59BCE /* TestViewTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A686B625E0E86900B59BCE /* TestViewTransitionController.m */; };
+		29A686BB25E0FD5A00B59BCE /* CustomNavigationBarViewS1.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A686BA25E0FD5A00B59BCE /* CustomNavigationBarViewS1.m */; };
 		29A85E5025774119008590D7 /* TestCommonViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A85E4F25774119008590D7 /* TestCommonViewViewController.m */; };
 		29A85E5525776142008590D7 /* BarProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A85E5425776142008590D7 /* BarProgressView.m */; };
 		29A945EF23D34FB1000EA5C6 /* BezierPathController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A945EE23D34FB1000EA5C6 /* BezierPathController.m */; };
@@ -272,6 +276,10 @@
 		29086D78237467F900438A89 /* ShadowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShadowViewController.m; sourceTree = "<group>"; };
 		29086D7A23747A1100438A89 /* shadowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shadowView.h; sourceTree = "<group>"; };
 		29086D7B23747A1100438A89 /* shadowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = shadowView.m; sourceTree = "<group>"; };
+		2909676425E7304D005BFEAD /* ShoppingCartIconView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShoppingCartIconView.h; sourceTree = "<group>"; };
+		2909676525E7304D005BFEAD /* ShoppingCartIconView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartIconView.m; sourceTree = "<group>"; };
+		2909676725E7406F005BFEAD /* AnimationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationManager.h; sourceTree = "<group>"; };
+		2909676825E7406F005BFEAD /* AnimationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationManager.m; sourceTree = "<group>"; };
 		290DFDD323A1CC7B009B2BED /* TestTableViewDetelateCellController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestTableViewDetelateCellController.h; sourceTree = "<group>"; };
 		290DFDD423A1CC7B009B2BED /* TestTableViewDetelateCellController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestTableViewDetelateCellController.m; sourceTree = "<group>"; };
 		2912F41E2398041A00770A42 /* TestTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestTableViewController.h; sourceTree = "<group>"; };
@@ -417,6 +425,10 @@
 		29A5584423A37CDE00B70042 /* MessageItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageItemModel.m; sourceTree = "<group>"; };
 		29A5584923A4AE4300B70042 /* MessageListItemEditCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageListItemEditCell.h; sourceTree = "<group>"; };
 		29A5584A23A4AE4300B70042 /* MessageListItemEditCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageListItemEditCell.m; sourceTree = "<group>"; };
+		29A686B525E0E86900B59BCE /* TestViewTransitionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewTransitionController.h; sourceTree = "<group>"; };
+		29A686B625E0E86900B59BCE /* TestViewTransitionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewTransitionController.m; sourceTree = "<group>"; };
+		29A686B925E0FD5A00B59BCE /* CustomNavigationBarViewS1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomNavigationBarViewS1.h; sourceTree = "<group>"; };
+		29A686BA25E0FD5A00B59BCE /* CustomNavigationBarViewS1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomNavigationBarViewS1.m; sourceTree = "<group>"; };
 		29A85E4E25774119008590D7 /* TestCommonViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestCommonViewViewController.h; sourceTree = "<group>"; };
 		29A85E4F25774119008590D7 /* TestCommonViewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestCommonViewViewController.m; sourceTree = "<group>"; };
 		29A85E5325776142008590D7 /* BarProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarProgressView.h; sourceTree = "<group>"; };
@@ -737,6 +749,15 @@
 				29061B5D23FACC2D00060C14 /* TestNavigationController.m */,
 			);
 			path = "TestNavigationController(导航栏配置)";
+			sourceTree = "<group>";
+		};
+		2909676325E72FC7005BFEAD /* ShoppingCartView(购物车图标视图) */ = {
+			isa = PBXGroup;
+			children = (
+				2909676425E7304D005BFEAD /* ShoppingCartIconView.h */,
+				2909676525E7304D005BFEAD /* ShoppingCartIconView.m */,
+			);
+			path = "ShoppingCartView(购物车图标视图)";
 			sourceTree = "<group>";
 		};
 		290DFDD723A1CCA6009B2BED /* TestTableViewDetelateCellController(表视图删除cell) */ = {
@@ -1077,6 +1098,8 @@
 			children = (
 				29543D8C2487ECBF00C07895 /* TestViewController.h */,
 				29543D8D2487ECBF00C07895 /* TestViewController.m */,
+				29A686B525E0E86900B59BCE /* TestViewTransitionController.h */,
+				29A686B625E0E86900B59BCE /* TestViewTransitionController.m */,
 			);
 			path = "TestViewController(视图控制器)";
 			sourceTree = "<group>";
@@ -1331,6 +1354,15 @@
 				29A5584423A37CDE00B70042 /* MessageItemModel.m */,
 			);
 			path = "TestTableViewDetelateCell(表视图删除cell)";
+			sourceTree = "<group>";
+		};
+		29A686B825E0FD0A00B59BCE /* CustomNavigationBarView(自定义导航栏视图) */ = {
+			isa = PBXGroup;
+			children = (
+				29A686B925E0FD5A00B59BCE /* CustomNavigationBarViewS1.h */,
+				29A686BA25E0FD5A00B59BCE /* CustomNavigationBarViewS1.m */,
+			);
+			path = "CustomNavigationBarView(自定义导航栏视图)";
 			sourceTree = "<group>";
 		};
 		29A85E5125774418008590D7 /* CommonView(通用视图样式) */ = {
@@ -1589,6 +1621,8 @@
 			children = (
 				29BBD4A324DD907E0091CF97 /* TestSharedInstance.h */,
 				29BBD4A424DD907E0091CF97 /* TestSharedInstance.m */,
+				2909676725E7406F005BFEAD /* AnimationManager.h */,
+				2909676825E7406F005BFEAD /* AnimationManager.m */,
 			);
 			path = SharedInstance;
 			sourceTree = "<group>";
@@ -1640,6 +1674,8 @@
 		29C6042F232A808400B48958 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2909676325E72FC7005BFEAD /* ShoppingCartView(购物车图标视图) */,
+				29A686B825E0FD0A00B59BCE /* CustomNavigationBarView(自定义导航栏视图) */,
 				298B9EAE25C6DAE80015AF81 /* Root(根视图控制器视图) */,
 				29A85E5125774418008590D7 /* CommonView(通用视图样式) */,
 				29F35583253F1B3C00CD25B2 /* AlertBaseView(Alert提示) */,
@@ -2116,6 +2152,7 @@
 				29C60467232A8EA000B48958 /* YYSpriteSheetImage.m in Sources */,
 				297886A62514E98A00C5E5DD /* PictureFoldingDisplayTableViewCell.m in Sources */,
 				29DA9D19242A535E0000BBBB /* TestBaiDuRESTController.m in Sources */,
+				2909676625E7304D005BFEAD /* ShoppingCartIconView.m in Sources */,
 				291354DD24ECDAAB006AAA36 /* SearchImitateController.m in Sources */,
 				294D44862539ED9800CA6EC0 /* CommonImageCellModel.m in Sources */,
 				29AF63EF22D3686F0048A036 /* ViewController.m in Sources */,
@@ -2242,6 +2279,7 @@
 				29D755E723673DE400722B3A /* FSCalendarCell.m in Sources */,
 				29B1AACD24FCCF4B007F8A5E /* TAPageControl.m in Sources */,
 				29B0AF672559816F0009AB85 /* TestXIBViewConreoller.m in Sources */,
+				2909676925E7406F005BFEAD /* AnimationManager.m in Sources */,
 				29CF670923C777ED004D2CE0 /* YSURequestError.m in Sources */,
 				292B04B124EA16C300C8C82F /* ButtonLinkageView.m in Sources */,
 				29E620BE23C9AF400041E6C4 /* NSObject+Swizzling.m in Sources */,
@@ -2250,6 +2288,7 @@
 				29E620C123C9B2140041E6C4 /* UIViewController+YSCUsualTitle.m in Sources */,
 				29C60464232A8EA000B48958 /* YYKVStorage.m in Sources */,
 				29308A612379B07900AB094B /* SignInView.m in Sources */,
+				29A686BB25E0FD5A00B59BCE /* CustomNavigationBarViewS1.m in Sources */,
 				29BBD49A24DD25F40091CF97 /* TestCollectionViewItem.m in Sources */,
 				29CF620A2312D3AC006DCCBB /* SwipeViewController.m in Sources */,
 				296758502492693D000DE253 /* UIView+ExtraTag.m in Sources */,
@@ -2257,6 +2296,7 @@
 				29BBD49724DD25850091CF97 /* TestCollectionView.m in Sources */,
 				29C60472232A8EA000B48958 /* YYWebImageOperation.m in Sources */,
 				29C555DE24E81E40002F2785 /* KMGestureRecognizer.m in Sources */,
+				29A686B725E0E86900B59BCE /* TestViewTransitionController.m in Sources */,
 				2953669B2369DE9700BF8415 /* SignInController.m in Sources */,
 				29C6046B232A8EA000B48958 /* YYAnimatedImageView.m in Sources */,
 				29BBD49E24DD296E0091CF97 /* TestUtils.m in Sources */,

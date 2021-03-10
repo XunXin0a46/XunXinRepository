@@ -38,10 +38,12 @@
 
 @implementation FSCalendarTransitionCoordinator
 
+///初始化日历协调管理对象
 - (instancetype)initWithCalendar:(FSCalendar *)calendar
 {
     self = [super init];
     if (self) {
+        //设置日历对象
         self.calendar = calendar;
         self.collectionView = self.calendar.collectionView;
         self.collectionViewLayout = self.calendar.collectionViewLayout;

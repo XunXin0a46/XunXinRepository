@@ -16,6 +16,7 @@ typedef NS_ENUM(NSUInteger, FSCalendarTransition) {
     FSCalendarTransitionMonthToWeek,
     FSCalendarTransitionWeekToMonth
 };
+
 typedef NS_ENUM(NSUInteger, FSCalendarTransitionState) {
     FSCalendarTransitionStateIdle,
     FSCalendarTransitionStateChanging,
@@ -24,9 +25,9 @@ typedef NS_ENUM(NSUInteger, FSCalendarTransitionState) {
 
 @interface FSCalendarTransitionCoordinator : NSObject <UIGestureRecognizerDelegate>
 
-@property (weak, nonatomic) FSCalendar *calendar;
-@property (weak, nonatomic) FSCalendarCollectionView *collectionView;
-@property (weak, nonatomic) FSCalendarCollectionViewLayout *collectionViewLayout;
+@property (weak, nonatomic) FSCalendar *calendar;//日历对象
+@property (weak, nonatomic) FSCalendarCollectionView *collectionView;//日历集合视图
+@property (weak, nonatomic) FSCalendarCollectionViewLayout *collectionViewLayout;//日历集合视图布局
 
 @property (assign, nonatomic) FSCalendarTransition transition;
 @property (assign, nonatomic) FSCalendarTransitionState state;
