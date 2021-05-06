@@ -59,6 +59,7 @@
 		29543D8E2487ECBF00C07895 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29543D8D2487ECBF00C07895 /* TestViewController.m */; };
 		29543D912487EE7100C07895 /* YSCBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29543D8F2487EE7100C07895 /* YSCBaseNavigationController.m */; };
 		29567ECD248B8F7B00A8BB71 /* TestTTTAttributedLabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29567ECC248B8F7B00A8BB71 /* TestTTTAttributedLabelViewController.m */; };
+		2958594926380BC400396B03 /* DateCountdown.m in Sources */ = {isa = PBXBuildFile; fileRef = 2958594826380BC400396B03 /* DateCountdown.m */; };
 		295BF6DC24D9049100909460 /* TestRunTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 295BF6DB24D9049100909460 /* TestRunTimeViewController.m */; };
 		295BF6E024D9138400909460 /* TestUIViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 295BF6DF24D9138400909460 /* TestUIViewViewController.m */; };
 		295C9150239AA88B00BFAB57 /* NSString+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 295C914F239AA88B00BFAB57 /* NSString+Extention.m */; };
@@ -89,6 +90,9 @@
 		298A717324EB5D7100DC757B /* UIImage+YSCTintColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 298A717224EB5D7100DC757B /* UIImage+YSCTintColor.m */; };
 		298B9EB125C6DB0E0015AF81 /* BadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 298B9EB025C6DB0E0015AF81 /* BadgeView.m */; };
 		298B9EB525C705ED0015AF81 /* UITabBar+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 298B9EB425C705ED0015AF81 /* UITabBar+Badge.m */; };
+		298F4E352633FB3F002879F9 /* SwipeDisplayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 298F4E342633FB3F002879F9 /* SwipeDisplayTableViewCell.m */; };
+		298F4E3926345A14002879F9 /* SwipeDisplayItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 298F4E3826345A14002879F9 /* SwipeDisplayItemModel.m */; };
+		298F4E3C26345D0C002879F9 /* SwipeDisplayItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 298F4E3B26345D0C002879F9 /* SwipeDisplayItemView.m */; };
 		29987F51253359DC00231F28 /* UploadImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29987F50253359DC00231F28 /* UploadImageTableViewCell.m */; };
 		29987F5425335E2E00231F28 /* CommonAddImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29987F5325335E2E00231F28 /* CommonAddImageCollectionViewCell.m */; };
 		29987F5725335F8E00231F28 /* CommonAddedImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29987F5625335F8E00231F28 /* CommonAddedImageCollectionViewCell.m */; };
@@ -351,6 +355,8 @@
 		29543D902487EE7100C07895 /* YSCBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSCBaseNavigationController.h; sourceTree = "<group>"; };
 		29567ECB248B8F7B00A8BB71 /* TestTTTAttributedLabelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestTTTAttributedLabelViewController.h; sourceTree = "<group>"; };
 		29567ECC248B8F7B00A8BB71 /* TestTTTAttributedLabelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestTTTAttributedLabelViewController.m; sourceTree = "<group>"; };
+		2958594726380BC400396B03 /* DateCountdown.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DateCountdown.h; sourceTree = "<group>"; };
+		2958594826380BC400396B03 /* DateCountdown.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DateCountdown.m; sourceTree = "<group>"; };
 		295BF6DA24D9049100909460 /* TestRunTimeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestRunTimeViewController.h; sourceTree = "<group>"; };
 		295BF6DB24D9049100909460 /* TestRunTimeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestRunTimeViewController.m; sourceTree = "<group>"; };
 		295BF6DE24D9138400909460 /* TestUIViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestUIViewViewController.h; sourceTree = "<group>"; };
@@ -403,6 +409,12 @@
 		298B9EB025C6DB0E0015AF81 /* BadgeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BadgeView.m; sourceTree = "<group>"; };
 		298B9EB325C705ED0015AF81 /* UITabBar+Badge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITabBar+Badge.h"; sourceTree = "<group>"; };
 		298B9EB425C705ED0015AF81 /* UITabBar+Badge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+Badge.m"; sourceTree = "<group>"; };
+		298F4E332633FB3F002879F9 /* SwipeDisplayTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwipeDisplayTableViewCell.h; sourceTree = "<group>"; };
+		298F4E342633FB3F002879F9 /* SwipeDisplayTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwipeDisplayTableViewCell.m; sourceTree = "<group>"; };
+		298F4E3726345A13002879F9 /* SwipeDisplayItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwipeDisplayItemModel.h; sourceTree = "<group>"; };
+		298F4E3826345A14002879F9 /* SwipeDisplayItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwipeDisplayItemModel.m; sourceTree = "<group>"; };
+		298F4E3A26345D0C002879F9 /* SwipeDisplayItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwipeDisplayItemView.h; sourceTree = "<group>"; };
+		298F4E3B26345D0C002879F9 /* SwipeDisplayItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwipeDisplayItemView.m; sourceTree = "<group>"; };
 		29987F4F253359DC00231F28 /* UploadImageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadImageTableViewCell.h; sourceTree = "<group>"; };
 		29987F50253359DC00231F28 /* UploadImageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploadImageTableViewCell.m; sourceTree = "<group>"; };
 		29987F5225335E2E00231F28 /* CommonAddImageCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonAddImageCollectionViewCell.h; sourceTree = "<group>"; };
@@ -830,6 +842,7 @@
 			children = (
 				2978869425148A0800C5E5DD /* TableViewNestingCollectionViewModel(表视图嵌套集合视图) */,
 				294D44832539ED7000CA6EC0 /* CommonImageCellModel(上传图片) */,
+				298F4E36263459E7002879F9 /* SwipeDisplay(滑动展示) */,
 				2978868F251484D300C5E5DD /* TestKVCModel(测试KVC) */,
 			);
 			path = Model;
@@ -1244,9 +1257,10 @@
 		2978869825148E8C00C5E5DD /* TableViewNestingCollectionViewCell(表视图嵌套集合视图) */ = {
 			isa = PBXGroup;
 			children = (
-				29987F4E2533598500231F28 /* UploadImage(上传图片) */,
 				2978869925148F5800C5E5DD /* OneLinePictureAdaptation(一行图片自适应) */,
 				297886A32514E92B00C5E5DD /* PictureFoldingDisplay(图片折行显示) */,
+				29987F4E2533598500231F28 /* UploadImage(上传图片) */,
+				298F4E322633FABC002879F9 /* SwipeDisplay(滑动展示) */,
 			);
 			path = "TableViewNestingCollectionViewCell(表视图嵌套集合视图)";
 			sourceTree = "<group>";
@@ -1320,6 +1334,26 @@
 				298B9EB425C705ED0015AF81 /* UITabBar+Badge.m */,
 			);
 			path = "Category(UITabBar)";
+			sourceTree = "<group>";
+		};
+		298F4E322633FABC002879F9 /* SwipeDisplay(滑动展示) */ = {
+			isa = PBXGroup;
+			children = (
+				298F4E332633FB3F002879F9 /* SwipeDisplayTableViewCell.h */,
+				298F4E342633FB3F002879F9 /* SwipeDisplayTableViewCell.m */,
+				298F4E3A26345D0C002879F9 /* SwipeDisplayItemView.h */,
+				298F4E3B26345D0C002879F9 /* SwipeDisplayItemView.m */,
+			);
+			path = "SwipeDisplay(滑动展示)";
+			sourceTree = "<group>";
+		};
+		298F4E36263459E7002879F9 /* SwipeDisplay(滑动展示) */ = {
+			isa = PBXGroup;
+			children = (
+				298F4E3726345A13002879F9 /* SwipeDisplayItemModel.h */,
+				298F4E3826345A14002879F9 /* SwipeDisplayItemModel.m */,
+			);
+			path = "SwipeDisplay(滑动展示)";
 			sourceTree = "<group>";
 		};
 		29987F4E2533598500231F28 /* UploadImage(上传图片) */ = {
@@ -1590,6 +1624,8 @@
 				29834FF4252FFA1600CE8569 /* YSCValidator.m */,
 				293FAFE824167EDD0039E09A /* YUReplicatorAnimation.h */,
 				293FAFE924167EDD0039E09A /* YUReplicatorAnimation.m */,
+				2958594726380BC400396B03 /* DateCountdown.h */,
+				2958594826380BC400396B03 /* DateCountdown.m */,
 			);
 			path = "YSUUtils（工具类）";
 			sourceTree = "<group>";
@@ -2247,6 +2283,7 @@
 				29C60471232A8EA000B48958 /* CALayer+YYWebImage.m in Sources */,
 				29BCD5FF2305B49D00B9A584 /* BaseWebViewControlle.m in Sources */,
 				29C6046A232A8EA000B48958 /* YYFrameImage.m in Sources */,
+				298F4E3C26345D0C002879F9 /* SwipeDisplayItemView.m in Sources */,
 				2978869725148CEE00C5E5DD /* TestTableViewModel.m in Sources */,
 				29CF671223C779B7004D2CE0 /* MBProgressHUD+Extension.m in Sources */,
 				297786CC242BACBA00BA0D10 /* TestCLLocationController.m in Sources */,
@@ -2257,6 +2294,8 @@
 				29A85E5025774119008590D7 /* TestCommonViewViewController.m in Sources */,
 				29D755ED23673DE500722B3A /* FSCalendarExtensions.m in Sources */,
 				2912F424239804B300770A42 /* LMJDropdownMenu.m in Sources */,
+				2958594926380BC400396B03 /* DateCountdown.m in Sources */,
+				298F4E3926345A14002879F9 /* SwipeDisplayItemModel.m in Sources */,
 				291400A623F944DF00C31A24 /* YSCUITextField.m in Sources */,
 				29D755E523673DE400722B3A /* FSCalendarDelegationProxy.m in Sources */,
 				295C9150239AA88B00BFAB57 /* NSString+Extention.m in Sources */,
@@ -2286,6 +2325,7 @@
 				298B9EB525C705ED0015AF81 /* UITabBar+Badge.m in Sources */,
 				296758512492693D000DE253 /* UIView+Action.m in Sources */,
 				29E620C123C9B2140041E6C4 /* UIViewController+YSCUsualTitle.m in Sources */,
+				298F4E352633FB3F002879F9 /* SwipeDisplayTableViewCell.m in Sources */,
 				29C60464232A8EA000B48958 /* YYKVStorage.m in Sources */,
 				29308A612379B07900AB094B /* SignInView.m in Sources */,
 				29A686BB25E0FD5A00B59BCE /* CustomNavigationBarViewS1.m in Sources */,

@@ -143,6 +143,12 @@ CGSize resizeForScreen(CGSize size) {
     return displaySize;
 }
 
+///停止滚动视图滚动
+- (void)killScroll:(UIScrollView *)scrollView{
+    CGPoint offset = scrollView.contentOffset;
+    [scrollView setContentOffset:offset animated:NO];
+}
+
 #pragma mark - 滚动视图的代理方法
 //视图被拖拽时调用，在此方法中会暂停控制器，停止图片循环展示
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{

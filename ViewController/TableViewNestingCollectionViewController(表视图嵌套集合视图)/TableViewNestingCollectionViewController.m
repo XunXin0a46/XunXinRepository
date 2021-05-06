@@ -11,6 +11,7 @@
 #import "OneLinePictureAdaptationTableViewCell.h"
 #import "PictureFoldingDisplayTableViewCell.h"
 #import "UploadImageTableViewCell.h"
+#import "SwipeDisplayTableViewCell.h"
 #import "PickerPhotoManager.h"
 #import "UIImage+ImageBase64.h"
 #import "UIView+ExtraTag.h"
@@ -52,6 +53,10 @@
     
     TestTableViewModel *tableViewModelIII = [[TestTableViewModel alloc]initWithCellCode:3 withCellName:@"上传图片" withImageArray:nil];
     [self.tableViewDataSource addObject:tableViewModelIII];
+    
+    TestTableViewModel *tableViewModelIV = [[TestTableViewModel alloc]initWithCellCode:4 withCellName:@"滑动展示" withImageArray:self.imageArray];
+    [self.tableViewDataSource addObject:tableViewModelIV];
+    
 }
 
 ///初始化视图
@@ -73,6 +78,8 @@
     [self.tableView registerClass:[PictureFoldingDisplayTableViewCell class] forCellReuseIdentifier:PictureFoldingDisplayTableViewCellReuseIdentifier];
     //上传图片
     [self.tableView registerClass:[UploadImageTableViewCell class] forCellReuseIdentifier:UploadImageTableViewCellReuseIdentifier];
+    //滑动展示
+    [self.tableView registerClass:[SwipeDisplayTableViewCell class] forCellReuseIdentifier:SwipeDisplayTableViewCellReuseIdentifier];
 }
 
 ///懒加载图片
@@ -137,6 +144,10 @@
         cell.delegate = self;
         [cell createDataArray];
         return cell;
+    }else if([tableViewModel.cellName isEqualToString:@"滑动展示"]){
+        SwipeDisplayTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SwipeDisplayTableViewCellReuseIdentifier];
+        cell.model = tableViewModel;
+        return cell;
     }
     return nil;
 }
@@ -150,6 +161,8 @@
         cellHeigth = [OneLinePictureAdaptationTableViewCell calculateDynamicHeightWithModel:tableViewModel];
     }else if([tableViewModel.cellName isEqualToString:@"图片折行显示"]){
         cellHeigth = [PictureFoldingDisplayTableViewCell calculateDynamicHeightWithModel:tableViewModel];
+    }else if([tableViewModel.cellName isEqualToString:@"滑动展示"]){
+        cellHeigth = [SwipeDisplayTableViewCell calculateCellHeight:tableViewModel];
     }else{
         cellHeigth = UITableViewAutomaticDimension;
     }
