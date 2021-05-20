@@ -199,7 +199,7 @@
 
 ///--------------------------------- NSJSONSerialization代码测试区 ----------------------------
 
-//JSON字符串转化为字典
+///JSON字符串转化为字典
 - (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString{
     if (jsonString == nil) {
         return nil;
@@ -221,7 +221,7 @@
     return dic;
 }
 
-// 字典转json字符串方法
+/// 字典转json字符串方法
 -(NSString *)convertToJsonData:(NSDictionary *)dict{
 
     NSError *error;

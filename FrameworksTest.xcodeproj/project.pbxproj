@@ -53,6 +53,7 @@
 		293F74A123EFE3F400CB749A /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 293F749F23EFE3F400CB749A /* UINavigationController+FDFullscreenPopGesture.m */; };
 		293FAFEA24167EDD0039E09A /* YUReplicatorAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 293FAFE924167EDD0039E09A /* YUReplicatorAnimation.m */; };
 		2943338E24FBF67A00EBB0C4 /* LoadHtmlWebViewControlle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2943338D24FBF67A00EBB0C4 /* LoadHtmlWebViewControlle.m */; };
+		29444D2C2655074000DC3E29 /* BigPictureStyleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29444D2B2655074000DC3E29 /* BigPictureStyleTableViewCell.m */; };
 		2949BD952389085F00388BEE /* LabelWithCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2949BD942389085E00388BEE /* LabelWithCopy.m */; };
 		294D44862539ED9800CA6EC0 /* CommonImageCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 294D44852539ED9800CA6EC0 /* CommonImageCellModel.m */; };
 		2953669B2369DE9700BF8415 /* SignInController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2953669A2369DE9700BF8415 /* SignInController.m */; };
@@ -108,6 +109,7 @@
 		29A686BB25E0FD5A00B59BCE /* CustomNavigationBarViewS1.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A686BA25E0FD5A00B59BCE /* CustomNavigationBarViewS1.m */; };
 		29A85E5025774119008590D7 /* TestCommonViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A85E4F25774119008590D7 /* TestCommonViewViewController.m */; };
 		29A85E5525776142008590D7 /* BarProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A85E5425776142008590D7 /* BarProgressView.m */; };
+		29A8B3092655E93A00F6E206 /* BigPictureStyleTableViewItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A8B3082655E93900F6E206 /* BigPictureStyleTableViewItemCell.m */; };
 		29A945EF23D34FB1000EA5C6 /* BezierPathController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A945EE23D34FB1000EA5C6 /* BezierPathController.m */; };
 		29A945F323D350AE000EA5C6 /* CircleScaleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A945F223D350AE000EA5C6 /* CircleScaleView.m */; };
 		29A9461523D4AD9C000EA5C6 /* UIImage+YSCCodeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A9461323D4AD9C000EA5C6 /* UIImage+YSCCodeImage.m */; };
@@ -343,6 +345,8 @@
 		293FAFE924167EDD0039E09A /* YUReplicatorAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUReplicatorAnimation.m; sourceTree = "<group>"; };
 		2943338C24FBF67A00EBB0C4 /* LoadHtmlWebViewControlle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadHtmlWebViewControlle.h; sourceTree = "<group>"; };
 		2943338D24FBF67A00EBB0C4 /* LoadHtmlWebViewControlle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadHtmlWebViewControlle.m; sourceTree = "<group>"; };
+		29444D2A2655074000DC3E29 /* BigPictureStyleTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BigPictureStyleTableViewCell.h; sourceTree = "<group>"; };
+		29444D2B2655074000DC3E29 /* BigPictureStyleTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BigPictureStyleTableViewCell.m; sourceTree = "<group>"; };
 		2949BD932389085E00388BEE /* LabelWithCopy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LabelWithCopy.h; sourceTree = "<group>"; };
 		2949BD942389085E00388BEE /* LabelWithCopy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LabelWithCopy.m; sourceTree = "<group>"; };
 		294D44842539ED9800CA6EC0 /* CommonImageCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonImageCellModel.h; sourceTree = "<group>"; };
@@ -445,6 +449,8 @@
 		29A85E4F25774119008590D7 /* TestCommonViewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestCommonViewViewController.m; sourceTree = "<group>"; };
 		29A85E5325776142008590D7 /* BarProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarProgressView.h; sourceTree = "<group>"; };
 		29A85E5425776142008590D7 /* BarProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BarProgressView.m; sourceTree = "<group>"; };
+		29A8B3072655E93900F6E206 /* BigPictureStyleTableViewItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BigPictureStyleTableViewItemCell.h; sourceTree = "<group>"; };
+		29A8B3082655E93900F6E206 /* BigPictureStyleTableViewItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BigPictureStyleTableViewItemCell.m; sourceTree = "<group>"; };
 		29A945ED23D34FB1000EA5C6 /* BezierPathController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BezierPathController.h; sourceTree = "<group>"; };
 		29A945EE23D34FB1000EA5C6 /* BezierPathController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BezierPathController.m; sourceTree = "<group>"; };
 		29A945F123D350AE000EA5C6 /* CircleScaleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircleScaleView.h; sourceTree = "<group>"; };
@@ -840,7 +846,7 @@
 		29260095250A66E3002AEFE2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2978869425148A0800C5E5DD /* TableViewNestingCollectionViewModel(表视图嵌套集合视图) */,
+				2978869425148A0800C5E5DD /* TableViewNestingCollectionViewModel(表视图嵌套集合(表)视图) */,
 				294D44832539ED7000CA6EC0 /* CommonImageCellModel(上传图片) */,
 				298F4E36263459E7002879F9 /* SwipeDisplay(滑动展示) */,
 				2978868F251484D300C5E5DD /* TestKVCModel(测试KVC) */,
@@ -1088,6 +1094,17 @@
 			path = "Category(UINavigationController)";
 			sourceTree = "<group>";
 		};
+		29444D29265506D000DC3E29 /* BigPictureStyle(大图样式) */ = {
+			isa = PBXGroup;
+			children = (
+				29444D2A2655074000DC3E29 /* BigPictureStyleTableViewCell.h */,
+				29444D2B2655074000DC3E29 /* BigPictureStyleTableViewCell.m */,
+				29A8B3072655E93900F6E206 /* BigPictureStyleTableViewItemCell.h */,
+				29A8B3082655E93900F6E206 /* BigPictureStyleTableViewItemCell.m */,
+			);
+			path = "BigPictureStyle(大图样式)";
+			sourceTree = "<group>";
+		};
 		2949BD92238907F000388BEE /* LabelWithCopy（标签复制） */ = {
 			isa = PBXGroup;
 			children = (
@@ -1234,16 +1251,16 @@
 			path = "TestKVCModel(测试KVC)";
 			sourceTree = "<group>";
 		};
-		29788690251484FE00C5E5DD /* TableViewNestingCollectionViewController(表视图嵌套集合视图) */ = {
+		29788690251484FE00C5E5DD /* TableViewNestingCollectionViewController(表视图嵌套集合(表)视图) */ = {
 			isa = PBXGroup;
 			children = (
 				29788691251485E500C5E5DD /* TableViewNestingCollectionViewController.h */,
 				29788692251485E500C5E5DD /* TableViewNestingCollectionViewController.m */,
 			);
-			path = "TableViewNestingCollectionViewController(表视图嵌套集合视图)";
+			path = "TableViewNestingCollectionViewController(表视图嵌套集合(表)视图)";
 			sourceTree = "<group>";
 		};
-		2978869425148A0800C5E5DD /* TableViewNestingCollectionViewModel(表视图嵌套集合视图) */ = {
+		2978869425148A0800C5E5DD /* TableViewNestingCollectionViewModel(表视图嵌套集合(表)视图) */ = {
 			isa = PBXGroup;
 			children = (
 				2978869525148CEE00C5E5DD /* TestTableViewModel.h */,
@@ -1251,18 +1268,19 @@
 				2978869D2514969F00C5E5DD /* TestCollectionViewModel.h */,
 				2978869E2514969F00C5E5DD /* TestCollectionViewModel.m */,
 			);
-			path = "TableViewNestingCollectionViewModel(表视图嵌套集合视图)";
+			path = "TableViewNestingCollectionViewModel(表视图嵌套集合(表)视图)";
 			sourceTree = "<group>";
 		};
-		2978869825148E8C00C5E5DD /* TableViewNestingCollectionViewCell(表视图嵌套集合视图) */ = {
+		2978869825148E8C00C5E5DD /* TableViewNestingCollectionViewCell(表视图嵌套集合(表)视图) */ = {
 			isa = PBXGroup;
 			children = (
+				29444D29265506D000DC3E29 /* BigPictureStyle(大图样式) */,
 				2978869925148F5800C5E5DD /* OneLinePictureAdaptation(一行图片自适应) */,
 				297886A32514E92B00C5E5DD /* PictureFoldingDisplay(图片折行显示) */,
 				29987F4E2533598500231F28 /* UploadImage(上传图片) */,
 				298F4E322633FABC002879F9 /* SwipeDisplay(滑动展示) */,
 			);
-			path = "TableViewNestingCollectionViewCell(表视图嵌套集合视图)";
+			path = "TableViewNestingCollectionViewCell(表视图嵌套集合(表)视图)";
 			sourceTree = "<group>";
 		};
 		2978869925148F5800C5E5DD /* OneLinePictureAdaptation(一行图片自适应) */ = {
@@ -1728,7 +1746,7 @@
 				293F749723EC516600CB749A /* StandardScanView(扫描视图) */,
 				292B04AE24EA161C00C8C82F /* TestButtonLinkage(按钮联动) */,
 				2931271225620AFC001D1EF7 /* TestCountdownButton(倒计时按钮) */,
-				2978869825148E8C00C5E5DD /* TableViewNestingCollectionViewCell(表视图嵌套集合视图) */,
+				2978869825148E8C00C5E5DD /* TableViewNestingCollectionViewCell(表视图嵌套集合(表)视图) */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1766,7 +1784,7 @@
 				29D26DA524DFF48F00A723B7 /* GestureRecognizer(手势识别器) */,
 				291354D224ECC82C006AAA36 /* ShadowViewController(阴影背景控制器) */,
 				2935C980250DD28A009265DE /* BarcodeAndQrCode(条形码与二维码) */,
-				29788690251484FE00C5E5DD /* TableViewNestingCollectionViewController(表视图嵌套集合视图) */,
+				29788690251484FE00C5E5DD /* TableViewNestingCollectionViewController(表视图嵌套集合(表)视图) */,
 				29036D0625171E25005BC76A /* TransmitValueController(传值练习) */,
 				29B0AF632559812A0009AB85 /* TestXIBViewConreoller(XIB练习) */,
 				29223AD7255FCA2200DA1941 /* TestCountDown(倒计时) */,
@@ -2267,10 +2285,12 @@
 				29223ADA255FCA7A00DA1941 /* TestCountDownViewController.m in Sources */,
 				29E620B123C858880041E6C4 /* WSDatePickerView.m in Sources */,
 				29F35589253F1C8E00CD25B2 /* AlertView.m in Sources */,
+				29A8B3092655E93A00F6E206 /* BigPictureStyleTableViewItemCell.m in Sources */,
 				293F749A23EC51BC00CB749A /* StandardScanView.m in Sources */,
 				2929536D233A582E0029D9EA /* YYImageProgressiveExample.m in Sources */,
 				29A945EF23D34FB1000EA5C6 /* BezierPathController.m in Sources */,
 				290DFDD523A1CC7B009B2BED /* TestTableViewDetelateCellController.m in Sources */,
+				29444D2C2655074000DC3E29 /* BigPictureStyleTableViewCell.m in Sources */,
 				29DA9D21242A5D380000BBBB /* TestCALayerController.m in Sources */,
 				29036D0925171EBA005BC76A /* TransmitValueTestLoginController.m in Sources */,
 				29C6046C232A8EA000B48958 /* _YYWebImageSetter.m in Sources */,

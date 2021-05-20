@@ -36,6 +36,9 @@
 ///MM-dd HH:mm格式化字符串
 + (NSString *)getMonthDateStringWithTimeInterval:(NSInteger)timeInterval;
 
+///XX天XX小时XX分钟XX秒 格式化字符串
++ (NSString *)getTimeStringWithTimeInterval:(NSInteger)timeInterval;
+
 @end
 
 

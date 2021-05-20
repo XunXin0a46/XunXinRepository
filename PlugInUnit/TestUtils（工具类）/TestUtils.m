@@ -153,5 +153,37 @@
     return [dateFormatter stringFromDate:date];
 }
 
+///XX天XX小时XX分钟XX秒 格式化字符串
++ (NSString *)getTimeStringWithTimeInterval:(NSInteger)timeInterval{
+
+    NSUInteger timeIntervalInteger = (NSUInteger)timeInterval;
+    
+    NSInteger days = timeIntervalInteger / (3600 * 24);
+    NSInteger hours = (timeIntervalInteger - days * 24.0 * 3600.0) / 3600.0;
+    NSInteger minutes = floor(timeIntervalInteger - days * 24.0 * 3600.0 - hours * 3600.0) / 60.0;
+    NSInteger seconds = (timeIntervalInteger - days * 24.0 * 3600.0 - hours * 3600.0 - minutes * 60.0);
+    
+    NSString *dayStr = nil;
+    NSString *hoursStr = nil;
+    NSString *minutesStr = nil;
+    NSString *secondsStr = nil;
+    //天
+    dayStr = [NSString stringWithFormat:@"%ld", (long)days];
+    //小时
+    hoursStr = [NSString stringWithFormat:@"%ld", (long)hours];
+    //分钟
+    if (minutes < 10)
+        minutesStr = [NSString stringWithFormat:@"%ld", (long)minutes];
+    else
+        minutesStr = [NSString stringWithFormat:@"%ld", (long)minutes];
+    //秒
+    if (seconds < 10)
+        secondsStr = [NSString stringWithFormat:@"%ld", (long)seconds];
+    else
+        secondsStr = [NSString stringWithFormat:@"%ld", (long)seconds];
+    
+    return [NSString stringWithFormat:@"%@天%@小时%@分%@秒", dayStr, hoursStr, minutesStr, secondsStr];
+}
+
 
 @end

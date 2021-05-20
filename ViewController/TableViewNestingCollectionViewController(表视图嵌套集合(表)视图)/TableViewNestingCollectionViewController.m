@@ -12,6 +12,7 @@
 #import "PictureFoldingDisplayTableViewCell.h"
 #import "UploadImageTableViewCell.h"
 #import "SwipeDisplayTableViewCell.h"
+#import "BigPictureStyleTableViewCell.h"
 #import "PickerPhotoManager.h"
 #import "UIImage+ImageBase64.h"
 #import "UIView+ExtraTag.h"
@@ -57,6 +58,9 @@
     TestTableViewModel *tableViewModelIV = [[TestTableViewModel alloc]initWithCellCode:4 withCellName:@"滑动展示" withImageArray:self.imageArray];
     [self.tableViewDataSource addObject:tableViewModelIV];
     
+    TestTableViewModel *tableViewModelVI = [[TestTableViewModel alloc]initWithCellCode:5 withCellName:@"大图样式" withImageArray:nil];
+    [self.tableViewDataSource addObject:tableViewModelVI];
+    
 }
 
 ///初始化视图
@@ -80,6 +84,8 @@
     [self.tableView registerClass:[UploadImageTableViewCell class] forCellReuseIdentifier:UploadImageTableViewCellReuseIdentifier];
     //滑动展示
     [self.tableView registerClass:[SwipeDisplayTableViewCell class] forCellReuseIdentifier:SwipeDisplayTableViewCellReuseIdentifier];
+    //大图样式
+    [self.tableView registerClass:[BigPictureStyleTableViewCell class] forCellReuseIdentifier:BigPictureStyleTableViewCellReuseIdentifier];
 }
 
 ///懒加载图片
@@ -148,6 +154,10 @@
         SwipeDisplayTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SwipeDisplayTableViewCellReuseIdentifier];
         cell.model = tableViewModel;
         return cell;
+    }else if([tableViewModel.cellName isEqualToString:@"大图样式"]){
+        BigPictureStyleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:BigPictureStyleTableViewCellReuseIdentifier];
+        [cell createDataSource];
+        return cell;
     }
     return nil;
 }
@@ -163,6 +173,8 @@
         cellHeigth = [PictureFoldingDisplayTableViewCell calculateDynamicHeightWithModel:tableViewModel];
     }else if([tableViewModel.cellName isEqualToString:@"滑动展示"]){
         cellHeigth = [SwipeDisplayTableViewCell calculateCellHeight:tableViewModel];
+    }else if([tableViewModel.cellName isEqualToString:@"大图样式"]){
+        cellHeigth = [BigPictureStyleTableViewCell calculateCellHeight];
     }else{
         cellHeigth = UITableViewAutomaticDimension;
     }
