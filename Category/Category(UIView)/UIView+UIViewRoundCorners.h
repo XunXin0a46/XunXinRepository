@@ -17,5 +17,11 @@
 ///绘制指定圆角的边框
 - (void)applyRoundCornersBorder:(UIRectCorner)corners radius:(CGFloat)radius;
 
+///添加四边阴影效果
+- (void)addShadowWithColor:(UIColor *)theColor;
+
+///移除四边阴影效果
+-(void)removeShadow;
+
 @end
 

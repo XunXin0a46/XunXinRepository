@@ -44,4 +44,26 @@
     [self.layer addSublayer:borderLayer];
 }
 
+/// 添加四边阴影效果
+- (void)addShadowWithColor:(UIColor *)theColor{
+    // 阴影颜色
+    self.layer.shadowColor = theColor.CGColor;
+    // 阴影偏移，默认(0, -3)
+    self.layer.shadowOffset = CGSizeMake(0,0);
+    // 阴影透明度，默认0
+    self.layer.shadowOpacity = 0.15;
+    // 阴影半径，默认3
+    self.layer.shadowRadius = 3;
+}
+
+///移除四边阴影效果
+-(void)removeShadow{
+    // 阴影颜色
+    self.layer.shadowColor = [UIColor clearColor].CGColor;
+    // 阴影透明度，默认0
+    self.layer.shadowOpacity = 0;
+    // 阴影半径，默认3
+    self.layer.shadowRadius = 0;
+}
+
 @end

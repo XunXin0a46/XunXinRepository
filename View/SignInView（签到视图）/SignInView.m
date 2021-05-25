@@ -8,6 +8,7 @@
 
 #import "SignInView.h"
 #import "FSCalendarDynamicHeader.h"
+#import "UIView+UIViewRoundCorners.h"
 
 static NSInteger const YSCCommonPadding = 10;
 static NSInteger const YSCCommonTopBottomPadding = 15;
@@ -163,7 +164,7 @@ static NSInteger const YSCCommonTopBottomPadding = 15;
     self.calendarView.dataSource = self;
     self.calendarView.delegate = self;
     self.calendarView.layer.cornerRadius = 10.0;
-    [self addShadowToView:self.calendarView withColor:[UIColor blackColor]];
+    [self.calendarView addShadowWithColor:[UIColor blackColor]];
     [self addSubview:self.calendarView];
     
     ///创建点击跳转显示上一月的Button
@@ -197,7 +198,7 @@ static NSInteger const YSCCommonTopBottomPadding = 15;
     footerView.contentMode = UIViewContentModeScaleAspectFit;
     [footerView setImage:[UIImage imageNamed:@"mew_baseline"]];
     footerView.layer.cornerRadius = 10.0;
-    [self addShadowToView:footerView withColor:[UIColor blackColor]];
+    [footerView addShadowWithColor:[UIColor blackColor]];
     [self addSubview:footerView];
     [footerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.calendarView);
@@ -255,19 +256,6 @@ static NSInteger const YSCCommonTopBottomPadding = 15;
                                       } range:NSMakeRange(0, labelText.length - 1)];
     return attributedString;
 }
-
-/// 添加四边阴影效果
-- (void)addShadowToView:(UIView *)theView withColor:(UIColor *)theColor {
-    // 阴影颜色
-    theView.layer.shadowColor = theColor.CGColor;
-    // 阴影偏移，默认(0, -3)
-    theView.layer.shadowOffset = CGSizeMake(0,0);
-    // 阴影透明度，默认0
-    theView.layer.shadowOpacity = 0.15;
-    // 阴影半径，默认3
-    theView.layer.shadowRadius = 3;
-}
-
 
 ///设置签到按钮动画
 -(void)setupHeartbeatAnimationInView:(UIView *)view{

@@ -102,6 +102,9 @@
 		299938CF233675C500CB4A86 /* UIView+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 299938CA233675C500CB4A86 /* UIView+YYAdd.m */; };
 		299938D0233675C500CB4A86 /* CALayer+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 299938CC233675C500CB4A86 /* CALayer+YYAdd.m */; };
 		299938D1233675C500CB4A86 /* UIControl+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 299938CD233675C500CB4A86 /* UIControl+YYAdd.m */; };
+		299FF5C6265748C100FCFD01 /* OneLineTwoStyleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 299FF5C5265748C100FCFD01 /* OneLineTwoStyleTableViewCell.m */; };
+		299FF5CB26574FF200FCFD01 /* OneLineTwoStyleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 299FF5CA26574FF200FCFD01 /* OneLineTwoStyleModel.m */; };
+		299FF5CE2657631100FCFD01 /* OneLineTwoStyleCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 299FF5CD2657631100FCFD01 /* OneLineTwoStyleCollectionViewCell.m */; };
 		29A5584223A3757B00B70042 /* MessageListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A5584123A3757B00B70042 /* MessageListItemCell.m */; };
 		29A5584523A37CDE00B70042 /* MessageItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A5584423A37CDE00B70042 /* MessageItemModel.m */; };
 		29A5584B23A4AE4300B70042 /* MessageListItemEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A5584A23A4AE4300B70042 /* MessageListItemEditCell.m */; };
@@ -435,6 +438,12 @@
 		299938CB233675C500CB4A86 /* UIControl+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+YYAdd.h"; sourceTree = "<group>"; };
 		299938CC233675C500CB4A86 /* CALayer+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+YYAdd.m"; sourceTree = "<group>"; };
 		299938CD233675C500CB4A86 /* UIControl+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+YYAdd.m"; sourceTree = "<group>"; };
+		299FF5C4265748C100FCFD01 /* OneLineTwoStyleTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneLineTwoStyleTableViewCell.h; sourceTree = "<group>"; };
+		299FF5C5265748C100FCFD01 /* OneLineTwoStyleTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OneLineTwoStyleTableViewCell.m; sourceTree = "<group>"; };
+		299FF5C926574FF200FCFD01 /* OneLineTwoStyleModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneLineTwoStyleModel.h; sourceTree = "<group>"; };
+		299FF5CA26574FF200FCFD01 /* OneLineTwoStyleModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OneLineTwoStyleModel.m; sourceTree = "<group>"; };
+		299FF5CC2657631100FCFD01 /* OneLineTwoStyleCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneLineTwoStyleCollectionViewCell.h; sourceTree = "<group>"; };
+		299FF5CD2657631100FCFD01 /* OneLineTwoStyleCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OneLineTwoStyleCollectionViewCell.m; sourceTree = "<group>"; };
 		29A5584023A3757B00B70042 /* MessageListItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageListItemCell.h; sourceTree = "<group>"; };
 		29A5584123A3757B00B70042 /* MessageListItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageListItemCell.m; sourceTree = "<group>"; };
 		29A5584323A37CDE00B70042 /* MessageItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageItemModel.h; sourceTree = "<group>"; };
@@ -847,8 +856,6 @@
 			isa = PBXGroup;
 			children = (
 				2978869425148A0800C5E5DD /* TableViewNestingCollectionViewModel(表视图嵌套集合(表)视图) */,
-				294D44832539ED7000CA6EC0 /* CommonImageCellModel(上传图片) */,
-				298F4E36263459E7002879F9 /* SwipeDisplay(滑动展示) */,
 				2978868F251484D300C5E5DD /* TestKVCModel(测试KVC) */,
 			);
 			path = Model;
@@ -1265,8 +1272,10 @@
 			children = (
 				2978869525148CEE00C5E5DD /* TestTableViewModel.h */,
 				2978869625148CEE00C5E5DD /* TestTableViewModel.m */,
-				2978869D2514969F00C5E5DD /* TestCollectionViewModel.h */,
-				2978869E2514969F00C5E5DD /* TestCollectionViewModel.m */,
+				299FF5C726574ED400FCFD01 /* OneLinePictureAdaptationAndPictureFoldingDisplay(一行自适应与折行) */,
+				299FF5C826574FA800FCFD01 /* OneLineTwoStyle(一行两个) */,
+				294D44832539ED7000CA6EC0 /* CommonImageCellModel(上传图片) */,
+				298F4E36263459E7002879F9 /* SwipeDisplay(滑动展示) */,
 			);
 			path = "TableViewNestingCollectionViewModel(表视图嵌套集合(表)视图)";
 			sourceTree = "<group>";
@@ -1274,6 +1283,7 @@
 		2978869825148E8C00C5E5DD /* TableViewNestingCollectionViewCell(表视图嵌套集合(表)视图) */ = {
 			isa = PBXGroup;
 			children = (
+				299FF5C32657482B00FCFD01 /* OneLineTwoStyle(一行两个) */,
 				29444D29265506D000DC3E29 /* BigPictureStyle(大图样式) */,
 				2978869925148F5800C5E5DD /* OneLinePictureAdaptation(一行图片自适应) */,
 				297886A32514E92B00C5E5DD /* PictureFoldingDisplay(图片折行显示) */,
@@ -1393,6 +1403,35 @@
 				29F802AA234235A000B402F9 /* YYWebImage扩展类 */,
 			);
 			path = "Supporting Files（YYImage）";
+			sourceTree = "<group>";
+		};
+		299FF5C32657482B00FCFD01 /* OneLineTwoStyle(一行两个) */ = {
+			isa = PBXGroup;
+			children = (
+				299FF5C4265748C100FCFD01 /* OneLineTwoStyleTableViewCell.h */,
+				299FF5C5265748C100FCFD01 /* OneLineTwoStyleTableViewCell.m */,
+				299FF5CC2657631100FCFD01 /* OneLineTwoStyleCollectionViewCell.h */,
+				299FF5CD2657631100FCFD01 /* OneLineTwoStyleCollectionViewCell.m */,
+			);
+			path = "OneLineTwoStyle(一行两个)";
+			sourceTree = "<group>";
+		};
+		299FF5C726574ED400FCFD01 /* OneLinePictureAdaptationAndPictureFoldingDisplay(一行自适应与折行) */ = {
+			isa = PBXGroup;
+			children = (
+				2978869D2514969F00C5E5DD /* TestCollectionViewModel.h */,
+				2978869E2514969F00C5E5DD /* TestCollectionViewModel.m */,
+			);
+			path = "OneLinePictureAdaptationAndPictureFoldingDisplay(一行自适应与折行)";
+			sourceTree = "<group>";
+		};
+		299FF5C826574FA800FCFD01 /* OneLineTwoStyle(一行两个) */ = {
+			isa = PBXGroup;
+			children = (
+				299FF5C926574FF200FCFD01 /* OneLineTwoStyleModel.h */,
+				299FF5CA26574FF200FCFD01 /* OneLineTwoStyleModel.m */,
+			);
+			path = "OneLineTwoStyle(一行两个)";
 			sourceTree = "<group>";
 		};
 		29A5583F23A3751600B70042 /* TestTableViewDetelateCell(表视图删除cell) */ = {
@@ -2202,12 +2241,14 @@
 				29F3558C253F1F7D00CD25B2 /* AlertViewController.m in Sources */,
 				29896F6624C92844000C1EC7 /* TestYBPopupMenuViewController.m in Sources */,
 				29C555E124E81F4F002F2785 /* TestKMGestureRecognizerViewController.m in Sources */,
+				299FF5CB26574FF200FCFD01 /* OneLineTwoStyleModel.m in Sources */,
 				29B2A50423C7855300549EEC /* YSUError.m in Sources */,
 				29C60467232A8EA000B48958 /* YYSpriteSheetImage.m in Sources */,
 				297886A62514E98A00C5E5DD /* PictureFoldingDisplayTableViewCell.m in Sources */,
 				29DA9D19242A535E0000BBBB /* TestBaiDuRESTController.m in Sources */,
 				2909676625E7304D005BFEAD /* ShoppingCartIconView.m in Sources */,
 				291354DD24ECDAAB006AAA36 /* SearchImitateController.m in Sources */,
+				299FF5CE2657631100FCFD01 /* OneLineTwoStyleCollectionViewCell.m in Sources */,
 				294D44862539ED9800CA6EC0 /* CommonImageCellModel.m in Sources */,
 				29AF63EF22D3686F0048A036 /* ViewController.m in Sources */,
 				29D755F223673DE500722B3A /* FSCalendarTransitionCoordinator.m in Sources */,
@@ -2261,6 +2302,7 @@
 				2949BD952389085F00388BEE /* LabelWithCopy.m in Sources */,
 				291354D924ECCFA9006AAA36 /* SearchContentView.m in Sources */,
 				29EEF2FC2354AA7200C41FF6 /* YYWebImageExample.m in Sources */,
+				299FF5C6265748C100FCFD01 /* OneLineTwoStyleTableViewCell.m in Sources */,
 				29B1AAC524FCCF4B007F8A5E /* XLPhotoBrowser.m in Sources */,
 				29DA9D1D242A58CD0000BBBB /* TestUITextViewController.m in Sources */,
 				2931271525620B7D001D1EF7 /* CountdownButton.m in Sources */,

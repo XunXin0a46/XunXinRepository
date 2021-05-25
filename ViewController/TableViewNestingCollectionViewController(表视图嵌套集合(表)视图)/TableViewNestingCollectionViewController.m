@@ -13,6 +13,7 @@
 #import "UploadImageTableViewCell.h"
 #import "SwipeDisplayTableViewCell.h"
 #import "BigPictureStyleTableViewCell.h"
+#import "OneLineTwoStyleTableViewCell.h"
 #import "PickerPhotoManager.h"
 #import "UIImage+ImageBase64.h"
 #import "UIView+ExtraTag.h"
@@ -58,7 +59,10 @@
     TestTableViewModel *tableViewModelIV = [[TestTableViewModel alloc]initWithCellCode:4 withCellName:@"滑动展示" withImageArray:self.imageArray];
     [self.tableViewDataSource addObject:tableViewModelIV];
     
-    TestTableViewModel *tableViewModelVI = [[TestTableViewModel alloc]initWithCellCode:5 withCellName:@"大图样式" withImageArray:nil];
+    TestTableViewModel *tableViewModelV = [[TestTableViewModel alloc]initWithCellCode:5 withCellName:@"大图样式" withImageArray:nil];
+    [self.tableViewDataSource addObject:tableViewModelV];
+    
+    TestTableViewModel *tableViewModelVI = [[TestTableViewModel alloc]initWithCellCode:5 withCellName:@"一行两个样式" withImageArray:nil];
     [self.tableViewDataSource addObject:tableViewModelVI];
     
 }
@@ -86,6 +90,9 @@
     [self.tableView registerClass:[SwipeDisplayTableViewCell class] forCellReuseIdentifier:SwipeDisplayTableViewCellReuseIdentifier];
     //大图样式
     [self.tableView registerClass:[BigPictureStyleTableViewCell class] forCellReuseIdentifier:BigPictureStyleTableViewCellReuseIdentifier];
+    //一行两个样式
+    [self.tableView registerClass:[OneLineTwoStyleTableViewCell class] forCellReuseIdentifier:OneLineTwoStyleTableViewCellReuseIdentifier];
+    
 }
 
 ///懒加载图片
@@ -158,6 +165,10 @@
         BigPictureStyleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:BigPictureStyleTableViewCellReuseIdentifier];
         [cell createDataSource];
         return cell;
+    }else if([tableViewModel.cellName isEqualToString:@"一行两个样式"]){
+        OneLineTwoStyleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:OneLineTwoStyleTableViewCellReuseIdentifier];
+        [cell createDataSource];
+        return cell;
     }
     return nil;
 }
@@ -175,6 +186,8 @@
         cellHeigth = [SwipeDisplayTableViewCell calculateCellHeight:tableViewModel];
     }else if([tableViewModel.cellName isEqualToString:@"大图样式"]){
         cellHeigth = [BigPictureStyleTableViewCell calculateCellHeight];
+    }else if([tableViewModel.cellName isEqualToString:@"一行两个样式"]){
+        cellHeigth = [OneLineTwoStyleTableViewCell calculateDynamicHeight];
     }else{
         cellHeigth = UITableViewAutomaticDimension;
     }
