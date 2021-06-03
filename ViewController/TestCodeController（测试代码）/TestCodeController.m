@@ -30,7 +30,8 @@
     [testCodeButton setTitle:@"测试代码" forState:UIControlStateNormal];
     [testCodeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [testCodeButton addTarget:self action:@selector(testCode) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:testCodeButton];
+    //[self.view addSubview:testCodeButton];
+    [self UILabelCodeTestArea];
     
 }
 
@@ -351,7 +352,8 @@
     label.enabled = YES;
     [self.view addSubview:label];
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.view);
+        make.centerX.equalTo(self.view);
+        make.top.equalTo(self.view.mas_top).offset(HEAD_BAR_HEIGHT);
         make.size.mas_offset(CGSizeMake(20, 50));
     }];
 
@@ -364,7 +366,8 @@
     label2.allowsDefaultTighteningForTruncation = NO;
     [self.view addSubview:label2];
     [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.view);
+        make.centerX.equalTo(self.view);
+        make.top.equalTo(label.mas_bottom).offset(10);
         make.width.mas_equalTo(CGSizeMake(70, 45));
     }];
 
@@ -377,7 +380,8 @@
     copyLabel.allowsDefaultTighteningForTruncation = NO;
     [self.view addSubview:copyLabel];
     [copyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.view);
+        make.centerX.equalTo(self.view);
+        make.top.equalTo(label2.mas_bottom).offset(10);
         make.width.mas_equalTo(CGSizeMake(70, 45));
     }];
 

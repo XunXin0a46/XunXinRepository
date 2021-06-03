@@ -58,6 +58,11 @@
     configuration.preferences.javaScriptEnabled = YES;
     //不通过用户交互，是否可以打开窗口
     configuration.preferences.javaScriptCanOpenWindowsAutomatically = YES;
+    //HTML5视频允许网页播放 
+    configuration.allowsInlineMediaPlayback = YES;
+    //自动播放, 不需要用户采取任何手势开启播放
+    //WKAudiovisualMediaTypeNone 音视频的播放不需要用户手势触发, 即为自动播放
+    configuration.mediaTypesRequiringUserActionForPlayback = WKAudiovisualMediaTypeNone;
     //注册要被js调用的jsCallios方法
     [configuration.userContentController addScriptMessageHandler:self name:@"jsCallios"];
     //初始化WKWebView
