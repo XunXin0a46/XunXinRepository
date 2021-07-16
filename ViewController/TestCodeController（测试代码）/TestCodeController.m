@@ -30,9 +30,7 @@
     [testCodeButton setTitle:@"测试代码" forState:UIControlStateNormal];
     [testCodeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [testCodeButton addTarget:self action:@selector(testCode) forControlEvents:UIControlEventTouchUpInside];
-    //[self.view addSubview:testCodeButton];
-    [self UILabelCodeTestArea];
-    
+    [self.view addSubview:testCodeButton];
 }
 
 ///测试按钮点击
@@ -182,6 +180,7 @@
     [self.view addConstraint:LayoutConstraintCenterY];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[view2(200)]" options:0 metrics:nil views:@{@"view2": view2}]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[view2(200.0)]" options:0 metrics:nil views:@{@"view2": view2}]];
+    LayoutConstraintCenterY.constant = 200;
 }
 
 ///与视图同等相关的约束
@@ -442,6 +441,44 @@
     UIGraphicsEndImageContext();
     return scaledImage;
 }
+
+///测试获取网络图片高度
+- (void)testGetImageHeight{
+    //http请求报错“NSURLConnection finished with error - code -1022”在info.plist文件中添加App Transport Security Settings,在App Transport Security Settings 下面添加Allow Arbitrary Loads,然后设置YES就可以了
+    //初始化图片链接数组
+    NSMutableArray<NSString *> *imageArray = [[NSMutableArray alloc]init];
+    //填充图片链接数组数据
+    for (int i = 0; i < 5; i++) {
+        [imageArray addObject:@"backend/1/images/2021/07/08/16257362187593.jpg"];
+    }
+    
+    //初始化存放图片高度的数组
+    NSMutableArray *imageHeightArray = [[NSMutableArray alloc]init];
+    
+    //开始处理数据的时间
+    NSLog(@"%@", [NSString stringWithFormat:@"数据处理开始时间%f",[[NSDate date] timeIntervalSince1970]]);
+    
+    [imageArray enumerateObjectsUsingBlock:^(NSString * _Nonnull urlStr, NSUInteger idx, BOOL * _Nonnull stop) {
+        //根据路径获取图片的大小
+        CGSize size = [YSUUtils getImageSizeWithURL:[YSUUtils urlStringOfImage:urlStr]];
+        [imageHeightArray addObject:@(size.height)];
+    }];
+    
+    //初始化排序规格
+    NSSortDescriptor *descriptor = [[NSSortDescriptor alloc]initWithKey:nil ascending:YES];
+    //包含排序规则的数组
+    NSArray *sortArray = [NSArray arrayWithObjects:descriptor,nil];
+    //排序后的数组
+    NSArray *sortedArray = [imageHeightArray sortedArrayUsingDescriptors:sortArray];
+    //获取数组中缩放后最大的图片高度
+    CGFloat scrollImageHeight = [[sortedArray lastObject]floatValue];
+    //输出图片数组中缩放后最大的图片高度
+    NSLog(@"%f",scrollImageHeight);
+    
+    //结束处理数据的时间
+    NSLog(@"%@", [NSString stringWithFormat:@"数据处理完成时间%f",[[NSDate date] timeIntervalSince1970]]);
+}
+
 ///-------------------------------- 按大小缩放图片代码测试区结束 --------------------------------
 
 ///-------------------------------- 返回虚线image的方法 ---------------------------------------

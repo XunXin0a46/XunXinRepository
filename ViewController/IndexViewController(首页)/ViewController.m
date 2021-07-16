@@ -33,6 +33,7 @@
 #import "TransmitValueTestLoginController.h"
 #import "TestXIBViewConreoller.h"
 #import "TestCountDownViewController.h"
+#import "TestPickerViewController.h"
 
 @interface ViewController ()
 
@@ -69,9 +70,9 @@
 ///设置按钮
 - (void)createUI{
     //控制器名称数组(与下面按钮相对应)
-    self.controllerNameAry = @[@"SwipeViewController",@"TestCollectionViewController",@"BaseWebViewControlle",@"TestButtonController",@"YYImageExample",@"TestCodeController",@"SignInController",@"ShadowViewController",@"TestTableViewController",@"TestTableViewDetelateCellController",@"TestRunTimeViewController",@"BezierPathController",@"ScanViewController",@"TestViewController",@"TestNavigationController",@"TestBaiDuRESTController",@"TestUITextViewController",@"TestCALayerController",@"TestCGGeometryController",@"TestCLLocationController",@"TextUIScrollViewController",@"TestRegularViewController",@"TestTTTAttributedLabelViewController",@"TestYBPopupMenuViewController",@"TestUIViewViewController",@"GestureRecognizerViewController",@"BarcodeAndQrCodeViewController",@"TableViewNestingCollectionViewController",@"TransmitValueTestLoginController",@"TestXIBViewConreoller",@"TestCountDownViewController"];
+    self.controllerNameAry = @[@"SwipeViewController",@"TestCollectionViewController",@"BaseWebViewControlle",@"TestButtonController",@"YYImageExample",@"TestCodeController",@"SignInController",@"ShadowViewController",@"TestTableViewController",@"TestTableViewDetelateCellController",@"TestRunTimeViewController",@"BezierPathController",@"ScanViewController",@"TestViewController",@"TestNavigationController",@"TestBaiDuRESTController",@"TestUITextViewController",@"TestCALayerController",@"TestCGGeometryController",@"TestCLLocationController",@"TextUIScrollViewController",@"TestRegularViewController",@"TestTTTAttributedLabelViewController",@"TestYBPopupMenuViewController",@"TestUIViewViewController",@"GestureRecognizerViewController",@"BarcodeAndQrCodeViewController",@"TableViewNestingCollectionViewController",@"TransmitValueTestLoginController",@"TestXIBViewConreoller",@"TestCountDownViewController",@"TestPickerViewController"];
     //按钮标题数组
-    NSArray *buttonTilteAry = @[@"滑动视图",@"集合视图",@"WKWebView",@"测试按钮",@"YYWebImage",@"测试代码",@"签到",@"阴影视图",@"下拉选",@"表视图",@"RunTime",@"贝塞尔",@"扫码",@"视图控制器",@"导航栏",@"百度REST",@"文本视图",@"CALayer",@"CGGeometry",@"CLLocation",@"滚动视图",@"测试正则",@"富文本标签",@"弹出菜单",@"测试视图",@"手势识别",@"条形二维码",@"表嵌集",@"传值练习",@"XIB测试",@"倒计时"];
+    NSArray *buttonTilteAry = @[@"滑动视图",@"集合视图",@"WKWebView",@"测试按钮",@"YYWebImage",@"测试代码",@"签到",@"阴影视图",@"下拉选",@"表视图",@"RunTime",@"贝塞尔",@"扫码",@"视图控制器",@"导航栏",@"百度REST",@"文本视图",@"CALayer",@"CGGeometry",@"CLLocation",@"滚动视图",@"测试正则",@"富文本标签",@"弹出菜单",@"测试视图",@"手势识别",@"条形二维码",@"表嵌集",@"传值练习",@"XIB测试",@"倒计时",@"时间选取"];
     //按钮对象数组
     NSMutableArray *buttonAry = [[NSMutableArray alloc]initWithCapacity:buttonTilteAry.count];
     //记录当前按钮的行数

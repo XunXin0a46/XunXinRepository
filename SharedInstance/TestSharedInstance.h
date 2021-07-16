@@ -17,6 +17,8 @@
 @property (nonatomic, copy) NSString *selectControllerName;
 //存储上传图片的数组
 @property (nonatomic, strong) NSMutableArray *uploadImageArray;
+//网络图片基URL，例如：http://68dsw.oss-cn-beijing.aliyuncs.com/images/
+@property (nonatomic, copy) NSString *imageBaseURL;
 
 +(instancetype)sharedInstance;
 

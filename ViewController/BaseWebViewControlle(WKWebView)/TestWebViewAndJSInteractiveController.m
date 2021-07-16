@@ -63,7 +63,7 @@
     //自动播放, 不需要用户采取任何手势开启播放
     //WKAudiovisualMediaTypeNone 音视频的播放不需要用户手势触发, 即为自动播放
     configuration.mediaTypesRequiringUserActionForPlayback = WKAudiovisualMediaTypeNone;
-    //注册要被js调用的jsCallios方法
+    //注册要被js调用的jsCallios方法,js使用此方法发送消息
     [configuration.userContentController addScriptMessageHandler:self name:@"jsCallios"];
     //初始化WKWebView
     self.webView = [[WKWebView alloc]initWithFrame:CGRectZero configuration:configuration];

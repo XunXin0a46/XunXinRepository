@@ -11,8 +11,10 @@
 static const unsigned componentFlags = (NSCalendarUnitYear| NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekOfMonth |  NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitWeekday | NSCalendarUnitWeekdayOrdinal);
 
 @implementation NSDate (Extension)
+
 // Courtesy of Lukasz Margielewski
 // Updated via Holger Haenisch
+
 + (NSCalendar *) currentCalendar
 {
     static NSCalendar *sharedCalendar = nil;
@@ -488,9 +490,11 @@ static const unsigned componentFlags = (NSCalendarUnitYear| NSCalendarUnitMonth 
 - (NSInteger) year
 {
     NSDateComponents *components = [[NSDate currentCalendar] components:componentFlags fromDate:self];
+    //返回年份
     return components.year;
 }
 
+///将格式化的日期字符串按照给定格式转换为NSDate
 + (NSDate *)date:(NSString *)datestr WithFormat:(NSString *)format
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];

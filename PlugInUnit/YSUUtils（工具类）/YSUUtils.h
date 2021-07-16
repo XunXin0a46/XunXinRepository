@@ -38,6 +38,10 @@ id isNil(id obj);
 + (UIImage *)shrinkImage:(UIImage *)image maxWidth:(CGFloat)maxWidth maxHeight:(CGFloat)maxHeight;
 ///使用浏览器打开指定的路径 例如@"https://www.baidu.com"
 + (BOOL)openBrowser:(NSString *)urlString;
+///通过图片Data数据第一个字节 来获取图片扩展名
++ (NSString *)contentTypeForImageData:(NSData *)data;
+///处理加载图片URL
++ (NSString *)urlStringOfImage:(NSString *)imageUrl;
 ///删除Url的额外斜杠
 + (NSString *)removeExtraSlashOfUrl:(NSString *)url;
 ///获取域名 例如@"http://www.test.68mall.com"获取@"test.68mall.com"
@@ -46,5 +50,7 @@ id isNil(id obj);
 + (UIImage *)QRCodeImageWithContent:(NSString *)content imageSize:(CGSize)imageSize logoImage:(UIImage *)logoImage logoImageSize:(CGSize)logoImageSize;
 ///修改导航栏和底部Tabbar分割线颜色用到的方法(返回制定大小与颜色的UIImage对象)
 + (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
+///根据路径获取图片的大小
++ (CGSize)getImageSizeWithURL:(id)URL;
 
 @end

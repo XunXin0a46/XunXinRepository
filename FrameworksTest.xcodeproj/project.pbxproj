@@ -39,6 +39,7 @@
 		2929536A233A53650029D9EA /* ResourceTwitter.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 29295369233A53650029D9EA /* ResourceTwitter.bundle */; };
 		2929536D233A582E0029D9EA /* YYImageProgressiveExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 2929536C233A582E0029D9EA /* YYImageProgressiveExample.m */; };
 		292B04B124EA16C300C8C82F /* ButtonLinkageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 292B04B024EA16C300C8C82F /* ButtonLinkageView.m */; };
+		292ED88A2671BE5D0023BED4 /* TestPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 292ED8892671BE5D0023BED4 /* TestPickerViewController.m */; };
 		292FC01623180FE0007F2A9A /* TestCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 292FC01523180FDF007F2A9A /* TestCollectionViewController.m */; };
 		292FCAA423C37E4F00AA9B22 /* UITableView+count.m in Sources */ = {isa = PBXBuildFile; fileRef = 292FCAA323C37E4F00AA9B22 /* UITableView+count.m */; };
 		29308A612379B07900AB094B /* SignInView.m in Sources */ = {isa = PBXBuildFile; fileRef = 29308A5F2379B07900AB094B /* SignInView.m */; };
@@ -323,6 +324,8 @@
 		2929536C233A582E0029D9EA /* YYImageProgressiveExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYImageProgressiveExample.m; sourceTree = "<group>"; };
 		292B04AF24EA16C300C8C82F /* ButtonLinkageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonLinkageView.h; sourceTree = "<group>"; };
 		292B04B024EA16C300C8C82F /* ButtonLinkageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButtonLinkageView.m; sourceTree = "<group>"; };
+		292ED8882671BE5D0023BED4 /* TestPickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestPickerViewController.h; sourceTree = "<group>"; };
+		292ED8892671BE5D0023BED4 /* TestPickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestPickerViewController.m; sourceTree = "<group>"; };
 		292FC01423180FDF007F2A9A /* TestCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewController.h; sourceTree = "<group>"; };
 		292FC01523180FDF007F2A9A /* TestCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestCollectionViewController.m; sourceTree = "<group>"; };
 		292FCAA223C37E4F00AA9B22 /* UITableView+count.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+count.h"; sourceTree = "<group>"; };
@@ -877,6 +880,15 @@
 				292B04B024EA16C300C8C82F /* ButtonLinkageView.m */,
 			);
 			path = "TestButtonLinkage(按钮联动)";
+			sourceTree = "<group>";
+		};
+		292ED8872671BDFA0023BED4 /* TestPickerView(时间选取) */ = {
+			isa = PBXGroup;
+			children = (
+				292ED8882671BE5D0023BED4 /* TestPickerViewController.h */,
+				292ED8892671BE5D0023BED4 /* TestPickerViewController.m */,
+			);
+			path = "TestPickerView(时间选取)";
 			sourceTree = "<group>";
 		};
 		292FCAA523C383B000AA9B22 /* Category(NSString) */ = {
@@ -1827,6 +1839,7 @@
 				29036D0625171E25005BC76A /* TransmitValueController(传值练习) */,
 				29B0AF632559812A0009AB85 /* TestXIBViewConreoller(XIB练习) */,
 				29223AD7255FCA2200DA1941 /* TestCountDown(倒计时) */,
+				292ED8872671BDFA0023BED4 /* TestPickerView(时间选取) */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2392,6 +2405,7 @@
 				29308A612379B07900AB094B /* SignInView.m in Sources */,
 				29A686BB25E0FD5A00B59BCE /* CustomNavigationBarViewS1.m in Sources */,
 				29BBD49A24DD25F40091CF97 /* TestCollectionViewItem.m in Sources */,
+				292ED88A2671BE5D0023BED4 /* TestPickerViewController.m in Sources */,
 				29CF620A2312D3AC006DCCBB /* SwipeViewController.m in Sources */,
 				296758502492693D000DE253 /* UIView+ExtraTag.m in Sources */,
 				299938D0233675C500CB4A86 /* CALayer+YYAdd.m in Sources */,

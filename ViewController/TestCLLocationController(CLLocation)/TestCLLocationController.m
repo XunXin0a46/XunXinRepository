@@ -45,26 +45,74 @@
 
 ///请求定位权限
 - (void)requestLocationJurisdiction{
-    //判断是否启用了位置服务
+    //判断设备在设置中是否启用了位置服务
     if([CLLocationManager locationServicesEnabled]){
-        //初始化位置管理对象
-        self.locationManager = [[CLLocationManager alloc]init];
-        //设置代理
-        self.locationManager.delegate = self;
-        //请求在应用程序位于前台时使用定位服务的权限
-        [self.locationManager requestAlwaysAuthorization];
-        //开始生成报告用户当前位置的更新
-        [self.locationManager startUpdatingLocation];
-        //判断位置管理器是否能够生成与导航方向相关的事件
-        if ([CLLocationManager headingAvailable]) {
-            //生成新航向事件所需的最小角度变化
-            self.locationManager.headingFilter = kCLHeadingFilterNone;
-            [self.locationManager startUpdatingHeading];
+        //设备启用了位置服务，判断应用程序的位置权限
+        switch ([CLLocationManager authorizationStatus]) {
+            //用户尚未选择应用程序是否可以使用位置服务
+            case kCLAuthorizationStatusNotDetermined:
+                //启用定位
+                [self enablePositioning];
+                //请求在应用程序位于前台时使用定位服务的权限
+                [self.locationManager requestWhenInUseAuthorization];
+                break;
+            //用户授权应用程序随时启动定位服务的权限
+            //用户已授权仅在使用应用程序时有访问位置的权限
+            case kCLAuthorizationStatusAuthorizedAlways:
+            case kCLAuthorizationStatusAuthorizedWhenInUse:
+                //启用定位
+                [self enablePositioning];
+                break;
+            //拒绝对此应用程序的位置授权
+            case kCLAuthorizationStatusDenied:
+                //设备未启用位置服务，展示提示
+                [self showPermissionSettingAlert:@"无法定位" withMessage:@"当前应用程序设置不支持定位"];
+                break;
+            default:
+                break;
         }
         
     }else{
-        NSLog(@"当前设备不支持定位");
+        //设备未启用位置服务，展示提示
+        [self showPermissionSettingAlert:@"无法定位" withMessage:@"当前设备设置不支持定位"];
     }
+}
+
+///启用定位
+- (void)enablePositioning{
+    //初始化位置管理对象
+    if(self.locationManager == nil){
+        self.locationManager = [[CLLocationManager alloc]init];
+    }
+    //设置代理
+    self.locationManager.delegate = self;
+    //请求在应用程序位于前台时使用定位服务的权限
+    [self.locationManager requestAlwaysAuthorization];
+    //开始生成报告用户当前位置的更新
+    [self.locationManager startUpdatingLocation];
+    //判断位置管理器是否能够生成与导航方向相关的事件
+    if ([CLLocationManager headingAvailable]) {
+        //生成新航向事件所需的最小角度变化
+        self.locationManager.headingFilter = kCLHeadingFilterNone;
+        [self.locationManager startUpdatingHeading];
+    }
+}
+
+///显示权限设置提示框
+- (void)showPermissionSettingAlert:(NSString *)title withMessage:(NSString *)message{
+    //初始化提示框
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    //YES操作项
+    UIAlertAction *yesAction = [UIAlertAction actionWithTitle:@"YES" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        //打开设置页面
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]options:@{}completionHandler:nil];
+    }];
+    //NO操作项
+    UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"NO" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+    }];
+    [alertController addAction:yesAction];
+    [alertController addAction:noAction];
+    [self presentViewController:alertController animated:true completion:nil];
 }
 
 ///设置航向指示视图
@@ -408,6 +456,17 @@
 ///当此应用程序的授权状态更改时调用
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status API_AVAILABLE(ios(4.2), macos(10.7)){
     NSLog(@"当此应用程序的授权状态更改时调用");
+    switch (status) {
+        //用户授权应用程序随时启动定位服务的权限
+        //用户已授权仅在使用应用程序时有访问位置的权限
+        case kCLAuthorizationStatusAuthorizedAlways:
+        case kCLAuthorizationStatusAuthorizedWhenInUse:
+            //启用定位
+            [self enablePositioning];
+            break;
+        default:
+            break;
+    }
 }
 
 ///询问代理是否应显示航向校准警报
@@ -596,6 +655,5 @@ didFailRangingBeaconsForConstraint:(CLBeaconIdentityConstraint *)beaconConstrain
 - (void)locationManager:(CLLocationManager *)manager didVisit:(CLVisit *)visit API_AVAILABLE(ios(8.0)) API_UNAVAILABLE(watchos, tvos, macos){
     
 }
-
 
 @end

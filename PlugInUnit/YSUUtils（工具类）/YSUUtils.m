@@ -177,6 +177,71 @@ id isNil(id obj) {
     }
 }
 
+///通过图片Data数据第一个字节 来获取图片扩展名
++ (NSString *)contentTypeForImageData:(NSData *)data {
+    uint8_t c;
+    [data getBytes:&c length:1];
+    switch (c) {
+        case 0xFF:
+            return @"jpeg";
+        case 0x89:
+            return @"png";
+        case 0x47:
+            return @"gif";
+        case 0x49:
+        case 0x4D:
+            return @"tiff";
+        case 0x52:
+            if ([data length] < 12) {
+                return nil;
+            }
+            NSString *testString = [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(0, 12)] encoding:NSASCIIStringEncoding];
+            if ([testString hasPrefix:@"RIFF"] && [testString hasSuffix:@"WEBP"]) {
+                return @"webp";
+            }
+            return nil;
+    }
+    return nil;
+}
+
+///处理加载图片URL
++ (NSString *)urlStringOfImage:(NSString *)imageUrl {
+    //删除字符串两端的空格字符
+    imageUrl = [imageUrl stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    //如果传递的图片URL不是以@"http://"开头或@"https://"开头
+    if (![imageUrl hasPrefix:@"http://"] && ![imageUrl hasPrefix:@"https://"]) {
+        //拼接网络图片基URL
+        imageUrl = [NSString stringWithFormat:@"%@%@", [TestSharedInstance sharedInstance].imageBaseURL, imageUrl];
+        //如果传递的图片URL不是以@".gif"结尾
+        if (![imageUrl hasSuffix:@".gif"]) {
+            //判断传递的图片URL是否以@".jpg"结尾
+            if([imageUrl hasSuffix:@".jpg"]){
+                //以@".jpg"结尾
+                //判断传递的图片URL是否包含@"x-oss-process"
+                if ([imageUrl containsString:@"x-oss-process"]) {
+                    //jpg格式
+                    imageUrl = [imageUrl stringByAppendingString:@"/format,jpg"];
+                } else {
+                    //不包含时需要先拼接@"x-oss-process"
+                    imageUrl = [imageUrl stringByAppendingString:@"?x-oss-process=image/format,jpg"];
+                }
+            }else{
+                //判断传递的图片URL是否包含@"x-oss-process"
+                if ([imageUrl containsString:@"x-oss-process"]) {
+                    //WebP格式，设置图片的绝对质量，将原图质量压缩至q%
+                    imageUrl = [imageUrl stringByAppendingString:@"/format,webp/quality,q_75"];
+                } else {
+                    //不包含时需要先拼接@"x-oss-process"
+                    imageUrl = [imageUrl stringByAppendingString:@"?x-oss-process=image/format,webp/quality,q_75"];
+                }
+            }
+        }
+    }
+    //删除Url的额外斜杠
+    return [YSUUtils removeExtraSlashOfUrl:imageUrl];
+}
+
+
 ///删除Url的额外斜杠
 + (NSString *)removeExtraSlashOfUrl:(NSString *)url {
     //如果URL字符串为空
@@ -344,5 +409,38 @@ id isNil(id obj) {
     //返回生成的图片
     return image;
 }
+
+///根据路径获取图片的大小
++ (CGSize)getImageSizeWithURL:(id)URL{
+    NSURL * url = nil;
+    if ([URL isKindOfClass:[NSURL class]]) {
+        url = URL;
+    }
+    if ([URL isKindOfClass:[NSString class]]) {
+        url = [NSURL URLWithString:URL];
+    }
+    if (!URL) {
+        return CGSizeZero;
+    }
+    CGImageSourceRef imageSourceRef = CGImageSourceCreateWithURL((CFURLRef)url, NULL);
+    CGFloat width = 0, height = 0;
+    if (imageSourceRef) {
+        CFDictionaryRef imageProperties = CGImageSourceCopyPropertiesAtIndex(imageSourceRef, 0, NULL);
+        if (imageProperties != NULL) {
+            CFNumberRef widthNumberRef = CFDictionaryGetValue(imageProperties, kCGImagePropertyPixelWidth);
+            if (widthNumberRef != NULL) {
+                CFNumberGetValue(widthNumberRef, kCFNumberFloat64Type, &width);
+            }
+            CFNumberRef heightNumberRef = CFDictionaryGetValue(imageProperties, kCGImagePropertyPixelHeight);
+            if (heightNumberRef != NULL) {
+                CFNumberGetValue(heightNumberRef, kCFNumberFloat64Type, &height);
+            }
+            CFRelease(imageProperties);
+        }
+        CFRelease(imageSourceRef);
+    }
+    return CGSizeMake(width, height);
+}
+
 
 @end

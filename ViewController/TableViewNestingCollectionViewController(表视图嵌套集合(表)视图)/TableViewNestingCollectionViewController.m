@@ -80,17 +80,17 @@
         make.edges.equalTo(self.view);
     }];
     //表视图注册Cell
-    //一行图片自适应
+    //一行图片自适应(表嵌集)
     [self.tableView registerClass:[OneLinePictureAdaptationTableViewCell class] forCellReuseIdentifier:OneLinePictureAdaptationTableViewCellReuseIdentifier];
-    //图片折行显示
+    //图片折行显示(表嵌集)
     [self.tableView registerClass:[PictureFoldingDisplayTableViewCell class] forCellReuseIdentifier:PictureFoldingDisplayTableViewCellReuseIdentifier];
-    //上传图片
+    //上传图片(表嵌集)
     [self.tableView registerClass:[UploadImageTableViewCell class] forCellReuseIdentifier:UploadImageTableViewCellReuseIdentifier];
-    //滑动展示
+    //滑动展示(表嵌滑)
     [self.tableView registerClass:[SwipeDisplayTableViewCell class] forCellReuseIdentifier:SwipeDisplayTableViewCellReuseIdentifier];
-    //大图样式
+    //大图样式(表嵌表)
     [self.tableView registerClass:[BigPictureStyleTableViewCell class] forCellReuseIdentifier:BigPictureStyleTableViewCellReuseIdentifier];
-    //一行两个样式
+    //一行两个样式(表嵌集)
     [self.tableView registerClass:[OneLineTwoStyleTableViewCell class] forCellReuseIdentifier:OneLineTwoStyleTableViewCellReuseIdentifier];
     
 }

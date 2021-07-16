@@ -18,6 +18,8 @@
         tSharedInstance = [[TestSharedInstance alloc]init];
         //初始化存储图片的数组
         tSharedInstance.uploadImageArray = [[NSMutableArray alloc]init];
+        //初始化图片基URL
+        tSharedInstance.imageBaseURL = @"http://68dsw.oss-cn-beijing.aliyuncs.com/images/";
     });
     return tSharedInstance;;
 }

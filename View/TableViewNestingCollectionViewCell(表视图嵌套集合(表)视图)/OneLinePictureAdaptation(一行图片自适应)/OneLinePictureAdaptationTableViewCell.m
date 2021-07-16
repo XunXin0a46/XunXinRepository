@@ -10,7 +10,7 @@
 #import "TestCollectionViewModel.h"
 #import "OneLinePictureAdaptationCollectionViewCell.h"
 
-NSString * const OneLinePictureAdaptationTableViewCellReuseIdentifier = @"NSString * const OneLinePictureAdaptationTableViewCellReuseIdentifier";
+NSString * const OneLinePictureAdaptationTableViewCellReuseIdentifier = @"OneLinePictureAdaptationTableViewCellReuseIdentifier";
 
 @interface OneLinePictureAdaptationTableViewCell()<UICollectionViewDataSource,UICollectionViewDelegate>
 
