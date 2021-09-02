@@ -10,6 +10,8 @@
 #import "TestKVCModel.h"
 #import "LabelWithCopy.h"
 #import <UserNotifications/UserNotifications.h>
+#import "YSCURLManager.h"
+#import "NSString+Extention.h"
 
 @interface TestCodeController ()
 
@@ -781,5 +783,25 @@
 }
 
 ///-------------------------------- 网络请求代码测试区结束 --------------------------------------
+
+///-------------------------------- URL路由跳转代码测试区开始 ------------------------------------
+
+///使用浏览器打开URL
+- (void)browserOpenURL{
+    [[[YSCURLManager alloc]init]beginProcessWithViewController:self andUrl:@"http:www.baidu.com"];
+}
+
+///使用webView打开URL
+- (void)webViewOpenURL{
+    [[[YSCURLManager alloc]init]beginProcessWithViewController:self andUrl:[NSString stringWithFormat:@"%@%@",YSCBaseURL,@"/form/12.html"]];
+}
+
+///使用视图控制器打开URL
+- (void)viewControllerOpenURL{
+    [[[YSCURLManager alloc]init]beginProcessWithViewController:self andUrl:@"/search.html?is_self=1"];
+}
+
+///-------------------------------- URL路由跳转代码测试区结束 ------------------------------------
+
 
 @end

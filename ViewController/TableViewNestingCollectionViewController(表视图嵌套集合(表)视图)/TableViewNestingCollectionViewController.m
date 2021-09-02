@@ -14,6 +14,7 @@
 #import "SwipeDisplayTableViewCell.h"
 #import "BigPictureStyleTableViewCell.h"
 #import "OneLineTwoStyleTableViewCell.h"
+#import "LateralArrangementStyleTableViewCell.h"
 #import "PickerPhotoManager.h"
 #import "UIImage+ImageBase64.h"
 #import "UIView+ExtraTag.h"
@@ -62,8 +63,11 @@
     TestTableViewModel *tableViewModelV = [[TestTableViewModel alloc]initWithCellCode:5 withCellName:@"大图样式" withImageArray:nil];
     [self.tableViewDataSource addObject:tableViewModelV];
     
-    TestTableViewModel *tableViewModelVI = [[TestTableViewModel alloc]initWithCellCode:5 withCellName:@"一行两个样式" withImageArray:nil];
+    TestTableViewModel *tableViewModelVI = [[TestTableViewModel alloc]initWithCellCode:6 withCellName:@"一行两个样式" withImageArray:nil];
     [self.tableViewDataSource addObject:tableViewModelVI];
+    
+    TestTableViewModel *tableViewModelVII = [[TestTableViewModel alloc]initWithCellCode:7 withCellName:@"横向排列样式" withImageArray:nil];
+    [self.tableViewDataSource addObject:tableViewModelVII];
     
 }
 
@@ -92,7 +96,8 @@
     [self.tableView registerClass:[BigPictureStyleTableViewCell class] forCellReuseIdentifier:BigPictureStyleTableViewCellReuseIdentifier];
     //一行两个样式(表嵌集)
     [self.tableView registerClass:[OneLineTwoStyleTableViewCell class] forCellReuseIdentifier:OneLineTwoStyleTableViewCellReuseIdentifier];
-    
+    //横向排列样式(表嵌视图)
+    [self.tableView registerClass:[LateralArrangementStyleTableViewCell class] forCellReuseIdentifier:LateralArrangementStyleTableViewCellReuseIdentifier];
 }
 
 ///懒加载图片
@@ -169,6 +174,10 @@
         OneLineTwoStyleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:OneLineTwoStyleTableViewCellReuseIdentifier];
         [cell createDataSource];
         return cell;
+    }else if([tableViewModel.cellName isEqualToString:@"横向排列样式"]){
+        LateralArrangementStyleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LateralArrangementStyleTableViewCellReuseIdentifier];
+        [cell createDataSource];
+        return cell;
     }
     return nil;
 }
@@ -188,6 +197,8 @@
         cellHeigth = [BigPictureStyleTableViewCell calculateCellHeight];
     }else if([tableViewModel.cellName isEqualToString:@"一行两个样式"]){
         cellHeigth = [OneLineTwoStyleTableViewCell calculateDynamicHeight];
+    }else if([tableViewModel.cellName isEqualToString:@"横向排列样式"]){
+        cellHeigth = [LateralArrangementStyleTableViewCell calculateDynamicHeight];
     }else{
         cellHeigth = UITableViewAutomaticDimension;
     }

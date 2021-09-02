@@ -87,4 +87,48 @@
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 }
 
+///去掉小数末尾无意义的0
+- (NSString*)deleteFloatAllZero{
+    NSArray * arrStr=[self componentsSeparatedByString:@"."];
+    NSString *str=arrStr.firstObject;
+    NSString *str1=arrStr.lastObject;
+    while ([str1 hasSuffix:@"0"]) {
+        str1=[str1 substringToIndex:(str1.length-1)];
+    }
+    return (str1.length>0)?[NSString stringWithFormat:@"%@.%@",str,str1]:str;
+}
+
+///是否是数字
+- (BOOL)isNumeric {
+    return [self isPureInteger] || [self isPureDouble];
+}
+
+///是否是整数
+- (BOOL)isPureInteger {
+    //NSScanner对象将NSString对象的字符解释并转换为数字和字符串值
+    NSScanner *scanner = [NSScanner scannerWithString:self];
+    NSInteger val;
+    return [scanner scanInteger:&val] && [scanner isAtEnd];
+}
+
+///是否是浮点数
+- (BOOL)isPureDouble {
+    //NSScanner对象将NSString对象的字符解释并转换为数字和字符串值
+    NSScanner *scanner = [NSScanner scannerWithString:self];
+    double val;
+    return[scanner scanDouble:&val] && [scanner isAtEnd];
+}
+
+
+///字符串转double精度丢失问题
+- (double)StringChangeToDoubleForJingdu
+{
+    if (self == nil || [self isEqualToString:@""]) {
+        return 0.0;
+    }
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    return [[formatter numberFromString:self]doubleValue];
+}
+
 @end

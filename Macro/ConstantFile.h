@@ -12,6 +12,8 @@
 FOUNDATION_EXTERN NSString * const TestCollectionViewControllerDataSource;
 //BaseWebViewControlleURL
 FOUNDATION_EXTERN NSString * const BaseWebViewControlleURL;
+//设置或获取布尔值的KEY
+FOUNDATION_EXTERN NSString * const YSCKeyBoolean;
 
 @interface ConstantFile : NSObject
 

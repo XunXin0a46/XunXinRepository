@@ -9,6 +9,7 @@
 #import "TestCommonViewViewController.h"
 #import "BarProgressView.h"
 #import "PromptStyleOneView.h"
+#import "YSCHalfPriceGoodsListBottomTipsView.h"
 
 @interface TestCommonViewViewController()
 
@@ -52,6 +53,8 @@
     [self createPromptStyleOneView];
     ///通用进度视图
     [self createCommonProgressView];
+    ///通用底部操作视图1
+    [self createBottomOperationOneView];
 }
 
 ///通用提示视图1
@@ -161,6 +164,27 @@
     [purchaseNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(contentView.mas_right).offset(-10);
         make.centerY.equalTo(progressView);
+    }];
+}
+
+///通用底部操作视图1
+- (void)createBottomOperationOneView{
+    self.contentHeight += 65 + bottomPadding();
+    //设置数据模型
+    YSCHalfPriceGoodsListBottomTipsViewModel *bottomTipsViewHalfPriceModel = [[YSCHalfPriceGoodsListBottomTipsViewModel alloc]init];
+    bottomTipsViewHalfPriceModel.total_goods_amount = 6.6599998474121094;
+    bottomTipsViewHalfPriceModel.total_goods_num = 1;
+    bottomTipsViewHalfPriceModel.discount_num = @"8";
+    bottomTipsViewHalfPriceModel.package_num = @"2";
+    //显示视图
+    YSCHalfPriceGoodsListBottomTipsView *bottomTipsView = [[YSCHalfPriceGoodsListBottomTipsView alloc]initWithFrame:CGRectZero];
+    [bottomTipsView setHalfPriceModel:bottomTipsViewHalfPriceModel];
+    [self.scrollView addSubview:bottomTipsView];
+    
+    [bottomTipsView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.scrollView).offset(SCREEN_HEIGHT + 120);
+        make.left.right.equalTo(self.view);
+        make.height.mas_equalTo(65 + bottomPadding());
     }];
 }
 

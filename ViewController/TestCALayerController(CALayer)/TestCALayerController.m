@@ -181,7 +181,7 @@
     // 颜色改变
     animation.fromValue = (id)[UIColor purpleColor].CGColor; // 开始时的颜色
     animation.toValue = (id)[UIColor orangeColor].CGColor; // 结束时的颜色
-    animation.removedOnCompletion = NO;
+    animation.removedOnCompletion = NO;//动画完成不在目标层移除
     // 添加动画
     [view .layer addAnimation:animation forKey:@"scale-layer"];
 }

@@ -27,5 +27,20 @@
 ///删除字符串两端的空字符
 - (instancetype)trim;
 
+///去掉小数末尾无意义的0
+- (NSString*)deleteFloatAllZero;
+
+///判断字符串是否是纯数字
+- (BOOL)isNumeric;
+
+///是否是整数
+- (BOOL)isPureInteger;
+
+///是否是浮点数
+- (BOOL)isPureDouble;
+
+///字符串转double精度丢失问题
+- (double)StringChangeToDoubleForJingdu;
+
 @end
 

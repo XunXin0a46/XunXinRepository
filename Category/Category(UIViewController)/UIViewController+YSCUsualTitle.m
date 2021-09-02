@@ -103,7 +103,7 @@ CGFloat bottomPadding(void) {
         testCollectionView = objc_getAssociatedObject(self, TestCollectionViewKey);
     }
     //设置导航集合视图视图对象数据源
-    testCollectionView.dataSource = @[@"滑动视图",@"集合视图",@"WKWebView",@"测试按钮",@"YYWebImage",@"测试代码",@"签到",@"阴影视图",@"下拉选",@"表视图",@"RunTime",@"贝塞尔",@"扫码",@"导航栏",@"百度REST",@"文本视图",@"CALayer",@"CGGeometry",@"CLLocation",@"滚动视图",@"测试正则",@"富文本标签",@"弹出菜单",@"测试视图",@"手势识别",@"条形二维码",@"表嵌集",@"倒计时",@"时间选取"];
+    testCollectionView.dataSource = @[@"滑动视图",@"集合视图",@"WKWebView",@"测试按钮",@"YYWebImage",@"测试代码",@"签到",@"阴影视图",@"下拉选",@"表视图",@"RunTime",@"贝塞尔",@"扫码",@"导航栏",@"百度REST",@"文本视图",@"CALayer",@"CGGeometry",@"CLLocation",@"滚动视图",@"测试正则",@"富文本标签",@"弹出菜单",@"测试视图",@"手势识别",@"条形二维码",@"表嵌集",@"倒计时",@"时间选取",@"七夕"];
     
     testCollectionView.HideInViewyBlock = ^{
         //隐藏视图时恢复按钮指示状态

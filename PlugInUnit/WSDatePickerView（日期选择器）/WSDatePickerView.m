@@ -31,13 +31,13 @@ typedef void(^doneBlock)(NSDate *); //定义确定按钮回调
     NSMutableArray *_minuteArray;//存放分钟的数组
     NSString *_dateFormatter; //日期格式字符串
     //记录位置
-    NSInteger yearIndex;
-    NSInteger monthIndex;
-    NSInteger dayIndex;
-    NSInteger hourIndex;
-    NSInteger minuteIndex;
+    NSInteger yearIndex;  //年份索引
+    NSInteger monthIndex;  //月份索引
+    NSInteger dayIndex;  //日索引
+    NSInteger hourIndex;  //小时索引
+    NSInteger minuteIndex; //分钟索引
     
-    NSInteger preRow;
+    NSInteger preRow;//最小年份到当前日期所经过的月份总数
     
     NSDate *_startDate;
 
@@ -107,7 +107,7 @@ typedef void(^doneBlock)(NSDate *); //定义确定按钮回调
         [self setupUI];
         //默认配置
         [self defaultConfig];
-        
+        //确定按钮回调
         if (completeBlock) {
             self.doneBlock = ^(NSDate *startDate) {
                 completeBlock(startDate);
@@ -157,7 +157,8 @@ typedef void(^doneBlock)(NSDate *); //定义确定按钮回调
     }
 
     //循环滚动时需要用到
-    preRow = (self.scrollToDate.year-MINYEAR)*12+self.scrollToDate.month-1;
+    //最小年份到当前日期所经过的月份总数
+    preRow = (self.scrollToDate.year - MINYEAR) * 12 + self.scrollToDate.month - 1;
     
     //设置年月日时分数据
     //初始化存放年份的数组
@@ -171,20 +172,20 @@ typedef void(^doneBlock)(NSDate *); //定义确定按钮回调
     //初始化存放分钟的数组
     _minuteArray = [self setArray:_minuteArray];
     //填充月、小时、分钟数组
-    for (int i=0; i<60; i++) {
+    for (int i = 0; i < 60; i++) {
         //两位整数，不足补零
         NSString *num = [NSString stringWithFormat:@"%02d",i];
-        if (0<i && i<=12)
+        if (0 < i && i <= 12)
             //填充存放月份的数组
             [_monthArray addObject:num];
-        if (i<24)
+        if (i < 24)
             //填充存放小时的数组
             [_hourArray addObject:num];
         //填充存放分钟的数组
         [_minuteArray addObject:num];
     }
     //填充存放年的数组
-    for (NSInteger i=MINYEAR; i<MAXYEAR; i++) {
+    for (NSInteger i = MINYEAR; i < MAXYEAR; i++) {
         NSString *num = [NSString stringWithFormat:@"%ld",(long)i];
         [_yearArray addObject:num];
     }
@@ -304,7 +305,7 @@ typedef void(^doneBlock)(NSDate *); //定义确定按钮回调
     NSInteger hourNum = _hourArray.count;
     //获取存放分钟的数组长度
     NSInteger minuteNUm = _minuteArray.count;
-    //最大与最小年份时间差(月份的数据总数与公有多少年有关)
+    //最大与最小年份时间差(月份的数据总数与共有多少年有关)
     NSInteger timeInterval = MAXYEAR - MINYEAR;
     //判断日期选择样式
     switch (self.datePickerStyle) {
@@ -314,7 +315,8 @@ typedef void(^doneBlock)(NSDate *); //定义确定按钮回调
             break;
         //显示月、日、时、分
         case DateStyleShowMonthDayHourMinute:
-            return @[@(monthNum*timeInterval),@(dayNum),@(hourNum),@(minuteNUm)];
+            //注:在不显示年份时，月份组件的行数为最小到最大年份间所有月份数总和
+            return @[@(monthNum * timeInterval),@(dayNum),@(hourNum),@(minuteNUm)];
             break;
         //显示年、月、日
         case DateStyleShowYearMonthDay:
@@ -322,7 +324,8 @@ typedef void(^doneBlock)(NSDate *); //定义确定按钮回调
             break;
         //显示月、日
         case DateStyleShowMonthDay:
-            return @[@(monthNum*timeInterval),@(dayNum),@(hourNum)];
+            //注:在不显示年份时，月份组件的行数为最小到最大年份间所有月份数总和
+            return @[@(monthNum * timeInterval),@(dayNum),@(hourNum)];
             break;
         //显示时、分
         case DateStyleShowHourMinute:
@@ -440,28 +443,36 @@ typedef void(^doneBlock)(NSDate *); //定义确定按钮回调
     switch (self.datePickerStyle) {
         //显示年、月、日、时、分
         case DateStyleShowYearMonthDayHourMinute:{
-            
+            //选择器视图的第一个组件
             if (component == 0) {
+                //设置选中的年索引
                 yearIndex = row;
-                
+                //设置显示所选年份的背景标签的文本
                 self.showYearView.text =_yearArray[yearIndex];
             }
+            //选择器视图的第二个组件
             if (component == 1) {
+                //月份索引
                 monthIndex = row;
             }
+            //选择器视图的第三个组件
             if (component == 2) {
                 dayIndex = row;
             }
+            //选择器视图的第四个组件
             if (component == 3) {
                 hourIndex = row;
             }
+            //选择器视图的第五个组件
             if (component == 4) {
                 minuteIndex = row;
             }
+             //选择器视图的第一个组件或者//选择器视图的第二个组件
             if (component == 0 || component == 1){
+                //通过年月求每月天数
                 [self DaysfromYear:[_yearArray[yearIndex] integerValue] andMonth:[_monthArray[monthIndex] integerValue]];
-                if (_dayArray.count-1<dayIndex) {
-                    dayIndex = _dayArray.count-1;
+                if (_dayArray.count - 1 < dayIndex) {
+                    dayIndex = _dayArray.count - 1;
                 }
                 
             }
@@ -492,28 +503,31 @@ typedef void(^doneBlock)(NSDate *); //定义确定按钮回调
             
         //显示月、日、时、分
         case DateStyleShowMonthDayHourMinute:{
-            
-            
+            //选择器视图的第二个组件(日)
             if (component == 1) {
                 dayIndex = row;
             }
+            //选择器视图的第三个组件(时)
             if (component == 2) {
                 hourIndex = row;
             }
+            //选择器视图的第四个组件(分)
             if (component == 3) {
                 minuteIndex = row;
             }
-            
+            //选择器视图的第一个组件(月)
             if (component == 0) {
-                
+                //年份不显示时，月份改变时改变显示所选年份的背景标签文本
                 [self yearChange:row];
-                
-                if (_dayArray.count-1<dayIndex) {
-                    dayIndex = _dayArray.count-1;
+            }
+            //通过年月求每月天数
+            [self DaysfromYear:[_yearArray[yearIndex] integerValue] andMonth:[_monthArray[monthIndex] integerValue]];
+            //限制日索引，避免月份变化导致日数组越界
+            if (component == 0) {
+                if (_dayArray.count - 1 < dayIndex) {
+                    dayIndex = _dayArray.count - 1;
                 }
             }
-            [self DaysfromYear:[_yearArray[yearIndex] integerValue] andMonth:[_monthArray[monthIndex] integerValue]];
-            
         }
             break;
         //显示月、日
@@ -522,7 +536,7 @@ typedef void(^doneBlock)(NSDate *); //定义确定按钮回调
                 dayIndex = row;
             }
             if (component == 0) {
-                
+                //年份不显示时，月份改变时改变显示所选年份的背景标签文本
                 [self yearChange:row];
                 
                 if (_dayArray.count-1<dayIndex) {
@@ -565,22 +579,32 @@ typedef void(^doneBlock)(NSDate *); //定义确定按钮回调
     
 }
 
+///年份不显示时，月份改变时改变显示所选年份的背景标签文本
 -(void)yearChange:(NSInteger)row {
-    
-    monthIndex = row%12;
-    
+    //计算月份索引
+    monthIndex = row % 12;
     //年份状态变化
-    if (row-preRow <12 && row-preRow>0 && [_monthArray[monthIndex] integerValue] < [_monthArray[preRow%12] integerValue]) {
+    //row - preRow < 12 说明年份的变化为一年
+    //row - preRow > 0 && [_monthArray[monthIndex] integerValue] < [_monthArray[preRow % 12] integerValue] 说明年份应该增加
+    if (row - preRow < 12 && row - preRow > 0 && [_monthArray[monthIndex] integerValue] < [_monthArray[preRow % 12] integerValue]) {
+        //年份索引增加一
         yearIndex ++;
-    } else if(preRow-row <12 && preRow-row > 0 && [_monthArray[monthIndex] integerValue] > [_monthArray[preRow%12] integerValue]) {
+    }
+    //preRow - row < 12 说明年份的变化为一年
+    //preRow - row > 0 && [_monthArray[monthIndex] integerValue] > [_monthArray[preRow % 12] integerValue] 说明年份应该减少
+    else if(preRow - row < 12 && preRow - row > 0 && [_monthArray[monthIndex] integerValue] > [_monthArray[preRow % 12] integerValue]) {
+        //年份索引减少一
         yearIndex --;
-    }else {
-        NSInteger interval = (row-preRow)/12;
+    }
+    //年份变化超过一年时
+    else {
+        //计算年份索引
+        NSInteger interval = (row - preRow) / 12;
         yearIndex += interval;
     }
-    
+    //设置显示所选年份的背景标签文本
     self.showYearView.text = _yearArray[yearIndex];
-    
+    //重置最小年份到当前日期所经过的月份总数
     preRow = row;
 }
 
@@ -613,7 +637,7 @@ typedef void(^doneBlock)(NSDate *); //定义确定按钮回调
     }];
 }
 
-///点击背景是否影藏
+///点击背景是否隐藏
 -(void)dismiss {
     //动画块
     [UIView animateWithDuration:.3 animations:^{
@@ -634,7 +658,7 @@ typedef void(^doneBlock)(NSDate *); //定义确定按钮回调
 - (IBAction)doneAction:(UIButton *)btn {
     
     _startDate = [self.scrollToDate dateWithFormatter:_dateFormatter];
-    
+    //确定按钮回调
     self.doneBlock(_startDate);
     //隐藏时间选择器视图
     [self dismiss];
@@ -689,7 +713,7 @@ typedef void(^doneBlock)(NSDate *); //定义确定按钮回调
 - (void)setdayArray:(NSInteger)num
 {
     [_dayArray removeAllObjects];
-    for (int i=1; i<=num; i++) {
+    for (int i = 1; i <= num; i++) {
         [_dayArray addObject:[NSString stringWithFormat:@"%02d",i]];
     }
 }
@@ -697,10 +721,12 @@ typedef void(^doneBlock)(NSDate *); //定义确定按钮回调
 ///滚动到指定的时间位置
 - (void)getNowDate:(NSDate *)date animated:(BOOL)animated
 {
+    //如果传递的日期和时间对象为空
     if (!date) {
+        //创建当前日期和时间对象
         date = [NSDate date];
     }
-    
+    //通过年月求每月天数
     [self DaysfromYear:date.year andMonth:date.month];
     
     yearIndex = date.year-MINYEAR;

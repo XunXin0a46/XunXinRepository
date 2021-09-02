@@ -7,9 +7,12 @@
 //
 
 #import "ConstantFile.h"
-
+//获取测试集合数据源的KEY
 NSString * const TestCollectionViewControllerDataSource = @"TestCollectionViewControllerDataSource";
+//获取BaseWebViewControlle加载URL的KEY
 NSString * const BaseWebViewControlleURL = @"BaseWebViewControlleURL";
+//设置或获取布尔值的KEY
+NSString * const YSCKeyBoolean = @"YSCKeyBoolean";
 
 @implementation ConstantFile
 

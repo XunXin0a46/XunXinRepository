@@ -8,6 +8,7 @@
 
 #import "NSDate+Extension.h"
 
+//要将日期分解为的组件类型
 static const unsigned componentFlags = (NSCalendarUnitYear| NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekOfMonth |  NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitWeekday | NSCalendarUnitWeekdayOrdinal);
 
 @implementation NSDate (Extension)
@@ -15,11 +16,14 @@ static const unsigned componentFlags = (NSCalendarUnitYear| NSCalendarUnitMonth 
 // Courtesy of Lukasz Margielewski
 // Updated via Holger Haenisch
 
+///创建日历类对象
 + (NSCalendar *) currentCalendar
 {
     static NSCalendar *sharedCalendar = nil;
-    if (!sharedCalendar)
+    if (!sharedCalendar){
+        //获取当前用户的设置的日历类型的日历对象
         sharedCalendar = [NSCalendar autoupdatingCurrentCalendar];
+    }
     return sharedCalendar;
 }
 
@@ -463,9 +467,12 @@ static const unsigned componentFlags = (NSCalendarUnitYear| NSCalendarUnitMonth 
     return components.day;
 }
 
+///获取月份
 - (NSInteger) month
 {
+    //获取以日历格式计算的事件对象
     NSDateComponents *components = [[NSDate currentCalendar] components:componentFlags fromDate:self];
+    //返回月份
     return components.month;
 }
 

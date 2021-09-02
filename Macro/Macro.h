@@ -9,6 +9,20 @@
 #ifndef Macro_h
 #define Macro_h
 
+//MARK:- URL路由跳转测试使用
+#define PATTERN_INSIDE [NSString stringWithFormat:@"(%@%@%@)",PATTERN_PREFIX,@"(?:.*?)",PATTERN_SUFFIX]
+#define PATTERN_WEBVIEW [NSString stringWithFormat:@"%@",PATTERN_PREFIX]
+#define PATTERN_GOODS_LIST_TWELVE  @"^/search\\.html\\?is_self=(\\d)$"
+
+//MARK:- URL
+//定义根URL
+#define YSCBaseURL [[NSUserDefaults standardUserDefaults] objectForKey:@"server"]?[[NSUserDefaults standardUserDefaults] objectForKey:@"server"]:@"http://www.test.68mall.com"
+//拼接URL正则表达式使用，开头可以存在或不存在https或http
+#define PATTERN_PREFIX [NSString stringWithFormat:@"%@(?:%@){0,1}/",@"^(?:https://|http://){0,1}(?:[A-Z_a-z]+\\.){0,1}",[YSUUtils getDomain:YSCBaseURL]]
+//拼接URL正则表达式使用，结尾可以存在或不存在.html
+//(?:pattern)的含义：匹配 pattern 但不获取匹配结果，也就是说这是一个非获取匹配，不进行存储供以后使用。这在使用 "或" 字符 (|) 来组合一个模式的各个部分是很有用。例如， 'industr(?:y|ies) 就是一个比 'industry|industries' 更简略的表达式。
+#define PATTERN_SUFFIX  @"(?:\\.html){0,1}"
+
 // MARK:- 系统尺寸宏定义
 #define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
 #define SCREEN_MIN_LENGTH (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))

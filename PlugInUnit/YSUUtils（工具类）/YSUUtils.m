@@ -442,5 +442,38 @@ id isNil(id obj) {
     return CGSizeMake(width, height);
 }
 
+///返回显示大小，宽等于屏幕宽度，高度根据传递大小的宽高比与屏幕宽度计算
+CGSize resizeForScreen(CGSize size) {
+    //判断参数传递的大小是否等于CGSizeZero
+    if (CGSizeEqualToSize(size, CGSizeZero)) {
+        //返回CGSizeZero
+        return CGSizeZero;
+    }
+    //获取屏幕的宽度
+    CGFloat const displayWidth = [UIScreen mainScreen].bounds.size.width;
+    //计算参数传递的大小的宽高比
+    CGFloat const ratio = size.width / size.height;
+    //初始化显示尺寸为CGSizeZero
+    CGSize displaySize = CGSizeZero;
+    //判断宽高比是否是数字
+    if (!isnan(ratio)) {
+        //计算显示高度
+        CGFloat const displayHeight = displayWidth / ratio;
+        //设置显示大小
+        displaySize = CGSizeMake(displayWidth, displayHeight);
+    }
+    //返回显示大小
+    return displaySize;
+}
+
+CGSize resizeItemInWidth(CGFloat width, CGSize itemSize) {
+    //计算参数itemSize宽高比
+    CGFloat ratio = itemSize.width / itemSize.height;
+    //以传递的宽度与宽高比计算显示高度
+    CGFloat displayHeight = width / ratio;
+    //返回显示大小
+    return CGSizeMake(width, displayHeight);
+}
+
 
 @end
