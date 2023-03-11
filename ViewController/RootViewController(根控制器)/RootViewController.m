@@ -32,14 +32,33 @@
 
 ///设置根视图控制器
 - (void)setRootViewController{
-    //标签栏的自定义背景图像
-    self.tabBar.backgroundImage = [YSUUtils imageWithColor:[UIColor clearColor] size:CGSizeMake(CGRectGetWidth(self.view.frame), 0.5)];
-    //标签栏的自定义阴影图像
-    self.tabBar.shadowImage = [YSUUtils imageWithColor:[UIColor redColor] size:CGSizeMake(CGRectGetWidth(self.view.frame), 0.5)];
-    //标签栏是否半透明
-    self.tabBar.translucent = NO;
-    //标签栏项的定位方式
-    self.tabBar.itemPositioning = UITabBarItemPositioningFill;
+    if (@available(iOS 13.0, *)) {
+        //标签栏是否半透明
+        self.tabBar.translucent = NO;
+        //标签栏外观对象
+        UITabBarAppearance *appearance = self.tabBar.standardAppearance;
+        //标签栏的自定义背景图像
+        appearance.backgroundImage = [YSUUtils imageWithColor:[UIColor clearColor] size:CGSizeMake(CGRectGetWidth(self.view.frame), 0.5)];
+        //标签栏的自定义阴影图像
+        appearance.shadowImage = [YSUUtils imageWithColor:[UIColor redColor] size:CGSizeMake(CGRectGetWidth(self.view.frame), 0.5)];
+        //标签栏的渲染色
+        appearance.backgroundColor = [UIColor whiteColor];
+        self.tabBar.standardAppearance = appearance;
+        if (@available(iOS 15.0, *)) {
+            self.tabBar.scrollEdgeAppearance = appearance;
+        }
+    } else {
+        //标签栏的自定义背景图像
+        self.tabBar.backgroundImage = [YSUUtils imageWithColor:[UIColor clearColor] size:CGSizeMake(CGRectGetWidth(self.view.frame), 0.5)];
+        //标签栏的自定义阴影图像
+        self.tabBar.shadowImage = [YSUUtils imageWithColor:[UIColor redColor] size:CGSizeMake(CGRectGetWidth(self.view.frame), 0.5)];
+        //标签栏是否半透明
+        self.tabBar.translucent = NO;
+        //标签栏的渲染色
+        self.tabBar.barTintColor = [UIColor whiteColor];
+        //标签栏项的定位方式
+        self.tabBar.itemPositioning = UITabBarItemPositioningFill;
+    }
     //添加五个子控制器的数组
     NSMutableArray *controllerArray = [[NSMutableArray alloc]initWithCapacity:5];
     //首页

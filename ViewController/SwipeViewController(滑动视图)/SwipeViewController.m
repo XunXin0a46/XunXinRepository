@@ -59,7 +59,7 @@
     //减速率
     self.swipeView.decelerationRate = 0.5;
     //是否垂直滑动
-    self.swipeView.vertical = YES;
+    self.swipeView.vertical = NO;
     //自动滚动
     //self.swipeView.autoscroll = 1.0;
     //添加滑动视图
@@ -122,7 +122,7 @@
 #pragma make -- SwipeViewDelegate
 ///滑动视图项目大小（不设置ScrollView只是一条线）
 - (CGSize)swipeViewItemSize:(SwipeView *)swipeView {
-    return swipeView.bounds.size;
+    return CGSizeMake(swipeView.bounds.size.width, swipeView.bounds.size.height);
 }
 
 /////滑动视图点击事件

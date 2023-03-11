@@ -1,15 +1,26 @@
 //
 //  TestCALayerController.m
 //  FrameworksTest
-//
+//   
 //  Created by 王刚 on 2020/3/24.
 //  Copyright © 2020 王刚. All rights reserved.
 //
 
 #import "TestCALayerController.h"
+#import "LayerShadowCell.h"
+#import "LayerGradualChangeCell.h"
+#import "LayerBasicAnimationCell.h"
+#import "LayerKeyframeAnimationCell.h"
 #import "TestReplicatorLayerViewController.h"
 
-@interface TestCALayerController ()<CAAnimationDelegate>
+@interface TestCALayerController ()<UITableViewDataSource,CAAnimationDelegate>
+
+//表视图
+@property (nonatomic, strong) UITableView *tableView;
+//表视图数据源
+@property (nonatomic, strong) NSMutableArray<NSString *> *dataSource;
+//转场动画用视图
+@property (nonatomic, strong) UIView *transitionView;
 
 @end
 
@@ -20,98 +31,34 @@
     self.view.backgroundColor = [UIColor whiteColor];
     //设置导航栏标题视图
     [self createNavigationTitleView:@"CALayer"];
-    //设置视图动画代码片段
-    [self setViewAnimation];
-    //设置转场动画按钮
-    [self setTransitionBtn];
     //设置导航栏右侧按钮
     [self setrightBarButton];
+    //初始化界面
+    [self initializationUI];
 }
 
 ///设置导航栏右侧按钮
 - (void)setrightBarButton{
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"CAReplicatorLayer" style:UIBarButtonItemStylePlain target:self action:@selector(testReplicatorLayer)];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"复制层" style:UIBarButtonItemStylePlain target:self action:@selector(testReplicatorLayer)];
     [item setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:15], NSForegroundColorAttributeName: HEXCOLOR(0x666666)} forState:UIControlStateNormal];
     [item setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:15], NSForegroundColorAttributeName: HEXCOLOR(0x666666)} forState:UIControlStateHighlighted];
     self.navigationItem.rightBarButtonItem = item;
 }
 
-///设置视图动画代码片段
-- (void)setViewAnimation{
-    //创建3个视图
-    NSMutableArray *array= [[NSMutableArray alloc]init];
-    for(int i =0; i < 4; i ++) {
-        UIView *view = [[UIView alloc]initWithFrame:CGRectZero];
-        if(i == 0){
-            view.backgroundColor = [UIColor redColor];
-            //设置单帧位置动画
-            [self creatingAnimatePosition:view];
-        }else if(i == 1){
-            view.backgroundColor = [UIColor greenColor];
-            //设置单帧缩放动画
-            [self creatingAnimateScale:view];
-        }else if(i == 2){
-            view.backgroundColor = [UIColor yellowColor];
-            //设置单帧透明度动画
-            [self creatingAnimateOpacity:view];
-        }else if(i == 3){
-            view.backgroundColor = [UIColor blueColor];
-            //设置单帧背景色动画
-            [self  creatingAnimateBackgroundColor:view];
-        }
-        
-        [self.view addSubview:view];
-        [array addObject:view];
-    }
-    
-    [array mas_distributeViewsAlongAxis:MASAxisTypeVertical withFixedItemLength:70 leadSpacing:200 tailSpacing:200];
-    [array mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.view);
-        make.width.mas_equalTo(70);
-    }];
-    
-    //X轴横移动画
-    UIView *view = [[UIView alloc]initWithFrame:CGRectZero];
-    view.backgroundColor = [UIColor redColor];
-    [self.view addSubview:view];
-    [view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.view);
-        make.size.mas_equalTo(CGSizeMake(100, 100));
-    }];
-    [self changeViewFrame:view];
-    
-    UIView *shadowView = [[UIView alloc]initWithFrame:CGRectZero];
-    shadowView.backgroundColor = [UIColor whiteColor];
-    shadowView.layer.cornerRadius = 10.0;
-    [self.view addSubview:shadowView];
-    [shadowView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view).offset(HEAD_BAR_HEIGHT);
-        make.left.equalTo(self.view);
-        make.size.mas_equalTo(CGSizeMake(50, 50));
-    }];
-    [self setLayerShadowToView:shadowView withColor:[UIColor grayColor] withOffset:CGSizeMake(0, 0) radius:3];
-    
-    //设置视图阴影
-    UIView *gradualChangeView = [[UIView alloc]initWithFrame:CGRectZero];
-    gradualChangeView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:gradualChangeView];
-    [gradualChangeView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view).offset(HEAD_BAR_HEIGHT);
-        make.right.equalTo(self.view);
-        make.size.mas_equalTo(CGSizeMake(50, 50));
-    }];
-    [self.view layoutIfNeeded];
-    [self setGradualChangeColorView:gradualChangeView];
+/// 导航栏右侧按钮点击事件
+- (void)testReplicatorLayer{
+    TestReplicatorLayerViewController *replicatorLayerViewController = [[TestReplicatorLayerViewController alloc]init];
+    [self.navigationController pushViewController:replicatorLayerViewController animated:YES];
 }
 
-///设置转场动画按钮
-- (void)setTransitionBtn{
-    
+/// 初始化界面
+- (void)initializationUI {
+    //转场动画按钮
     UIButton *transitionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [transitionBtn setTitle:@"转场动画" forState:UIControlStateNormal];
     [transitionBtn setBackgroundColor:[UIColor blueColor]];
     transitionBtn.titleLabel.font = [UIFont systemFontOfSize:15];
-    [transitionBtn addTarget:self action:@selector(transitionBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [transitionBtn addTarget:self action:@selector(transitionBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:transitionBtn];
     [transitionBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -119,153 +66,132 @@
         make.centerX.equalTo(self.view);
         make.size.mas_equalTo(CGSizeMake(75, 35));
     }];
-}
-
-///设置涂层阴影
-- (void)setLayerShadowToView:(UIView *)theView withColor:(UIColor*)color withOffset:(CGSize)offset radius:(CGFloat)radius {
-    theView.layer.shadowColor = color.CGColor;
-    //阴影偏移，默认(0, -3)
-    theView.layer.shadowOffset = offset;
-    //阴影半径，默认3
-    theView.layer.shadowRadius = radius;
-    //阴影不透明度
-    theView.layer.shadowOpacity = 1;
-    //光栅化
-    theView.layer.shouldRasterize = YES;
-    theView.layer.rasterizationScale = [UIScreen mainScreen].scale;
-}
-
-///设置视图渐变色
-- (void)setGradualChangeColorView:(UIView *)view{
     
-    //CAGradientLayer继承CALayer，可以设置渐变图层
-    CAGradientLayer *grandientLayer = [[CAGradientLayer alloc] init];
-    grandientLayer.frame = view.bounds;
-    [view.layer addSublayer:grandientLayer];
-    [view.layer insertSublayer:grandientLayer atIndex:0];
-    //设置渐变的方向 左上(0,0)  右下(1,1)
-    grandientLayer.startPoint = CGPointZero;
-    grandientLayer.endPoint = CGPointMake(0.0, 1.0);//纵向
-    //grandientLayer.endPoint = CGPointMake(1.0, 0.0);//横向
-    //colors渐变的颜色数组 这个数组中只设置一个颜色是不显示的
-    grandientLayer.colors = @[(id)[UIColor redColor].CGColor, (id)[UIColor greenColor].CGColor];
-    //沿轴向在两个定义的端点之间变化
-    grandientLayer.type = kCAGradientLayerAxial;
+    //表视图
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+    self.tableView.dataSource = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.estimatedRowHeight = 100;
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(transitionBtn.mas_bottom).offset(5);
+        make.left.right.bottom.equalTo(self.view);
+    }];
     
-}
-
-///设置单帧缩放动画
--(void)creatingAnimateScale:(UIView *)view{
-    // 设定为缩放
-    CABasicAnimation * animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-    // 动画选项设定
-    animation.duration = 0.4; // 动画持续时间
-    animation.repeatCount = HUGE_VALF; // 重复次数(HUGE_VALF为无限重复)
-    animation.autoreverses = YES; // 动画结束时执行逆动画
-    // 缩放倍数
-    animation.fromValue = [NSNumber numberWithFloat:1.0]; // 开始时的倍率
-    animation.toValue = [NSNumber numberWithFloat:1.1]; // 结束时的倍率
-    animation.removedOnCompletion = NO;
-    // 添加动画
-    [view .layer addAnimation:animation forKey:@"scale-layer"];
-}
-
-///设置单帧背景色动画
--(void)creatingAnimateBackgroundColor:(UIView *)view{
-    // 设定为缩放
-    CABasicAnimation * animation = [CABasicAnimation animationWithKeyPath:@"backgroundColor"];
-    // 动画选项设定
-    animation.duration = 0.4; // 动画持续时间
-    animation.repeatCount = HUGE_VALF; // 重复次数(HUGE_VALF为无限重复)
-    animation.autoreverses = YES; // 动画结束时执行逆动画
-    // 颜色改变
-    animation.fromValue = (id)[UIColor purpleColor].CGColor; // 开始时的颜色
-    animation.toValue = (id)[UIColor orangeColor].CGColor; // 结束时的颜色
-    animation.removedOnCompletion = NO;//动画完成不在目标层移除
-    // 添加动画
-    [view .layer addAnimation:animation forKey:@"scale-layer"];
-}
-
-///设置单帧透明度动画
--(void)creatingAnimateOpacity:(UIView *)view{
-    // 设定为缩放
-    CABasicAnimation * animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    // 动画选项设定
-    animation.duration = 0.4; // 动画持续时间
-    animation.repeatCount = HUGE_VALF; // 重复次数(HUGE_VALF为无限重复)
-    animation.autoreverses = YES; // 动画结束时执行逆动画
-    // 透明度改变
-    animation.fromValue = [NSNumber numberWithFloat:0.0]; // 开始时的透明度
-    animation.toValue = [NSNumber numberWithFloat:1.0]; // 结束时的透明度
-    animation.removedOnCompletion = NO;
-    // 添加动画
-    [view .layer addAnimation:animation forKey:@"scale-layer"];
-}
-
-///设置单帧位置动画
--(void)creatingAnimatePosition:(UIView *)view{
-    // 设定为位移
-    CABasicAnimation * animation = [CABasicAnimation animationWithKeyPath:@"position"];
-    // 动画选项设定
-    animation.duration = 0.4; // 动画持续时间
-    animation.repeatCount = HUGE_VALF; // 重复次数(HUGE_VALF为无限重复)
-    animation.autoreverses = YES; // 动画结束时执行逆动画
-    // 位移位置
-    animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(170.f, 170.f)]; // 开始时的位置
-    animation.toValue = [NSValue valueWithCGPoint:CGPointMake(200.f, 200.f)]; // 结束时的位置
-    animation.removedOnCompletion = NO;
-    // 添加动画
-    [view .layer addAnimation:animation forKey:@"scale-layer"];
-}
-
-- (void)changeViewFrame:(UIView *)view{
-    
-    CAKeyframeAnimation* animation = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
-
-    animation.values = @[@100,@(-100),@100];
-    animation.keyTimes = @[@0,@(3/6.),@1];
-    //动画持续时间
-    animation.duration = 2.f;
-    //重复次数(HUGE_VALF为无限重复)
-    animation.repeatCount = HUGE_VALF;
-    //YES把更改的值追加到当前的present层中 keypath+=value ，NO是把更改的值设置成当前present层的值keypath = value
-    animation.additive = YES;
-    //true，则动画的当前值是上一个重复周期结束时的值，加上当前重复周期的值。false，则该值只是为当前重复周期计算的值。
-    animation.cumulative = NO;
-    [view.layer addAnimation:animation forKey:@"shaking"];
-    
+    [self.tableView registerClass:LayerShadowCell.class forCellReuseIdentifier:LayerShadowCellReuseIdentifier];
+    [self.tableView registerClass:LayerGradualChangeCell.class forCellReuseIdentifier:LayerGradualChangeCellReuseIdentifier];
+    [self.tableView registerClass:LayerBasicAnimationCell.class forCellReuseIdentifier:LayerBasicAnimationCellReuseIdentifier];
+    [self.tableView registerClass:LayerKeyframeAnimationCell.class forCellReuseIdentifier:LayerKeyframeAnimationCellReuseIdentifier];
 }
 
 ///转场动画按钮点击
-- (void)transitionBtnClick{
-    
-    UIView *view = [[UIView alloc]initWithFrame:CGRectZero];
-    view.backgroundColor = [UIColor redColor];
-    
-    CATransition *animation = [CATransition animation];
-    animation.delegate = self;
-    //动画持续时间
-    animation.duration = 0.4;
-    //减缓速度，这会导致动画快速开始，然后随着它的进展而缓慢。
-    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-    //动画为推出类型
-    animation.type = kCATransitionPush;
-    //方向，向上方推出
-    animation.subtype = kCATransitionFromTop;
-    //添加动画
-    [view.layer addAnimation:animation forKey:@"animation1"];
-    //布局视图
-    [self.view addSubview:view];
-    [view mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.view.mas_bottom);
-        make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH, 360));
-    }];
-    
+- (void)transitionBtnClick:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    if (sender.selected) {
+        //显示转场动画视图
+        CATransition *animation = [CATransition animation];
+        //动画持续时间
+        animation.duration = 0.4;
+        //减缓速度，这会导致动画快速开始，然后随着它的进展而缓慢。
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+        //动画为推出类型
+        animation.type = kCATransitionPush;
+        //方向，向上方推出
+        animation.subtype = kCATransitionFromTop;
+        //添加动画
+        [self.transitionView.layer addAnimation:animation forKey:@"Transition_Push"];
+        //布局视图
+        [self.view addSubview:self.transitionView];
+        [self.transitionView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(self.view.mas_bottom);
+            make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH, 360));
+        }];
+    } else {
+        //隐藏专场动画视图
+        CATransition *animation = [CATransition animation];
+        //设置代理
+        animation.delegate = self;
+        //动画持续时间
+        animation.duration = 0.4;
+        //减缓速度，这会导致动画快速开始，然后随着它的进展而缓慢。
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+        //动画为推出类型
+        animation.type = kCATransitionPush;
+        //方向，向下方推出
+        animation.subtype = kCATransitionFromBottom;
+        //添加动画
+        [self.transitionView.layer addAnimation:animation forKey:@"Transition_PoP"];
+        [self.transitionView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.view.mas_bottom);
+            make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH, 360));
+        }];
+    }
 }
 
-- (void)testReplicatorLayer{
-    TestReplicatorLayerViewController *replicatorLayerViewController = [[TestReplicatorLayerViewController alloc]init];
-    [self.navigationController pushViewController:replicatorLayerViewController animated:YES];
+/// 懒加载表视图数据源
+- (NSMutableArray<NSString *> *)dataSource {
+    if(_dataSource == nil) {
+        _dataSource = [[NSMutableArray alloc]init];
+        [_dataSource addObject:LayerShadowCellReuseIdentifier];
+        [_dataSource addObject:LayerGradualChangeCellReuseIdentifier];
+        [_dataSource addObject:LayerBasicAnimationCellReuseIdentifier];
+        [_dataSource addObject:LayerKeyframeAnimationCellReuseIdentifier];
+    }
+    return _dataSource;
+}
+
+/// 懒加载转场动画用视图
+- (UIView *)transitionView {
+    if (_transitionView == nil) {
+        _transitionView = [[UIView alloc]initWithFrame:CGRectZero];
+        _transitionView.backgroundColor = [UIColor redColor];
+    }
+    return _transitionView;
+}
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.dataSource.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *reuseIdentifier = self.dataSource[indexPath.row];
+    //阴影
+    if ([reuseIdentifier isEqualToString:LayerShadowCellReuseIdentifier]) {
+        LayerShadowCell *cell = [tableView dequeueReusableCellWithIdentifier:LayerShadowCellReuseIdentifier];
+        return cell;
+    }
+    //渐变色
+    if ([reuseIdentifier isEqualToString:LayerGradualChangeCellReuseIdentifier]) {
+        LayerGradualChangeCell *cell = [tableView dequeueReusableCellWithIdentifier:LayerGradualChangeCellReuseIdentifier];
+        return cell;
+    }
+    //单帧动画
+    if ([reuseIdentifier isEqualToString:LayerBasicAnimationCellReuseIdentifier]) {
+        LayerGradualChangeCell *cell = [tableView dequeueReusableCellWithIdentifier:LayerBasicAnimationCellReuseIdentifier];
+        return cell;
+    }
+    //关键帧动画
+    if ([reuseIdentifier isEqualToString:LayerKeyframeAnimationCellReuseIdentifier]) {
+        LayerKeyframeAnimationCell *cell = [tableView dequeueReusableCellWithIdentifier:LayerKeyframeAnimationCellReuseIdentifier];
+        return cell;
+    }
+    return nil;
+}
+
+#pragma mark - CAAnimationDelegate
+
+/// 动画结束
+/// @param anim 结束的动画对象
+/// @param flag 指示动画是否因为达到其活动持续时间后而结束的标志
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    if ([anim isMemberOfClass:CATransition.class] && flag) {
+        CATransition *transition = (CATransition *)anim;
+        if (transition.subtype == kCATransitionFromBottom) {
+            [self.transitionView removeFromSuperview];
+        }
+    }
 }
 
 @end

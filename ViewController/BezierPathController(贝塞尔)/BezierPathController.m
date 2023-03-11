@@ -176,7 +176,7 @@
     view.layer.mask = maskLayer;
 }
 
-///为视图添加指定位置的圆角边框
+///为视图添加左上、右上、右下圆角边框
 - (void)viewAddCornerRadius2:(UIView *)view applyRoundCorners:(UIRectCorner)corners radius:(CGFloat)radius{
     UIBezierPath *outerBorderPath = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight | UIRectCornerBottomRight cornerRadii:CGSizeMake(radius, radius)];
     CAShapeLayer *borderLayer = [CAShapeLayer layer];
@@ -202,8 +202,7 @@
 *  @param lineColor 每条虚线的颜色
 */
 
-- (void)addDottedLineBorderWithView:(UIView *)view LineWidth:(CGFloat)lineWidth lineMargin:(CGFloat)lineMargin lineLength:(CGFloat)lineLength lineColor:(UIColor *)lineColor;
-{
+- (void)addDottedLineBorderWithView:(UIView *)view LineWidth:(CGFloat)lineWidth lineMargin:(CGFloat)lineMargin lineLength:(CGFloat)lineLength lineColor:(UIColor *)lineColor {
     CAShapeLayer *border = [CAShapeLayer layer];
 
     border.strokeColor = lineColor.CGColor;

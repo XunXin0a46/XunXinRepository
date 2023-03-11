@@ -61,6 +61,10 @@
     self.operationView = [[UIView alloc]initWithFrame:CGRectZero];
     self.operationView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.operationView];
+    [self.operationView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view.mas_bottom);
+        make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH, 100));
+    }];
     
     //分割线
     UIView *lineView = [[UIView alloc]initWithFrame:CGRectZero];

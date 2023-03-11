@@ -153,13 +153,6 @@
         [self.navigationController pushViewController:controller animated:YES];
         [webViewControlle setUrl:@"https://www.68mall.com"];
         return;
-    }else if([controller isMemberOfClass:[TestCollectionViewController class]]){
-        //集合视图设置数据源
-        TestCollectionViewController *collectionViewController = (TestCollectionViewController *)controller;
-        [self.navigationController pushViewController:controller animated:YES];
-        NSMutableArray *array = [[NSMutableArray alloc]initWithObjects:@"满减",@"满100元减2元、包邮、送5积分、送红包、送赠品",@"包邮",@"赠", nil];
-        [collectionViewController setArray:array];
-        return;
     }
     //如果控制器初始化失败，不进行跳转
     if (!controller && [controller isKindOfClass:[UIViewController class]]) {

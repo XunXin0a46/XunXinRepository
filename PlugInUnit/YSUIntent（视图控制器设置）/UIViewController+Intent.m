@@ -251,7 +251,6 @@ static void * KEY_IS_CLOSED = &KEY_IS_CLOSED;
             [navigationController popViewControllerAnimated:YES];
         }
     }
-
 }
 
 #pragma mark - Getters and setters

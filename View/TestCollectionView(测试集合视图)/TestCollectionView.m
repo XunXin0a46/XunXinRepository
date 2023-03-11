@@ -186,10 +186,7 @@
         NSDictionary *dic = [TestSharedInstance sharedInstance].buttonCorrespondingControllerDictionary;
         intent.className = [dic objectForKey:self.dataSource[indexPath.row]];
         //一些控制器需要处理数据
-        if([intent.className isEqualToString:@"TestCollectionViewController"]){
-            NSMutableArray *array = [[NSMutableArray alloc]initWithObjects:@"满减",@"满100元减2元、包邮、送5积分、送红包、送赠品",@"包邮",@"赠", nil];
-            [intent setObject:array forKey:TestCollectionViewControllerDataSource];
-        }else if([intent.className isEqualToString:@"BaseWebViewControlle"]){
+        if([intent.className isEqualToString:@"BaseWebViewControlle"]){
             [intent setObject:@"https://www.68mall.com" forKey:BaseWebViewControlleURL];
         }
         //在当前控制器跳转

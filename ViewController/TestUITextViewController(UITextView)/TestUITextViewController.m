@@ -32,13 +32,8 @@
     placeHolderTextView.backgroundColor = [UIColor greenColor];
     placeHolderTextView.placeholder = @"粘贴文本，可自动识别姓名、电话和地址。\r如：李明 139****8888 北京市朝阳区xx街道xx大厦xx楼xx室。";
     placeHolderTextView.placeholderColor = [UIColor redColor];
-    placeHolderTextView.layoutManager.allowsNonContiguousLayout = NO;
-    placeHolderTextView.text = @"百度一下：www.baidu.com,文本内容挺多的，文本内容挺多的，文本内容挺多的，文本内容挺多的，文本内容挺多的，文本内容挺多的，文本内容挺多的";
-    placeHolderTextView.dataDetectorTypes  = UIDataDetectorTypeLink;
     placeHolderTextView.font = [UIFont systemFontOfSize:12];
     placeHolderTextView.textColor = [UIColor redColor];
-    placeHolderTextView.selectable = YES;
-    placeHolderTextView.editable = NO;
     placeHolderTextView.delegate = self;
     [self.view addSubview:placeHolderTextView];
     [placeHolderTextView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -48,10 +43,14 @@
     
     UITextView *textView = [[UITextView alloc]initWithFrame:CGRectZero];
     textView.backgroundColor = [UIColor grayColor];
-    textView.text = @"文本内容挺多的，文本内容挺多的，文本内容挺多的，文本内容挺多的，文本内容挺多的，文本内容挺多的，文本内容挺多的";
+    textView.layoutManager.allowsNonContiguousLayout = NO;
+    textView.dataDetectorTypes  = UIDataDetectorTypeLink;
+    textView.text = @"百度一下：www.baidu.com";
     textView.font = [UIFont systemFontOfSize:15];
     textView.layoutManager.allowsNonContiguousLayout = NO;
     textView.textColor = [UIColor whiteColor];
+    textView.editable = NO;
+    textView.selectable = YES;
     textView.delegate = self;
     self.textView = textView;
     [self.view addSubview:self.textView];

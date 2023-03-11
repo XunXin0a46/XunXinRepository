@@ -72,7 +72,7 @@
     //为滚动视图添加标签
     scrollView.tag = 100;
     //初始化分页视图控件，并设置好位置
-    self.pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame) - 50, CGRectGetWidth(self.view.frame), 50)];
+    self.pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame) - 150, CGRectGetWidth(self.view.frame), 50)];
     //设置分为多少页
     self.pageControl.numberOfPages = 8;
     //设置当前所在页

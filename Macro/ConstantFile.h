@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-//测试集合视图数据源
-FOUNDATION_EXTERN NSString * const TestCollectionViewControllerDataSource;
 //BaseWebViewControlleURL
 FOUNDATION_EXTERN NSString * const BaseWebViewControlleURL;
 //设置或获取布尔值的KEY

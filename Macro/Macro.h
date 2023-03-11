@@ -12,7 +12,7 @@
 //MARK:- URL路由跳转测试使用
 #define PATTERN_INSIDE [NSString stringWithFormat:@"(%@%@%@)",PATTERN_PREFIX,@"(?:.*?)",PATTERN_SUFFIX]
 #define PATTERN_WEBVIEW [NSString stringWithFormat:@"%@",PATTERN_PREFIX]
-#define PATTERN_GOODS_LIST_TWELVE  @"^/search\\.html\\?is_self=(\\d)$"
+#define PATTERN_GOODS_LIST_TWELVE  @"^/search\\.html\\?is_self=(\\d+)$"
 
 //MARK:- URL
 //定义根URL

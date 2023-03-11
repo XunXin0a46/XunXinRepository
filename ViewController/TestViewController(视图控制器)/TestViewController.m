@@ -38,7 +38,7 @@
 - (UIViewController *)getCurrentVCFrom:(UIViewController *)rootVC{
     
     UIViewController *currentVC;
-    //获取根视图控制器现实的视图控制器
+    //获取根视图控制器显示的视图控制器
     if ([rootVC presentedViewController]) {
       
         rootVC = [rootVC presentedViewController];

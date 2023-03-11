@@ -256,6 +256,13 @@
 		29F3558C253F1F7D00CD25B2 /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F3558B253F1F7D00CD25B2 /* AlertViewController.m */; };
 		29F3C36D248157D600DF18D7 /* TestRegularViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F3C36C248157D600DF18D7 /* TestRegularViewController.m */; };
 		29F64FDC245C74B100F51FD8 /* TextUIScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F64FDB245C74B100F51FD8 /* TextUIScrollViewController.m */; };
+		32668ABF298A0B1C002C6A10 /* LayerShadowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32668ABE298A0B1C002C6A10 /* LayerShadowCell.m */; };
+		32668AC2298A114B002C6A10 /* LayerGradualChangeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32668AC1298A114B002C6A10 /* LayerGradualChangeCell.m */; };
+		32668AC5298A1695002C6A10 /* LayerBasicAnimationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32668AC4298A1695002C6A10 /* LayerBasicAnimationCell.m */; };
+		327B0401298A3AEE0088BBEE /* LayerKeyframeAnimationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 327B0400298A3AEE0088BBEE /* LayerKeyframeAnimationCell.m */; };
+		327DBABA29879969006754A8 /* TestArchiverModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 327DBAB929879969006754A8 /* TestArchiverModel.m */; };
+		32824D102955F37D00796074 /* Test.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 32824D0E2955F37D00796074 /* Test.xcdatamodeld */; };
+		32824D192955F4D800796074 /* TTPersistentStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32824D172955F4D800796074 /* TTPersistentStoreManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -733,6 +740,23 @@
 		29F3C36C248157D600DF18D7 /* TestRegularViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestRegularViewController.m; sourceTree = "<group>"; };
 		29F64FDA245C74B100F51FD8 /* TextUIScrollViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextUIScrollViewController.h; sourceTree = "<group>"; };
 		29F64FDB245C74B100F51FD8 /* TextUIScrollViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextUIScrollViewController.m; sourceTree = "<group>"; };
+		32668ABD298A0B1C002C6A10 /* LayerShadowCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LayerShadowCell.h; sourceTree = "<group>"; };
+		32668ABE298A0B1C002C6A10 /* LayerShadowCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LayerShadowCell.m; sourceTree = "<group>"; };
+		32668AC0298A114B002C6A10 /* LayerGradualChangeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LayerGradualChangeCell.h; sourceTree = "<group>"; };
+		32668AC1298A114B002C6A10 /* LayerGradualChangeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LayerGradualChangeCell.m; sourceTree = "<group>"; };
+		32668AC3298A1695002C6A10 /* LayerBasicAnimationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LayerBasicAnimationCell.h; sourceTree = "<group>"; };
+		32668AC4298A1695002C6A10 /* LayerBasicAnimationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LayerBasicAnimationCell.m; sourceTree = "<group>"; };
+		327B03FF298A3AEE0088BBEE /* LayerKeyframeAnimationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LayerKeyframeAnimationCell.h; sourceTree = "<group>"; };
+		327B0400298A3AEE0088BBEE /* LayerKeyframeAnimationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LayerKeyframeAnimationCell.m; sourceTree = "<group>"; };
+		327DBAB829879969006754A8 /* TestArchiverModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestArchiverModel.h; sourceTree = "<group>"; };
+		327DBAB929879969006754A8 /* TestArchiverModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestArchiverModel.m; sourceTree = "<group>"; };
+		32824D0F2955F37D00796074 /* Test.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Test.xcdatamodel; sourceTree = "<group>"; };
+		32824D112955F40A00796074 /* UserEntity+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UserEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
+		32824D122955F40A00796074 /* UserEntity+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UserEntity+CoreDataClass.h"; sourceTree = "<group>"; };
+		32824D132955F40A00796074 /* UserEntity+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UserEntity+CoreDataClass.m"; sourceTree = "<group>"; };
+		32824D142955F40A00796074 /* UserEntity+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UserEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
+		32824D172955F4D800796074 /* TTPersistentStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTPersistentStoreManager.m; sourceTree = "<group>"; };
+		32824D182955F4D800796074 /* TTPersistentStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTPersistentStoreManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -894,6 +918,7 @@
 		29260095250A66E3002AEFE2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				327DBAB72987992D006754A8 /* TestArchiverModel(测试归档) */,
 				2969AF9726B3A4A600EDD02F /* URLModel(路由匹配) */,
 				2978869425148A0800C5E5DD /* TableViewNestingCollectionViewModel(表视图嵌套集合(表)视图) */,
 				2978868F251484D300C5E5DD /* TestKVCModel(测试KVC) */,
@@ -1089,13 +1114,13 @@
 			path = "TestTableViewController（表视图简单下拉选）";
 			sourceTree = "<group>";
 		};
-		293E5BB5239FE1BC00B49495 /* TestCodeController（测试代码） */ = {
+		293E5BB5239FE1BC00B49495 /* TestCodeController(测试代码) */ = {
 			isa = PBXGroup;
 			children = (
 				290472032358B3AB008F5B6D /* TestCodeController.h */,
 				290472042358B3AB008F5B6D /* TestCodeController.m */,
 			);
-			path = "TestCodeController（测试代码）";
+			path = "TestCodeController(测试代码)";
 			sourceTree = "<group>";
 		};
 		293E5BB6239FE20E00B49495 /* SignInView（签到视图） */ = {
@@ -1626,18 +1651,19 @@
 		29AF63DE22D3686F0048A036 = {
 			isa = PBXGroup;
 			children = (
-				29AF63E922D3686F0048A036 /* FrameworksTest */,
-				29C60430232A80A000B48958 /* ViewController */,
-				29C6042F232A808400B48958 /* View */,
-				29260095250A66E3002AEFE2 /* Model */,
 				295C914D239AA80400BFAB57 /* Category */,
-				290471FE2358709D008F5B6D /* Macro */,
-				29BBD4A224DD90480091CF97 /* SharedInstance */,
-				29C6042E232A804A00B48958 /* PlugInUnit */,
-				29B1AA9B24FC8CA6007F8A5E /* Html */,
-				29BD0D7A23376BD500E2E33F /* Resources */,
-				29AF63E822D3686F0048A036 /* Products */,
+				32824D0D2955F34800796074 /* CoreData */,
 				29AF640222D369950048A036 /* Frameworks */,
+				29AF63E922D3686F0048A036 /* FrameworksTest */,
+				29B1AA9B24FC8CA6007F8A5E /* Html */,
+				290471FE2358709D008F5B6D /* Macro */,
+				29260095250A66E3002AEFE2 /* Model */,
+				29C6042E232A804A00B48958 /* PlugInUnit */,
+				29AF63E822D3686F0048A036 /* Products */,
+				29BD0D7A23376BD500E2E33F /* Resources */,
+				29BBD4A224DD90480091CF97 /* SharedInstance */,
+				29C6042F232A808400B48958 /* View */,
+				29C60430232A80A000B48958 /* ViewController */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1886,6 +1912,7 @@
 		29C6042F232A808400B48958 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				32668ABC298A0A0C002C6A10 /* TestCALayerCell(CALayer) */,
 				2909676325E72FC7005BFEAD /* ShoppingCartView(购物车图标视图) */,
 				29A686B825E0FD0A00B59BCE /* CustomNavigationBarView(自定义导航栏视图) */,
 				298B9EAE25C6DAE80015AF81 /* Root(根视图控制器视图) */,
@@ -1924,12 +1951,12 @@
 				293E5BB4239FE19D00B49495 /* TestTableViewController（表视图简单下拉选） */,
 				290DFDD723A1CCA6009B2BED /* TestTableViewDetelateCellController(表视图删除cell) */,
 				295BF6D924D9042100909460 /* TestRunTime(运行时) */,
-				293E5BB5239FE1BC00B49495 /* TestCodeController（测试代码） */,
+				293E5BB5239FE1BC00B49495 /* TestCodeController(测试代码) */,
 				29A945EC23D34F7F000EA5C6 /* BezierPathController(贝塞尔) */,
 				293F749023EC20A900CB749A /* ScanViewController(扫码) */,
 				29061B5B23FACBEE00060C14 /* TestNavigationController(导航栏配置) */,
 				29543D8B2487EC3E00C07895 /* TestViewController(视图控制器) */,
-				29DA9D16242A52820000BBBB /* TestBaiDuREST（百度语音识别REST） */,
+				29DA9D16242A52820000BBBB /* TestBaiDuREST(百度语音识别REST) */,
 				29DA9D1A242A58910000BBBB /* TestUITextViewController(UITextView) */,
 				29DA9D1E242A5CFA0000BBBB /* TestCALayerController(CALayer) */,
 				297786C5242BA9BE00BA0D10 /* TestCGGeometryController(CGGeometry) */,
@@ -2107,13 +2134,13 @@
 			path = "Category(UIView)";
 			sourceTree = "<group>";
 		};
-		29DA9D16242A52820000BBBB /* TestBaiDuREST（百度语音识别REST） */ = {
+		29DA9D16242A52820000BBBB /* TestBaiDuREST(百度语音识别REST) */ = {
 			isa = PBXGroup;
 			children = (
 				29DA9D17242A535E0000BBBB /* TestBaiDuRESTController.h */,
 				29DA9D18242A535E0000BBBB /* TestBaiDuRESTController.m */,
 			);
-			path = "TestBaiDuREST（百度语音识别REST）";
+			path = "TestBaiDuREST(百度语音识别REST)";
 			sourceTree = "<group>";
 		};
 		29DA9D1A242A58910000BBBB /* TestUITextViewController(UITextView) */ = {
@@ -2242,6 +2269,76 @@
 			path = YYImageExamplePushViewController;
 			sourceTree = "<group>";
 		};
+		32668ABC298A0A0C002C6A10 /* TestCALayerCell(CALayer) */ = {
+			isa = PBXGroup;
+			children = (
+				327B0405298A43020088BBEE /* LayerShadow(阴影) */,
+				327B0404298A42800088BBEE /* LayerGradualChange(渐变色) */,
+				327B0403298A422C0088BBEE /* LayerBasicAnimation(单帧动画) */,
+				327B0402298A420C0088BBEE /* LayerKeyframeAnimation(关键帧动画) */,
+			);
+			path = "TestCALayerCell(CALayer)";
+			sourceTree = "<group>";
+		};
+		327B0402298A420C0088BBEE /* LayerKeyframeAnimation(关键帧动画) */ = {
+			isa = PBXGroup;
+			children = (
+				327B03FF298A3AEE0088BBEE /* LayerKeyframeAnimationCell.h */,
+				327B0400298A3AEE0088BBEE /* LayerKeyframeAnimationCell.m */,
+			);
+			path = "LayerKeyframeAnimation(关键帧动画)";
+			sourceTree = "<group>";
+		};
+		327B0403298A422C0088BBEE /* LayerBasicAnimation(单帧动画) */ = {
+			isa = PBXGroup;
+			children = (
+				32668AC3298A1695002C6A10 /* LayerBasicAnimationCell.h */,
+				32668AC4298A1695002C6A10 /* LayerBasicAnimationCell.m */,
+			);
+			path = "LayerBasicAnimation(单帧动画)";
+			sourceTree = "<group>";
+		};
+		327B0404298A42800088BBEE /* LayerGradualChange(渐变色) */ = {
+			isa = PBXGroup;
+			children = (
+				32668AC0298A114B002C6A10 /* LayerGradualChangeCell.h */,
+				32668AC1298A114B002C6A10 /* LayerGradualChangeCell.m */,
+			);
+			path = "LayerGradualChange(渐变色)";
+			sourceTree = "<group>";
+		};
+		327B0405298A43020088BBEE /* LayerShadow(阴影) */ = {
+			isa = PBXGroup;
+			children = (
+				32668ABD298A0B1C002C6A10 /* LayerShadowCell.h */,
+				32668ABE298A0B1C002C6A10 /* LayerShadowCell.m */,
+			);
+			path = "LayerShadow(阴影)";
+			sourceTree = "<group>";
+		};
+		327DBAB72987992D006754A8 /* TestArchiverModel(测试归档) */ = {
+			isa = PBXGroup;
+			children = (
+				327DBAB829879969006754A8 /* TestArchiverModel.h */,
+				327DBAB929879969006754A8 /* TestArchiverModel.m */,
+			);
+			path = "TestArchiverModel(测试归档)";
+			sourceTree = "<group>";
+		};
+		32824D0D2955F34800796074 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				32824D0E2955F37D00796074 /* Test.xcdatamodeld */,
+				32824D182955F4D800796074 /* TTPersistentStoreManager.h */,
+				32824D172955F4D800796074 /* TTPersistentStoreManager.m */,
+				32824D122955F40A00796074 /* UserEntity+CoreDataClass.h */,
+				32824D132955F40A00796074 /* UserEntity+CoreDataClass.m */,
+				32824D112955F40A00796074 /* UserEntity+CoreDataProperties.h */,
+				32824D142955F40A00796074 /* UserEntity+CoreDataProperties.m */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2342,6 +2439,7 @@
 				296FFD6022DA060D007469DB /* ToastView.m in Sources */,
 				292FCAA423C37E4F00AA9B22 /* UITableView+count.m in Sources */,
 				29D755E923673DE500722B3A /* FSCalendar.m in Sources */,
+				32668AC5298A1695002C6A10 /* LayerBasicAnimationCell.m in Sources */,
 				29D755EA23673DE500722B3A /* FSCalendarCollectionViewLayout.m in Sources */,
 				29C60462232A8EA000B48958 /* YYDiskCache.m in Sources */,
 				29543D8E2487ECBF00C07895 /* TestViewController.m in Sources */,
@@ -2398,6 +2496,7 @@
 				29987F5725335F8E00231F28 /* CommonAddedImageCollectionViewCell.m in Sources */,
 				293E5BBD239FE58900B49495 /* UIPlaceHolderTextView.m in Sources */,
 				29987F5425335E2E00231F28 /* CommonAddImageCollectionViewCell.m in Sources */,
+				32668ABF298A0B1C002C6A10 /* LayerShadowCell.m in Sources */,
 				29BD0D762337480000E2E33F /* YYImageDisplayExample.m in Sources */,
 				29D755E823673DE500722B3A /* FSCalendarStickyHeader.m in Sources */,
 				29E620BB23C9AA5F0041E6C4 /* UIViewController+YSCSwizzle.m in Sources */,
@@ -2406,6 +2505,8 @@
 				29D755E423673DE400722B3A /* FSCalendarCollectionView.m in Sources */,
 				2900DC3425A4ADB0008BA35C /* RootViewController.m in Sources */,
 				2935C983250DD2F7009265DE /* BarcodeAndQrCodeViewController.m in Sources */,
+				327B0401298A3AEE0088BBEE /* LayerKeyframeAnimationCell.m in Sources */,
+				32824D102955F37D00796074 /* Test.xcdatamodeld in Sources */,
 				291354D524ECC8C3006AAA36 /* ShadowViewInheritController.m in Sources */,
 				29B2A50123C784C200549EEC /* UIViewController+Intent.m in Sources */,
 				29F35582253F1AAE00CD25B2 /* UIImage+ImageBase64.m in Sources */,
@@ -2417,6 +2518,7 @@
 				29C6046D232A8EA000B48958 /* UIButton+YYWebImage.m in Sources */,
 				29A5584523A37CDE00B70042 /* MessageItemModel.m in Sources */,
 				29543D912487EE7100C07895 /* YSCBaseNavigationController.m in Sources */,
+				32668AC2298A114B002C6A10 /* LayerGradualChangeCell.m in Sources */,
 				297F19032489085900B5CD8A /* UIScrollView+EmptyDataSet.m in Sources */,
 				29D755EB23673DE500722B3A /* FSCalendarScopeHandle.m in Sources */,
 				29C6046F232A8EA000B48958 /* MKAnnotationView+YYWebImage.m in Sources */,
@@ -2500,6 +2602,7 @@
 				29BD0D79233767B200E2E33F /* YYImageExampleHelper.m in Sources */,
 				29A5584223A3757B00B70042 /* MessageListItemCell.m in Sources */,
 				29B2A50B23C7864900549EEC /* YSUUtils.m in Sources */,
+				32824D192955F4D800796074 /* TTPersistentStoreManager.m in Sources */,
 				29D755E623673DE400722B3A /* FSCalendarDelegationFactory.m in Sources */,
 				29788693251485E500C5E5DD /* TableViewNestingCollectionViewController.m in Sources */,
 				29B1AACC24FCCF4B007F8A5E /* TADotView.m in Sources */,
@@ -2530,6 +2633,7 @@
 				296758502492693D000DE253 /* UIView+ExtraTag.m in Sources */,
 				299938D0233675C500CB4A86 /* CALayer+YYAdd.m in Sources */,
 				29BBD49724DD25850091CF97 /* TestCollectionView.m in Sources */,
+				327DBABA29879969006754A8 /* TestArchiverModel.m in Sources */,
 				29C60472232A8EA000B48958 /* YYWebImageOperation.m in Sources */,
 				29C555DE24E81E40002F2785 /* KMGestureRecognizer.m in Sources */,
 				29A686B725E0E86900B59BCE /* TestViewTransitionController.m in Sources */,
@@ -2602,6 +2706,7 @@
 				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -2622,6 +2727,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
+				VALIDATE_WORKSPACE = NO;
 			};
 			name = Debug;
 		};
@@ -2663,6 +2769,7 @@
 				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -2677,6 +2784,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
+				VALIDATE_WORKSPACE = NO;
 			};
 			name = Release;
 		};
@@ -2691,6 +2799,8 @@
 				DEPLOYMENT_POSTPROCESSING = NO;
 				DEVELOPMENT_TEAM = XT962RAC9J;
 				ENABLE_BITCODE = YES;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2706,12 +2816,12 @@
 				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "/Users/shawn/Developer/资料文件/练习代码/FrameworksTest/FrameworksTest/FrameworksTestPrefixHeader.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/FrameworksTest/FrameworksTestPrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/Frameworks/Masonry.framework/Headers\"",
 					"\"$(SRCROOT)/Frameworks/Toast.framework/Headers\"",
 				);
-				INFOPLIST_FILE = FrameworksTest/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/FrameworksTest/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2742,6 +2852,7 @@
 				DEPLOYMENT_POSTPROCESSING = NO;
 				DEVELOPMENT_TEAM = XT962RAC9J;
 				ENABLE_BITCODE = YES;
+				EXCLUDED_ARCHS = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2757,12 +2868,12 @@
 				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "/Users/shawn/Developer/资料文件/练习代码/FrameworksTest/FrameworksTest/FrameworksTestPrefixHeader.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/FrameworksTest/FrameworksTestPrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/Frameworks/Masonry.framework/Headers\"",
 					"\"$(SRCROOT)/Frameworks/Toast.framework/Headers\"",
 				);
-				INFOPLIST_FILE = FrameworksTest/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/FrameworksTest/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2803,6 +2914,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		32824D0E2955F37D00796074 /* Test.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				32824D0F2955F37D00796074 /* Test.xcdatamodel */,
+			);
+			currentVersion = 32824D0F2955F37D00796074 /* Test.xcdatamodel */;
+			path = Test.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 29AF63DF22D3686F0048A036 /* Project object */;
 }

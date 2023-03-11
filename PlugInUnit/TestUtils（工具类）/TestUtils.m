@@ -37,7 +37,7 @@
     //获取窗口的根视图控制器
     UIViewController *result = window.rootViewController;
     
-    //寻找根视图控制器模态显示的控制器
+    //寻找根视图控制器模态显示最后一个控制器
     while (result.presentedViewController) {
         
         result = result.presentedViewController;

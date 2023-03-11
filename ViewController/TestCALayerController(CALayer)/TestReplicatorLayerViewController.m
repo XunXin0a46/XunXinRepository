@@ -11,6 +11,8 @@
 
 @interface TestReplicatorLayerViewController ()
 
+@property (nonatomic, strong) UIScrollView *scrollView;
+
 @end
 
 @implementation TestReplicatorLayerViewController
@@ -18,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"复制层动画";
+    self.scrollView = [[UIScrollView alloc]initWithFrame:self.view.frame];
+    self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH, 1000);
+    [self.view addSubview:self.scrollView];
     //波纹
     [self replicatorLayerCircle];
     //波浪
@@ -37,35 +42,35 @@
 //波纹
 - (void)replicatorLayerCircle{
     UIView *aniView = [[UIView alloc] initWithFrame:CGRectMake(0, HEAD_BAR_HEIGHT, 2, 12)];
-    [self.view addSubview:aniView];
+    [self.scrollView addSubview:aniView];
     [aniView.layer addSublayer: [YUReplicatorAnimation replicatorLayerWithType:YUReplicatorLayerCircle]];
 }
 
 //波浪
 - (void)replicatorLayerWave{
     UIView *aniView = [[UIView alloc] initWithFrame:CGRectMake(0, HEAD_BAR_HEIGHT + 90, 2, 12)];
-    [self.view addSubview:aniView];
+    [self.scrollView addSubview:aniView];
     [aniView.layer addSublayer: [YUReplicatorAnimation replicatorLayerWithType:YUReplicatorLayerWave]];
 }
 
 //三角形
 - (void)replicatorLayerTriangle{
     UIView *aniView = [[UIView alloc] initWithFrame:CGRectMake(0, HEAD_BAR_HEIGHT + 230, 2, 12)];
-    [self.view addSubview:aniView];
+    [self.scrollView addSubview:aniView];
     [aniView.layer addSublayer: [YUReplicatorAnimation replicatorLayerWithType:YUReplicatorLayerTriangle]];
 }
 
 //网格
 - (void)replicatorLayerGrid{
     UIView *aniView = [[UIView alloc] initWithFrame:CGRectMake(0, HEAD_BAR_HEIGHT + 380, 2, 12)];
-    [self.view addSubview:aniView];
+    [self.scrollView addSubview:aniView];
     [aniView.layer addSublayer: [YUReplicatorAnimation replicatorLayerWithType:YUReplicatorLayerGrid]];
 }
 
 //震动条
 - (void)replicatorLayerShake{
-    UIView *aniView = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH / 2, HEAD_BAR_HEIGHT , 2, 12)];
-    [self.view addSubview:aniView];
+    UIView *aniView = [[UIView alloc] initWithFrame:CGRectMake(0, HEAD_BAR_HEIGHT + 450 , 2, 12)];
+    [self.scrollView addSubview:aniView];
     [aniView.layer addSublayer: [YUReplicatorAnimation replicatorLayerWithType:YUReplicatorLayerShake]];
 }
 
