@@ -8,6 +8,7 @@
 
 #import "TestReplicatorLayerViewController.h"
 #import "YUReplicatorAnimation.h"
+#import "TestSpringAnimationViewController.h"
 
 @interface TestReplicatorLayerViewController ()
 
@@ -21,7 +22,7 @@
     [super viewDidLoad];
     self.navigationItem.title = @"复制层动画";
     self.scrollView = [[UIScrollView alloc]initWithFrame:self.view.frame];
-    self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH, 1000);
+    self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH, 1500);
     [self.view addSubview:self.scrollView];
     //波纹
     [self replicatorLayerCircle];
@@ -37,6 +38,22 @@
     [self replicatorLayerRound];
     //心动画
     [self replicatorLayerHeart];
+    //设置导航栏右侧按钮
+    [self setrightBarButton];
+}
+
+///设置导航栏右侧按钮
+- (void)setrightBarButton{
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"弹簧动画" style:UIBarButtonItemStylePlain target:self action:@selector(testSpringAnimation)];
+    [item setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:15], NSForegroundColorAttributeName: HEXCOLOR(0x666666)} forState:UIControlStateNormal];
+    [item setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:15], NSForegroundColorAttributeName: HEXCOLOR(0x666666)} forState:UIControlStateHighlighted];
+    self.navigationItem.rightBarButtonItem = item;
+}
+
+/// 前往弹簧动画
+- (void)testSpringAnimation {
+    TestSpringAnimationViewController *springAnimationViewController = [[TestSpringAnimationViewController alloc]init];
+    [self.navigationController pushViewController:springAnimationViewController animated:YES];
 }
 
 //波纹
@@ -69,22 +86,22 @@
 
 //震动条
 - (void)replicatorLayerShake{
-    UIView *aniView = [[UIView alloc] initWithFrame:CGRectMake(0, HEAD_BAR_HEIGHT + 450 , 2, 12)];
+    UIView *aniView = [[UIView alloc] initWithFrame:CGRectMake(0, HEAD_BAR_HEIGHT + 520 , 2, 12)];
     [self.scrollView addSubview:aniView];
     [aniView.layer addSublayer: [YUReplicatorAnimation replicatorLayerWithType:YUReplicatorLayerShake]];
 }
 
 //转圈动画
 - (void)replicatorLayerRound{
-    UIView *aniView = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH / 2, HEAD_BAR_HEIGHT + 90 , 2, 12)];
-    [self.view addSubview:aniView];
+    UIView *aniView = [[UIView alloc] initWithFrame:CGRectMake(0, HEAD_BAR_HEIGHT + 600 , 2, 12)];
+    [self.scrollView addSubview:aniView];
     [aniView.layer addSublayer: [YUReplicatorAnimation replicatorLayerWithType:YUReplicatorLayerRound]];
 }
 
 //心动画
 - (void)replicatorLayerHeart{
-    UIView *aniView = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH / 5, HEAD_BAR_HEIGHT + 380 , 2, 12)];
-    [self.view addSubview:aniView];
+    UIView *aniView = [[UIView alloc] initWithFrame:CGRectMake(0, HEAD_BAR_HEIGHT + 650 , 2, 12)];
+    [self.scrollView addSubview:aniView];
     [aniView.layer addSublayer: [YUReplicatorAnimation replicatorLayerWithType:YUReplicatorLayerHeart]];
 }
 

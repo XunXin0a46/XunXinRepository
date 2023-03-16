@@ -263,6 +263,7 @@
 		327DBABA29879969006754A8 /* TestArchiverModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 327DBAB929879969006754A8 /* TestArchiverModel.m */; };
 		32824D102955F37D00796074 /* Test.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 32824D0E2955F37D00796074 /* Test.xcdatamodeld */; };
 		32824D192955F4D800796074 /* TTPersistentStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32824D172955F4D800796074 /* TTPersistentStoreManager.m */; };
+		32B401C229BC851F005CF0C5 /* TestSpringAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B401C129BC851F005CF0C5 /* TestSpringAnimationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -757,6 +758,8 @@
 		32824D142955F40A00796074 /* UserEntity+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UserEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
 		32824D172955F4D800796074 /* TTPersistentStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTPersistentStoreManager.m; sourceTree = "<group>"; };
 		32824D182955F4D800796074 /* TTPersistentStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTPersistentStoreManager.h; sourceTree = "<group>"; };
+		32B401C029BC851F005CF0C5 /* TestSpringAnimationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestSpringAnimationViewController.h; sourceTree = "<group>"; };
+		32B401C129BC851F005CF0C5 /* TestSpringAnimationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSpringAnimationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2159,6 +2162,8 @@
 				29DA9D20242A5D380000BBBB /* TestCALayerController.m */,
 				29068F2D251B856100F20F45 /* TestReplicatorLayerViewController.h */,
 				29068F2E251B856100F20F45 /* TestReplicatorLayerViewController.m */,
+				32B401C029BC851F005CF0C5 /* TestSpringAnimationViewController.h */,
+				32B401C129BC851F005CF0C5 /* TestSpringAnimationViewController.m */,
 			);
 			path = "TestCALayerController(CALayer)";
 			sourceTree = "<group>";
@@ -2620,6 +2625,7 @@
 				29CF670923C777ED004D2CE0 /* YSURequestError.m in Sources */,
 				292B04B124EA16C300C8C82F /* ButtonLinkageView.m in Sources */,
 				29E620BE23C9AF400041E6C4 /* NSObject+Swizzling.m in Sources */,
+				32B401C229BC851F005CF0C5 /* TestSpringAnimationViewController.m in Sources */,
 				298B9EB525C705ED0015AF81 /* UITabBar+Badge.m in Sources */,
 				296758512492693D000DE253 /* UIView+Action.m in Sources */,
 				29E620C123C9B2140041E6C4 /* UIViewController+YSCUsualTitle.m in Sources */,

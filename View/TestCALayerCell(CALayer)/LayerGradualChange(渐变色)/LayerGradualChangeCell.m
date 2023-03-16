@@ -53,7 +53,7 @@ NSString * const LayerGradualChangeCellReuseIdentifier = @"LayerGradualChangeCel
     [view.layer addSublayer:grandientLayer];
     [view.layer insertSublayer:grandientLayer atIndex:0];
     //设置渐变的方向 左上(0,0)  右下(1,1)
-    grandientLayer.startPoint = CGPointZero;
+    grandientLayer.startPoint = CGPointMake(0.0, 0.0);
     grandientLayer.endPoint = CGPointMake(0.0, 1.0);//纵向
     //grandientLayer.endPoint = CGPointMake(1.0, 0.0);//横向
     //colors渐变的颜色数组 这个数组中只设置一个颜色是不显示的
